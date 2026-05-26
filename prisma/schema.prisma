@@ -27,6 +27,8 @@ model User {
   favoriteGames          Game[]         @relation("UserFavorites")
   votes                  Vote[]
   sessions               Session[]
+  following              Follow[]       @relation("Following")
+  followers              Follow[]       @relation("Followers")
 }
 
 model Game {
@@ -43,6 +45,7 @@ model Game {
   developerLink  String?
   steamUrl       String?
   discordUrl     String?
+  bannerUrl      String?
   createdAt      DateTime @default(now())
 
   // Relations
@@ -60,6 +63,7 @@ model Submission {
   gameFileUrl      String?
   thumbnail        String?
   thumbnailFileUrl String?
+  bannerUrl        String?
   steamUrl         String?
   discordUrl       String?
   developerName    String
@@ -117,4 +121,15 @@ model VerificationCode {
   email     String   @id
   code      String
   expiresAt DateTime
+}
+
+model Follow {
+  id          String   @id @default(uuid())
+  follower    User     @relation("Following", fields: [followerId], references: [id])
+  followerId  String
+  following   User     @relation("Followers", fields: [followingId], references: [id])
+  followingId String
+  createdAt   DateTime @default(now())
+
+  @@unique([followerId, followingId])
 }

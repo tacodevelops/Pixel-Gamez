@@ -272,7 +272,7 @@ export default function Header() {
                     <div className="header__profile-info">
                       <div className="header__profile-field"><label>Display Name</label><span>{user.displayName}</span></div>
                       <div className="header__profile-field"><label>Email</label><span>{user.email}</span></div>
-                      <div className="header__profile-field"><label>Role</label><span className={user.role === 'admin' ? 'header__profile-role--admin' : ''}>{user.role}</span></div>
+                      <div className="header__profile-field"><label>Role</label><span className={user.role === 'owner' ? 'header__profile-role--admin' : ''}>{user.role}</span></div>
                     </div>
                   </div>
                 )}

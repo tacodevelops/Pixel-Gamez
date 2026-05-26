@@ -53,6 +53,7 @@ export default function AdminPage() {
   // Analytics State
   const [analytics, setAnalytics] = useState<any[]>([]);
   const [fetchingAnalytics, setFetchingAnalytics] = useState(false);
+  const [analyticsSearch, setAnalyticsSearch] = useState('');
 
   useEffect(() => {
     if (!loading && (isOwner || isModerator)) {
@@ -406,31 +407,92 @@ export default function AdminPage() {
 
       {activeTab === 'analytics' && isOwner && (
         <div className="admin-section">
-          <p className="admin-section-desc">View stats and analytics for all games.</p>
+          <p className="admin-section-desc">View platform-wide developer statistics and engagement metrics.</p>
           {fetchingAnalytics ? (
-            <div className="admin-loading">Loading analytics...</div>
+            <div className="admin-loading">Loading developer stats...</div>
           ) : (
-            <div className="admin-card" style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', textAlign: 'left', borderCollapse: 'collapse' }}>
-                <thead>
-                  <tr style={{ borderBottom: '1px solid var(--border)', color: 'var(--text-dim)' }}>
-                    <th style={{ padding: '12px' }}>Game</th>
-                    <th style={{ padding: '12px' }}>Plays</th>
-                    <th style={{ padding: '12px' }}>Rating</th>
-                    <th style={{ padding: '12px' }}>Favorites</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {analytics.map((game: any) => (
-                    <tr key={game.id} style={{ borderBottom: '1px solid var(--border)' }}>
-                      <td style={{ padding: '12px', fontWeight: 'bold' }}>{game.title}</td>
-                      <td style={{ padding: '12px', color: 'var(--accent-primary)' }}>{game.plays.toLocaleString()}</td>
-                      <td style={{ padding: '12px' }}>{game.rating.toFixed(1)} ⭐</td>
-                      <td style={{ padding: '12px' }}>{game._count?.favoritedBy || 0}</td>
+            <div className="analytics-dashboard">
+              {/* KPIs */}
+              <div className="analytics-kpi-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 'var(--space-4)', marginBottom: 'var(--space-6)' }}>
+                <div className="admin-card" style={{ padding: 'var(--space-4)', textAlign: 'center' }}>
+                  <div style={{ color: 'var(--text-dim)', fontSize: '0.9rem', marginBottom: '8px' }}>Total Global Plays</div>
+                  <div style={{ color: 'var(--accent-primary)', fontSize: '2rem', fontWeight: 'bold' }}>
+                    {analytics.reduce((acc, g) => acc + g.plays, 0).toLocaleString()}
+                  </div>
+                </div>
+                <div className="admin-card" style={{ padding: 'var(--space-4)', textAlign: 'center' }}>
+                  <div style={{ color: 'var(--text-dim)', fontSize: '0.9rem', marginBottom: '8px' }}>Total Favorites</div>
+                  <div style={{ color: '#ef4444', fontSize: '2rem', fontWeight: 'bold' }}>
+                    {analytics.reduce((acc, g) => acc + (g._count?.favoritedBy || 0), 0).toLocaleString()}
+                  </div>
+                </div>
+                <div className="admin-card" style={{ padding: 'var(--space-4)', textAlign: 'center' }}>
+                  <div style={{ color: 'var(--text-dim)', fontSize: '0.9rem', marginBottom: '8px' }}>Active Games</div>
+                  <div style={{ color: 'var(--text)', fontSize: '2rem', fontWeight: 'bold' }}>
+                    {analytics.length}
+                  </div>
+                </div>
+              </div>
+
+              {/* Detailed Table */}
+              <div className="admin-card" style={{ overflowX: 'auto' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: 'var(--space-4)', borderBottom: '1px solid var(--border)' }}>
+                  <h3 style={{ margin: 0 }}>Game Engagement</h3>
+                  <input
+                    type="text"
+                    placeholder="Search by game name..."
+                    value={analyticsSearch}
+                    onChange={(e) => setAnalyticsSearch(e.target.value)}
+                    style={{
+                      padding: '8px 12px',
+                      borderRadius: 'var(--radius-sm)',
+                      border: '1px solid var(--border)',
+                      background: 'var(--bg-tertiary)',
+                      color: 'var(--text)',
+                      width: '250px'
+                    }}
+                  />
+                </div>
+                <table style={{ width: '100%', textAlign: 'left', borderCollapse: 'collapse' }}>
+                  <thead>
+                    <tr style={{ borderBottom: '1px solid var(--border)', color: 'var(--text-dim)', fontSize: '0.9rem' }}>
+                      <th style={{ padding: '16px' }}>Game Name</th>
+                      <th style={{ padding: '16px' }}>Total Plays</th>
+                      <th style={{ padding: '16px' }}>Rating Ratio</th>
+                      <th style={{ padding: '16px' }}>Favorites</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {analytics.filter(g => g.title.toLowerCase().includes(analyticsSearch.toLowerCase())).map((game: any) => {
+                      const likes = game.votes?.filter((v: any) => v.type === 'like').length || 0;
+                      const dislikes = game.votes?.filter((v: any) => v.type === 'dislike').length || 0;
+                      const totalVotes = likes + dislikes;
+                      const likeRatio = totalVotes > 0 ? (likes / totalVotes) * 100 : 0;
+                      
+                      return (
+                        <tr key={game.id} onClick={() => window.location.href = `/admin/analytics/${game.id}`} style={{ borderBottom: '1px solid var(--border)', cursor: 'pointer' }} className="analytics-row-hover">
+                          <td style={{ padding: '16px', fontWeight: 'bold', color: 'var(--text)' }}>{game.title}</td>
+                          <td style={{ padding: '16px', color: 'var(--accent-primary)', fontWeight: 'bold' }}>{game.plays.toLocaleString()}</td>
+                          <td style={{ padding: '16px' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                              <span style={{ minWidth: '40px', fontSize: '0.85rem' }}>{likeRatio.toFixed(0)}%</span>
+                              <div style={{ width: '100px', height: '6px', background: 'var(--bg-tertiary)', borderRadius: '3px', overflow: 'hidden' }}>
+                                <div style={{ height: '100%', background: likeRatio >= 70 ? '#10b981' : likeRatio >= 40 ? '#f59e0b' : '#ef4444', width: `${likeRatio}%` }} />
+                              </div>
+                              <span style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>({totalVotes} votes)</span>
+                            </div>
+                          </td>
+                          <td style={{ padding: '16px' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#ef4444' }}>
+                              ♥ {game._count?.favoritedBy || 0}
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
             </div>
           )}
         </div>

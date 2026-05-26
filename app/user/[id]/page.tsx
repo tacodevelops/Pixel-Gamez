@@ -16,15 +16,19 @@ export default async function UserPage({ params }: { params: Promise<{ id: strin
     notFound();
   }
 
-  
   const user = {
     ...dbUser,
+    createdAt: dbUser.createdAt.toISOString(),
     favoriteGames: dbUser.favoriteGames.map(g => g.id)
   };
   delete (user as any).passwordHash;
 
   const allSubmissions = await getSubmissionsByUser(id);
-  const submissions = allSubmissions.filter(s => s.status === 'approved');
+  const submissions = allSubmissions.filter(s => s.status === 'approved').map(s => ({
+    ...s,
+    thumbnail: s.thumbnail || '',
+    submittedAt: s.submittedAt.toISOString()
+  }));
 
   return (
     <div className="animate-fade-in">

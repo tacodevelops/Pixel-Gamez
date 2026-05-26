@@ -102,10 +102,8 @@ export default function GamePlayer({ game }: GamePlayerProps) {
     const iframe = document.getElementById('game-iframe');
     if (iframe) {
       if (iframe.requestFullscreen) iframe.requestFullscreen();
-      
-      else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
-      
-      else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
+      else if ((iframe as any).webkitRequestFullscreen) (iframe as any).webkitRequestFullscreen();
+      else if ((iframe as any).msRequestFullscreen) (iframe as any).msRequestFullscreen();
     }
   };
 

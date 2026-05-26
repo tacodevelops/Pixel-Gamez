@@ -11,8 +11,10 @@ import { registerUser, getUserById, getAllPublicUsers, getUserByDisplayName, isA
 import { getAllAds, getAdsByPlacement, addAd, toggleAd, deleteAd, recordImpression, recordClick } from './lib/ads';
 import { createSession, deleteSession, SESSION_COOKIE_NAME, SESSION_COOKIE_MAX_AGE } from './lib/sessions';
 import { getNotifications, addNotification, deleteNotification } from './lib/notifications';
+import { followUser, unfollowUser, getFriendsAndFollows, getFriendshipStatus } from './lib/friends';
 import { prisma } from './lib/prisma';
 import { sendOTP } from './lib/email';
+import { supabase, uploadFileToSupabase } from './lib/supabase';
 import bcrypt from 'bcryptjs';
 import type { PublicUser } from './lib/users';
 
@@ -42,7 +44,7 @@ if (!fs.existsSync(avatarsDir)) fs.mkdirSync(avatarsDir, { recursive: true });
 
 const avatarUpload = multer({
   dest: path.join(process.cwd(), 'data', 'uploads'),
-  limits: { fileSize: 5 * 1024 * 1024 }, 
+  limits: { fileSize: 5 * 1024 * 1024 },
   fileFilter: (_req, file, cb) => {
     const allowed = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
     const ext = path.extname(file.originalname).toLowerCase();
@@ -56,7 +58,7 @@ if (!fs.existsSync(bannersDir)) fs.mkdirSync(bannersDir, { recursive: true });
 
 const bannerUpload = multer({
   dest: path.join(process.cwd(), 'data', 'uploads'),
-  limits: { fileSize: 5 * 1024 * 1024 }, 
+  limits: { fileSize: 5 * 1024 * 1024 },
   fileFilter: (_req, file, cb) => {
     const allowed = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
     const ext = path.extname(file.originalname).toLowerCase();
@@ -235,7 +237,6 @@ app.prepare().then(() => {
     const filename = `${user.id}${ext}`;
     const destPath = path.join(avatarsDir, filename);
 
-    
     try {
       const files = fs.readdirSync(avatarsDir);
       for (const f of files) {
@@ -246,7 +247,7 @@ app.prepare().then(() => {
     fs.renameSync(req.file.path, destPath);
     const avatarUrl = `/avatars/${filename}?t=${Date.now()}`;
     const updated = updateUserAvatar(user.id, avatarUrl);
-    res.json({ user: updated });
+    res.json({ success: true, avatarUrl });
   });
 
   server.post('/api/auth/banner', bannerUpload.single('banner'), async (req: Request, res: Response) => {
@@ -259,7 +260,6 @@ app.prepare().then(() => {
     const filename = `${user.id}${ext}`;
     const destPath = path.join(bannersDir, filename);
 
-    
     try {
       const files = fs.readdirSync(bannersDir);
       for (const f of files) {
@@ -270,7 +270,7 @@ app.prepare().then(() => {
     fs.renameSync(req.file.path, destPath);
     const bannerUrl = `/banners/${filename}?t=${Date.now()}`;
     const updated = updateUserBanner(user.id, bannerUrl);
-    res.json({ user: updated });
+    res.json({ success: true, bannerUrl });
   });
 
   server.post('/api/auth/banner-color', async (req: Request, res: Response) => {
@@ -343,7 +343,7 @@ app.prepare().then(() => {
     res.json(await getSubmissionsByUser(user.id));
   });
 
-  server.post('/api/developer/submit', upload.single('gameFile'), async (req: Request, res: Response) => {
+  server.post('/api/developer/submit', upload.fields([{ name: 'gameFile' }, { name: 'bannerFile' }]), async (req: Request, res: Response) => {
     const user = await getAuthUser(req);
     if (!user) {
       res.status(401).json({ error: 'Sign in to submit games.' });
@@ -359,17 +359,31 @@ app.prepare().then(() => {
       }
 
       let finalEmbedUrl = embedUrl || '';
+      const files = req.files as { [fieldname: string]: Express.Multer.File[] } | undefined;
+      const gameFile = files?.['gameFile']?.[0];
+      const bannerFile = files?.['bannerFile']?.[0];
 
-      if (req.file && gameType === 'html') {
+      if (!bannerFile) {
+        res.status(400).json({ error: 'Game banner is required.' });
+        return;
+      }
+
+      const bannerExt = path.extname(bannerFile.originalname) || '.png';
+      const bannerFilename = `banner-${Date.now()}${bannerExt}`;
+      const bannerPath = path.join(bannerFile.destination, bannerFilename);
+      fs.renameSync(bannerFile.path, bannerPath);
+      const finalBannerUrl = `/api/uploads/${bannerFilename}`;
+
+      if (gameFile && gameType === 'html') {
         const gameId = `game-${Date.now().toString(36)}`;
         const gameDir = path.join(communityGamesDir, gameId);
         fs.mkdirSync(gameDir, { recursive: true });
-        const ext = path.extname(req.file.originalname).toLowerCase();
+        const ext = path.extname(gameFile.originalname).toLowerCase();
         if (ext === '.zip') {
-          fs.renameSync(req.file.path, path.join(gameDir, 'game.zip'));
+          fs.renameSync(gameFile.path, path.join(gameDir, 'game.zip'));
           finalEmbedUrl = `/community-games/${gameId}/index.html`;
         } else {
-          fs.renameSync(req.file.path, path.join(gameDir, 'index.html'));
+          fs.renameSync(gameFile.path, path.join(gameDir, 'index.html'));
           finalEmbedUrl = `/community-games/${gameId}/index.html`;
         }
       }
@@ -386,6 +400,7 @@ app.prepare().then(() => {
         gameType,
         embedUrl: finalEmbedUrl,
         thumbnail: thumbnail || '',
+        bannerUrl: finalBannerUrl,
         userId: user.id,
         developerName: user.displayName,
         discordUrl: discordUrl || '',
@@ -418,6 +433,24 @@ app.prepare().then(() => {
     }
     const result = await approveSubmission(req.params.id as string, user.id);
     if (!result) { res.status(404).json({ error: 'Submission not found.' }); return; }
+
+    // Inject the game into lib/data.ts
+    try {
+      const dataPath = path.join(process.cwd(), 'lib', 'data.ts');
+      let dataContent = fs.readFileSync(dataPath, 'utf-8');
+      
+      const gameString = `\n  { id: '${result.id}', title: '${result.title.replace(/'/g, "\\'")}', description: '${result.description.replace(/'/g, "\\'")}', category: '${result.category}', tags: ['new'], thumbnail: '${result.thumbnail || ''}', embedUrl: '${result.embedUrl}', rating: 0, plays: 0, developerName: '${result.developerName.replace(/'/g, "\\'")}', bannerUrl: '${result.bannerUrl || ''}' },`;
+      
+      dataContent = dataContent.replace(
+        'export const games: Game[] = [',
+        `export const games: Game[] = [${gameString}`
+      );
+      
+      fs.writeFileSync(dataPath, dataContent, 'utf-8');
+    } catch (err) {
+      console.error('Failed to inject game into data.ts:', err);
+    }
+
     res.json({ success: true, game: result });
   });
 
@@ -514,8 +547,37 @@ app.prepare().then(() => {
     try {
       const analytics = await prisma.game.findMany({
         orderBy: { plays: 'desc' },
-        include: { _count: { select: { favoritedBy: true } } }
+        include: { 
+          _count: { select: { favoritedBy: true } },
+          votes: { select: { type: true } }
+        }
       });
+      res.json(analytics);
+    } catch (error) {
+      res.status(500).json({ error: 'Failed to fetch analytics' });
+    }
+  });
+
+  server.get('/api/admin/analytics/:id', async (req: Request, res: Response) => {
+    const user = await getAuthUser(req);
+    if (!user || !isOwner(user.id)) {
+      res.status(403).json({ error: 'Access denied' });
+      return;
+    }
+    
+    try {
+      const gameId = req.params.id as string;
+      const analytics = await prisma.game.findUnique({
+        where: { id: gameId },
+        include: { 
+          _count: { select: { favoritedBy: true } },
+          votes: { select: { type: true } }
+        }
+      });
+      if (!analytics) {
+        res.status(404).json({ error: 'Game not found' });
+        return;
+      }
       res.json(analytics);
     } catch (error) {
       res.status(500).json({ error: 'Failed to fetch analytics' });
@@ -593,7 +655,34 @@ app.prepare().then(() => {
     res.json({ success: true });
   });
 
-  
+  // --- FRIENDS / FOLLOW ENDPOINTS ---
+
+  server.get('/api/friends', async (req: Request, res: Response) => {
+    const user = await getAuthUser(req);
+    if (!user) { res.status(401).json({ error: 'Not authenticated' }); return; }
+    res.json(await getFriendsAndFollows(user.id));
+  });
+
+  server.get('/api/friends/status/:targetId', async (req: Request, res: Response) => {
+    const user = await getAuthUser(req);
+    if (!user) { res.status(401).json({ error: 'Not authenticated' }); return; }
+    res.json({ status: await getFriendshipStatus(user.id, req.params.targetId as string) });
+  });
+
+  server.post('/api/friends/follow/:targetId', async (req: Request, res: Response) => {
+    const user = await getAuthUser(req);
+    if (!user) { res.status(401).json({ error: 'Not authenticated' }); return; }
+    const result = await followUser(user.id, req.params.targetId as string);
+    res.json({ success: !!result, follow: result });
+  });
+
+  server.post('/api/friends/unfollow/:targetId', async (req: Request, res: Response) => {
+    const user = await getAuthUser(req);
+    if (!user) { res.status(401).json({ error: 'Not authenticated' }); return; }
+    const success = await unfollowUser(user.id, req.params.targetId as string);
+    res.json({ success });
+  });
+
   server.use((req: Request, res: Response) => {
     return handle(req, res);
   });

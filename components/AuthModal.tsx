@@ -38,7 +38,7 @@ export default function AuthModal() {
     setSubmitting(true);
 
     try {
-      let result;
+      let result: any = {};
       if (mode === 'login') {
         result = await login(email, password);
       } else if (mode === 'register') {

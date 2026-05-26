@@ -12,9 +12,11 @@ export default function SubmitGameForm() {
   const [discordUrl, setDiscordUrl] = useState('');
   const [steamUrl, setSteamUrl] = useState('');
   const [gameFile, setGameFile] = useState<File | null>(null);
+  const [bannerFile, setBannerFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [result, setResult] = useState<{ success: boolean; message: string } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const bannerInputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -31,6 +33,9 @@ export default function SubmitGameForm() {
 
       if (gameType === 'html' && gameFile) {
         formData.append('gameFile', gameFile);
+      }
+      if (bannerFile) {
+        formData.append('bannerFile', bannerFile);
       }
       if (embedUrl) {
         formData.append('embedUrl', embedUrl);
@@ -62,7 +67,9 @@ export default function SubmitGameForm() {
         setDiscordUrl('');
         setSteamUrl('');
         setGameFile(null);
+        setBannerFile(null);
         if (fileInputRef.current) fileInputRef.current.value = '';
+        if (bannerInputRef.current) bannerInputRef.current.value = '';
       } else {
         setResult({ success: false, message: data.error || 'Submission failed.' });
       }
@@ -88,7 +95,7 @@ export default function SubmitGameForm() {
             type="text"
             className="dev-form__input"
             placeholder="Your game's name"
-            value={title}
+            value={title || ''}
             onChange={(e) => setTitle(e.target.value)}
             required
           />
@@ -100,7 +107,7 @@ export default function SubmitGameForm() {
             id="dev-description"
             className="dev-form__textarea"
             placeholder="What's the game about? How do you play?"
-            value={description}
+            value={description || ''}
             onChange={(e) => setDescription(e.target.value)}
             rows={4}
             required
@@ -112,7 +119,7 @@ export default function SubmitGameForm() {
           <select
             id="dev-category"
             className="dev-form__select"
-            value={category}
+            value={category || ''}
             onChange={(e) => setCategory(e.target.value)}
           >
             {categories.map(cat => (
@@ -128,7 +135,7 @@ export default function SubmitGameForm() {
             type="url"
             className="dev-form__input"
             placeholder="https://discord.gg/..."
-            value={discordUrl}
+            value={discordUrl || ''}
             onChange={(e) => setDiscordUrl(e.target.value)}
           />
         </div>
@@ -140,8 +147,35 @@ export default function SubmitGameForm() {
             type="url"
             className="dev-form__input"
             placeholder="https://store.steampowered.com/app/..."
-            value={steamUrl}
+            value={steamUrl || ''}
             onChange={(e) => setSteamUrl(e.target.value)}
+          />
+        </div>
+
+        <div className="dev-form__field">
+          <label className="dev-form__label">Game Banner (Required)</label>
+          <div
+            className="dev-form__dropzone"
+            onClick={() => bannerInputRef.current?.click()}
+          >
+            {bannerFile ? (
+              <div className="dev-form__dropzone-text">
+                <strong>{bannerFile.name}</strong>
+                <span>{(bannerFile.size / 1024 / 1024).toFixed(2)} MB</span>
+              </div>
+            ) : (
+              <div className="dev-form__dropzone-text">
+                <strong>Choose Banner Image</strong>
+                <span>.png, .jpg, .webp — 5 MB max</span>
+              </div>
+            )}
+          </div>
+          <input
+            ref={bannerInputRef}
+            type="file"
+            accept="image/*"
+            style={{ display: 'none' }}
+            onChange={(e) => setBannerFile(e.target.files?.[0] || null)}
           />
         </div>
       </div>
@@ -201,7 +235,7 @@ export default function SubmitGameForm() {
                 type="url"
                 className="dev-form__input"
                 placeholder="https://your-game.com/index.html"
-                value={embedUrl}
+                value={embedUrl || ''}
                 onChange={(e) => setEmbedUrl(e.target.value)}
               />
             </div>
@@ -214,7 +248,7 @@ export default function SubmitGameForm() {
               type="url"
               className="dev-form__input"
               placeholder="https://your-domain.com/game/index.html"
-              value={embedUrl}
+              value={embedUrl || ''}
               onChange={(e) => setEmbedUrl(e.target.value)}
               required
             />
@@ -232,7 +266,7 @@ export default function SubmitGameForm() {
       <button
         type="submit"
         className="dev-form__submit"
-        disabled={isSubmitting || (!gameFile && !embedUrl)}
+        disabled={isSubmitting || (!gameFile && !embedUrl) || !bannerFile}
       >
         {isSubmitting ? 'Submitting...' : 'Submit for review'}
       </button>

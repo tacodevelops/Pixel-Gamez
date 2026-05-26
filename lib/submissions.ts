@@ -27,6 +27,7 @@ export async function addSubmission(data: {
   gameType: string;
   embedUrl: string;
   thumbnail?: string;
+  bannerUrl?: string;
   userId: string;
   developerName: string;
   discordUrl?: string;
@@ -40,6 +41,7 @@ export async function addSubmission(data: {
       gameType: data.gameType,
       embedUrl: data.embedUrl,
       thumbnail: data.thumbnail || '',
+      bannerUrl: data.bannerUrl || null,
       userId: data.userId,
       developerName: data.developerName,
       discordUrl: data.discordUrl || null,

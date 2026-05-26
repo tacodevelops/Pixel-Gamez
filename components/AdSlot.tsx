@@ -25,8 +25,9 @@ export default function AdSlot({ placement }: AdSlotProps) {
     
     if (isAdSense) {
       try {
-        
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        if (typeof window !== 'undefined' && !(window as any).adsbygoogle?.loaded) {
+          ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+        }
       } catch (e) {
         console.error('AdSense error', e);
       }
