@@ -385,7 +385,7 @@ app.prepare().then(() => {
   });
 
   server.get('/api/users/lookup/:name', (req: Request, res: Response) => {
-    const user = getUserByDisplayName(req.params.name);
+    const user = getUserByDisplayName(req.params.name as string);
     if (!user) { res.status(404).json({ error: 'User not found.' }); return; }
     res.json({ id: user.id, displayName: user.displayName });
   });
@@ -394,20 +394,20 @@ app.prepare().then(() => {
 
   server.get('/api/ads/:placement', (req: Request, res: Response) => {
     
-    const placement = req.params.placement;
+    const placement = req.params.placement as string;
     const ads = getAdsByPlacement(placement);
     res.json(ads);
   });
 
   server.post('/api/ads/:id/click', (req: Request, res: Response) => {
     
-    recordClick(req.params.id);
+    recordClick(req.params.id as string);
     res.json({ success: true });
   });
 
   server.post('/api/ads/:id/impression', (req: Request, res: Response) => {
     
-    recordImpression(req.params.id);
+    recordImpression(req.params.id as string);
     res.json({ success: true });
   });
 
@@ -440,7 +440,7 @@ app.prepare().then(() => {
   server.post('/api/admin/ads/:id/toggle', (req: Request, res: Response) => {
     const user = getAuthUser(req);
     if (!user || !isOwner(user.id)) { res.status(403).json({ error: 'Forbidden' }); return; }
-    const updated = toggleAd(req.params.id);
+    const updated = toggleAd(req.params.id as string);
     if (!updated) { res.status(404).json({ error: 'Ad not found' }); return; }
     res.json(updated);
   });
@@ -448,7 +448,7 @@ app.prepare().then(() => {
   server.delete('/api/admin/ads/:id', (req: Request, res: Response) => {
     const user = getAuthUser(req);
     if (!user || !isOwner(user.id)) { res.status(403).json({ error: 'Forbidden' }); return; }
-    const success = deleteAd(req.params.id);
+    const success = deleteAd(req.params.id as string);
     if (!success) { res.status(404).json({ error: 'Ad not found' }); return; }
     res.json({ success: true });
   });
@@ -480,7 +480,7 @@ app.prepare().then(() => {
       res.status(403).json({ error: 'Forbidden' });
       return;
     }
-    deleteNotification(req.params.id);
+    deleteNotification(req.params.id as string);
     res.json({ success: true });
   });
 

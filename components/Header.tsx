@@ -168,14 +168,7 @@ export default function Header() {
         </button>
 
         {isLoggedIn && user ? (
-          <div className="header__user" ref={userMenuRef}>
-            <button className="header__avatar" onClick={() => { setIsUserMenuOpen(!isUserMenuOpen); setIsEditingProfile(false); }} aria-label="User menu">
-              {user.avatarUrl ? (
-                <img src={user.avatarUrl} alt={user.displayName} className="header__avatar-img" />
-              ) : (
-                user.displayName.charAt(0).toUpperCase()
-              )}
-            </button>
+          <>
             <div className="header__notif" ref={notifMenuRef}>
               <button className="header__notif-btn" onClick={handleNotifClick}>
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
@@ -205,6 +198,14 @@ export default function Header() {
                 </div>
               )}
             </div>
+            <div className="header__user" ref={userMenuRef}>
+              <button className="header__avatar" onClick={() => { setIsUserMenuOpen(!isUserMenuOpen); setIsEditingProfile(false); }} aria-label="User menu">
+                {user.avatarUrl ? (
+                  <img src={user.avatarUrl} alt={user.displayName} className="header__avatar-img" />
+                ) : (
+                  user.displayName.charAt(0).toUpperCase()
+                )}
+              </button>
             {isUserMenuOpen && (
               <div className="header__user-menu">
                 {!isEditingProfile ? (
@@ -280,6 +281,7 @@ export default function Header() {
               </div>
             )}
           </div>
+          </>
         ) : (
           <button className="header__signin-btn" onClick={openAuthModal}>{t('sign_in')}</button>
         )}
