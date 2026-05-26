@@ -1,0 +1,154 @@
+'use client';
+
+import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
+
+interface User {
+  id: string;
+  email: string;
+  displayName: string;
+  role: 'user' | 'moderator' | 'owner';
+  avatarUrl: string;
+  aboutMe: string;
+  workingOn: string;
+  country: string;
+  favoriteGames: string[];
+}
+
+interface AuthContextType {
+  user: User | null;
+  isLoggedIn: boolean;
+  isModerator: boolean;
+  isOwner: boolean;
+  loading: boolean;
+  showAuthModal: boolean;
+  openAuthModal: () => void;
+  closeAuthModal: () => void;
+  login: (email: string, password: string) => Promise<{ error?: string }>;
+  register: (email: string, password: string, displayName: string) => Promise<{ error?: string }>;
+  logout: () => Promise<void>;
+  uploadAvatar: (file: File) => Promise<{ error?: string }>;
+  updateBio: (data: { aboutMe?: string; workingOn?: string; country?: string }) => Promise<{ error?: string }>;
+  toggleFavorite: (gameId: string, action: 'add' | 'remove') => Promise<{ error?: string }>;
+  refreshUser: () => Promise<void>;
+}
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+export function AuthProvider({ children }: { children: ReactNode }) {
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
+  const fetchUser = useCallback(async () => {
+    try {
+      const res = await fetch('/api/auth/me');
+      const data = await res.json();
+      setUser(data.user || null);
+    } catch {
+      setUser(null);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchUser();
+  }, [fetchUser]);
+
+  const login = async (email: string, password: string) => {
+    const res = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await res.json();
+    if (!res.ok) return { error: data.error || 'Login failed.' };
+    setUser(data.user);
+    setShowAuthModal(false);
+    return {};
+  };
+
+  const register = async (email: string, password: string, displayName: string) => {
+    const res = await fetch('/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password, displayName }),
+    });
+    const data = await res.json();
+    if (!res.ok) return { error: data.error || 'Registration failed.' };
+    setUser(data.user);
+    setShowAuthModal(false);
+    return {};
+  };
+
+  const logout = async () => {
+    await fetch('/api/auth/logout', { method: 'POST' });
+    setUser(null);
+  };
+
+  const uploadAvatar = async (file: File) => {
+    const formData = new FormData();
+    formData.append('avatar', file);
+    const res = await fetch('/api/auth/avatar', { method: 'POST', body: formData });
+    const data = await res.json();
+    if (!res.ok) return { error: data.error || 'Upload failed.' };
+    setUser(data.user);
+    return {};
+  };
+
+  const refreshUser = async () => {
+    await fetchUser();
+  };
+
+  const updateBio = async (data: { aboutMe?: string; workingOn?: string; country?: string }) => {
+    const res = await fetch('/api/auth/bio', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    const result = await res.json();
+    if (!res.ok) return { error: result.error || 'Update failed.' };
+    setUser(result.user);
+    return {};
+  };
+
+  const toggleFavorite = async (gameId: string, action: 'add' | 'remove') => {
+    const res = await fetch(`/api/auth/favorite/${gameId}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action }),
+    });
+    const result = await res.json();
+    if (!res.ok) return { error: result.error || 'Failed.' };
+    setUser(result.user);
+    return {};
+  };
+
+  return (
+    <AuthContext.Provider value={{
+      user,
+      isLoggedIn: !!user,
+      isModerator: user?.role === 'moderator' || user?.role === 'owner',
+      isOwner: user?.role === 'owner',
+      loading,
+      showAuthModal,
+      openAuthModal: () => setShowAuthModal(true),
+      closeAuthModal: () => setShowAuthModal(false),
+      login,
+      register,
+      logout,
+      uploadAvatar,
+      updateBio,
+      toggleFavorite,
+      refreshUser,
+    }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+export function useAuth() {
+  const ctx = useContext(AuthContext);
+  if (!ctx) throw new Error('useAuth must be used within AuthProvider');
+  return ctx;
+}
