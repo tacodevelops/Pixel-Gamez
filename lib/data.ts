@@ -72,10 +72,10 @@ function makeThumbnail(title: string, category: string): string {
   return `https://placehold.co/400x225/${colors.bg}/${colors.fg}?text=${encodeURIComponent(title)}&font=raleway`;
 }
 
-const EMBED_BASE = 'https://html5.gamedistribution.com/rvvASMiM/';
+const EMBED_BASE = '/placeholder.html';
 
 function makeEmbed(seed: string): string {
-  return `${EMBED_BASE}${seed}/index.html`;
+  return `${EMBED_BASE}?seed=${seed}`;
 }
 
 
