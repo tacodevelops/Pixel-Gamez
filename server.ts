@@ -125,8 +125,14 @@ app.prepare().then(() => {
         create: { email: normalizedEmail, code, expiresAt },
       });
 
-      await sendOTP(normalizedEmail, code);
+      const emailResult = await sendOTP(normalizedEmail, code);
       
+      if (emailResult && emailResult.error) {
+        console.error('Failed to send OTP via Resend:', emailResult.error);
+        res.status(500).json({ error: 'Failed to send email: ' + (emailResult.error.message || 'Unknown Resend error') });
+        return;
+      }
+
       res.json({ success: true });
     } catch (err: any) {
       console.error('OTP Error:', err);

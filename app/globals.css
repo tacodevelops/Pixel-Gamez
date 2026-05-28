@@ -144,6 +144,7 @@ h3 { font-size: var(--font-size-md); }
   grid-template-columns: var(--sidebar-width) 1fr;
   grid-template-rows: var(--header-height) 1fr;
   height: 100vh;
+  width: calc(100vw - 320px); /* Always reserve 160px on left and right for ads */
   max-width: 1600px;
   margin: 0 auto;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
@@ -175,11 +176,14 @@ h3 { font-size: var(--font-size-md); }
   max-width: 1800px;
   margin: 0 auto;
 }
-@media (max-width: 1024px) {
-  #app { grid-template-columns: 1fr; }
-  #app-sidebar { display: none; }
-  #app-main { grid-column: 1 / -1; }
-}
+  @media (max-width: 1024px) {
+    #app { 
+      grid-template-columns: 1fr; 
+      width: 100vw; /* Remove ad space on mobile */
+    }
+    #app-sidebar { display: none; }
+    #app-main { grid-column: 1 / -1; }
+  }
 
 .header {
   display: flex;
@@ -718,11 +722,12 @@ h3 { font-size: var(--font-size-md); }
 .game-player__embed-wrapper {
   position: relative;
   width: 100%;
+  max-width: 1024px;
+  margin: 0 auto var(--space-4) auto;
   aspect-ratio: 16 / 9;
   background: #000;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  margin-bottom: var(--space-4);
   box-shadow: var(--shadow-lg);
 }
 .game-player__iframe {
