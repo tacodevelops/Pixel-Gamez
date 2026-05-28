@@ -42,13 +42,13 @@ export default function CommunityPage() {
     <div className="community-page animate-fade-in">
       <div className="community-header">
         <div className="community-header__content">
-          <span className="community-header__badge">🎮 Community</span>
+          <span className="community-header__badge">Community</span>
           <h1 className="community-header__title">Community Games</h1>
           <p className="community-header__subtitle">
             Games made by developers like you. Play, rate, and discover amazing indie creations.
           </p>
           <Link href="/developer" className="community-header__cta">
-            🚀 Submit Your Game
+            Submit Your Game
           </Link>
         </div>
       </div>
@@ -60,7 +60,6 @@ export default function CommunityPage() {
         </div>
       ) : games.length === 0 ? (
         <div className="community-empty">
-          <div className="community-empty__icon">🎯</div>
           <h2>No Community Games Yet</h2>
           <p>Be the first developer to publish a game!</p>
           <Link href="/developer" className="community-empty__cta">
@@ -76,7 +75,7 @@ export default function CommunityPage() {
                   <img src={game.thumbnail} alt={game.title} className="game-card__image" loading="lazy" />
                 ) : (
                   <div className="community-card__placeholder">
-                    <span>{game.gameType === 'unity' ? '🎮' : '🌐'}</span>
+                    <span>{game.gameType === 'unity' ? 'Unity' : 'Web'}</span>
                   </div>
                 )}
                 <div className="game-card__badges">

@@ -600,7 +600,7 @@ h3 { font-size: var(--font-size-md); }
 }
 
 /* ── Game Carousel ── */
-.carousel-section { margin-bottom: var(--space-6); }
+.carousel-section { margin-bottom: var(--space-6); overflow: visible; }
 .carousel-header {
   display: flex;
   align-items: center;
@@ -622,6 +622,7 @@ h3 { font-size: var(--font-size-md); }
 .carousel-view-more:hover { color: var(--accent-purple); }
 .carousel-wrapper {
   position: relative;
+  overflow: visible;
 }
 .carousel-track {
   display: flex;
@@ -645,23 +646,24 @@ h3 { font-size: var(--font-size-md); }
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-full);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-default);
-  color: var(--text-primary);
+  z-index: 99;
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  background: rgba(15, 15, 15, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   transition: all var(--transition-fast);
+  backdrop-filter: blur(4px);
 }
-.carousel-arrow:hover { background: var(--bg-elevated); border-color: var(--accent-purple); }
-.carousel-arrow--left { left: -12px; }
-.carousel-arrow--right { right: -12px; }
+.carousel-arrow:hover { background: rgba(30, 30, 30, 0.95); transform: translateY(-50%) scale(1.05); }
+.carousel-arrow--left { left: 8px; }
+.carousel-arrow--right { right: 8px; }
 
 /* ── Game Card (CrazyGames style) ── */
 .game-card {

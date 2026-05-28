@@ -18,10 +18,15 @@ export default function GameCarousel({ title, games, viewMoreLink }: GameCarouse
 
   const checkScroll = useCallback(() => {
     const el = scrollRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 2);
-    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 2);
-  }, []);
+    if (el) {
+      setCanScrollLeft(el.scrollLeft > 2);
+      // Force it to be true if there are many games, as a fallback for rounding bugs
+      setCanScrollRight(
+        el.scrollLeft < el.scrollWidth - el.clientWidth - 5 || 
+        (el.scrollLeft <= 10 && games.length > 4)
+      );
+    }
+  }, [games.length]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -29,9 +34,16 @@ export default function GameCarousel({ title, games, viewMoreLink }: GameCarouse
     checkScroll();
     el.addEventListener('scroll', checkScroll, { passive: true });
     window.addEventListener('resize', checkScroll);
+    
+    const resizeObserver = new ResizeObserver(() => checkScroll());
+    resizeObserver.observe(el);
+    // Also observe the children to catch when images load or layout shifts
+    Array.from(el.children).forEach(child => resizeObserver.observe(child));
+
     return () => {
       el.removeEventListener('scroll', checkScroll);
       window.removeEventListener('resize', checkScroll);
+      resizeObserver.disconnect();
     };
   }, [checkScroll]);
 

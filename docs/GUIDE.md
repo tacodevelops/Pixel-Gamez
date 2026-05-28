@@ -1,132 +1,115 @@
 # PixelGamez: The Complete Guide
 
-Welcome to the comprehensive technical and administrative guide for **PixelGamez**. This document covers everything you need to know about the architecture, features, database migrations, monetization, and managing the platform as an Owner.
+Welcome to the comprehensive technical and administrative guide for **PixelGamez**. This document covers everything you need to know about the architecture, features, database structure, monetization, and managing the platform as an Owner.
 
 ---
 
-## 1. Core Architecture & Database
+## 1. Core Architecture & Hybrid Database
 
-PixelGamez is built on **Next.js 14** using the modern App Router architecture. To support complex API routing, file uploads (like avatars and ad images), and custom database connectivity, the application boots through a custom **Express Server (`server.ts`)**.
+PixelGamez is built on **Next.js 14** using the modern App Router architecture, paired with a robust **TypeScript** backend. The platform uses a "Hybrid" data approach to maximize performance while retaining full dynamic capabilities.
+
+### Static Catalog (`lib/data.ts`)
+The official game library (Top Picks, Trending, Popular, New) is managed directly inside `lib/data.ts`. Storing the core catalog in a TypeScript array allows Next.js to statically generate pages at build time, resulting in blazing fast load times and zero database latency for the homepage. 
+- You can add games directly to `games` array in this file.
+- Give games tags like `new`, `popular`, or `featured` to automatically group them into Homepage carousels.
+- Missing images will automatically generate a colorful placeholder graphic using `makeThumbnail()`.
 
 ### Relational PostgreSQL Database
-We have migrated the core data layer from flat JSON files to a robust, scalable **PostgreSQL database** using **Prisma ORM**.
+All dynamic, user-generated content is managed by a **PostgreSQL database** via **Prisma ORM**.
 - The Prisma schema is located at `prisma/schema.prisma`.
-- When deploying or after updating models, always sync your database by running:
+- When deploying or after updating models, sync your database by running:
   ```bash
   npx prisma db push
   ```
 
-Your database completely manages:
-- **Users & Sessions**
-- **Approved Games & Submissions**
-- **Favorites & Analytics**
-- **Ads & Site Notifications**
-
-*To explore the database graphically, you can run `npx prisma studio`.*
+Your Postgres database completely manages:
+- **Users & Sessions** (Authentication)
+- **Approved Games & Submissions** (Community content)
+- **Favorites, Votes & Analytics** (User engagement)
+- **Ads & Site Notifications** (Monetization & Communication)
 
 ---
 
-## 2. Authentication & Email Verification
+## 2. Dynamic Game Carousels
+
+PixelGamez features state-of-the-art sliding game carousels across the platform. 
+- **Poki-Style UI:** Carousels feature premium frosted-glass (backdrop-blur) navigation arrows that seamlessly float over the game cards.
+- **Smart Hydration:** Built-in `ResizeObserver` APIs constantly monitor the layout to handle hydration shifts.
+- **Subpixel Perfect:** The scrolling math accounts for sub-pixel drift and browser-specific rounding bugs to ensure navigation arrows always appear when there are more games hidden off-screen, and dynamically disappear when you reach the end of a row.
+
+---
+
+## 3. Authentication & Roles
 
 Security and user validation are natively built into PixelGamez.
 
-### Sessions
-When a user logs in, the backend creates an encrypted session token stored directly in the PostgreSQL database. The user receives a secure, HTTP-only cookie (`pixelgamez_session`) that the application verifies across every page load via `AuthContext.tsx`.
-
 ### Email Verification (OTP)
-When a user registers for an account, they must verify their email address. We use **Resend** to securely email them a 6-digit One-Time Password (OTP).
-- You MUST provide your Resend API Key inside the `.env` file (`RESEND_API_KEY`).
-- The OTP lasts for a limited time and must be validated before the account creation is finalized in the database.
+When a user registers, we use **Resend** to securely email them a 6-digit One-Time Password (OTP). You must provide your Resend API Key inside the `.env` file (`RESEND_API_KEY`). The OTP lasts for a limited time and must be validated before the account creation is finalized in the Postgres database.
 
-### Managing Roles (Owner vs Moderator)
+### Managing Roles (Owner)
 By default, everyone who signs up is a standard `user`.
-To elevate a user to **Owner** or **Moderator**, you modify `lib/users.ts`.
-Look for these constants at the top of the file:
+To elevate your account to **Owner** with full admin privileges, modify `lib/users.ts`.
+Look for the `OWNER_EMAILS` constant at the top of the file:
 ```typescript
-const OWNER_EMAILS = ['owner@example.com'];
-const MOD_EMAILS = ['mod@example.com'];
+const OWNER_EMAILS: string[] = [
+  'dahiruhammajam@gmail.com', // Add your email here
+];
 ```
-Add your registered email address to `OWNER_EMAILS`. The next time you refresh, your session will automatically sync and upgrade your account to Owner.
-
-* **Owners** have unrestricted access: Approving games, managing Ads, viewing analytics, and sending Notices.
-* **Moderators** can approve/reject games and send Notices.
+* **Owners** have unrestricted access to the **Admin Dashboard**: Approving games, managing Ads, viewing analytics, and sending global platform Notices.
 
 ---
 
-## 3. Game Submission & Approval
+## 4. Game Submission & Community Portal
 
-The platform thrives on community content.
-1. **Developer Portal:** Any logged-in user can visit the Developer portal to submit a game. They provide a Title, Description, iFrame Embed URL, Category, and optional Steam/Discord links.
+The platform thrives on community content via the **Developer Portal**.
+1. **Submission:** Any logged-in user can visit the Developer portal to submit a game. They provide a Title, Description, iFrame Embed URL, Category, and optional Steam/Discord links.
 2. **Pending State:** The submission is securely inserted into the PostgreSQL `Submission` table with a status of `pending`.
-3. **Approval:** Owners/Moderators visit the **Admin Dashboard** to review submissions. Upon clicking "Approve", the game is authorized, tagged with the reviewer's ID, and becomes instantly playable on the site.
+3. **Approval:** Owners visit the **Admin Dashboard** to review submissions. Upon clicking "Approve", the game is authorized and instantly playable on the site.
 
 ---
 
-## 4. User Interaction Systems
+## 5. User Profiles & Social Features
 
 We have fully fleshed out features to maximize user engagement on the site.
 
-### The Favorite System
-Users can curate their own library by clicking the **Heart Icon** located on the game player control bar. This action creates a relational tie in the Postgres database linking the `User` and the `Game`. Favorited games instantly appear in a specialized "Favorites" grid on their public user profile.
+### Custom Profiles
+Every user has a personalized public profile. They can upload a custom **Avatar**, set a **Bio**, and customize their **Profile Banner** using standard CSS colors or gradient strings.
 
-### The Voting System
-Instead of simplistic local storage tracking, every "Like" and "Dislike" cast on a game securely maps directly to the authenticated user ID. A user cannot double-vote, ensuring accurate global ratings.
+### The Favorite & Voting System
+- **Favorites:** Users can curate their own library by clicking the **Heart Icon** located on the game player control bar. Favorited games instantly appear in a specialized "Favorites" grid on their profile.
+- **Upvotes:** Every "Like" and "Dislike" cast on a game securely maps directly to the authenticated user ID in Postgres. A user cannot double-vote, ensuring accurate global ratings and analytics.
 
 ---
 
-## 5. Monetization & Advertisements
+## 6. Monetization & Advertisements
 
 PixelGamez provides both an internal, customizable Ad Server and seamless external integration for providers like Google AdSense.
 
-### 1. Internal Ad Server
+### Internal Ad Server
 You can run your own sponsorships or direct ads without relying on Google.
-1. Go to the **Admin Dashboard** > **Ad Management** tab (Owner only).
-2. Upload an image banner (e.g., 728x90, 300x250).
-3. Provide the destination `URL`.
-4. Select a **Placement** (`banner-home`, `sidebar`, `game-side`, `profile`).
+1. Go to the **Admin Dashboard** > **Ad Management** tab.
+2. Upload an image banner and provide the destination `URL`.
+3. Select a **Placement** (`banner-home`, `sidebar`, `game-side`, `profile`).
 
-**Ad Tracking:**
-Every time an ad renders on screen, the platform silently pings an impression endpoint. Clicking the ad pings a click-tracker. You can view the **Impressions, Clicks, and Click-Through Rate (CTR)** directly inside your Admin Dashboard.
+**Ad Tracking:** Every time an ad renders, the platform silently pings an impression endpoint. Clicking the ad pings a click-tracker. You can view the **Impressions, Clicks, and Click-Through Rate (CTR)** directly inside your Admin Dashboard.
 
-### 2. Google AdSense Integration
-If you wish to supplement your site with AdSense, we have made it incredibly easy. You do not need to alter any code!
-1. Open your `.env` file at the root of the project.
+### Google AdSense Integration
+1. Open your `.env` file.
 2. Provide your AdSense Client Publisher ID to the dedicated variable:
    ```env
    NEXT_PUBLIC_ADSENSE_CLIENT_ID="ca-pub-XXXXXXXXXXXXX"
    ```
-3. The platform will automatically inject the required Google AdSense JavaScript tags into the global layout if that variable exists.
+3. The platform will automatically inject the required Google AdSense JavaScript tags into the global layout.
 
 ---
 
-## 6. Site Analytics
+## 7. Multi-Language Support (I18n)
 
-For Owners wanting to understand player behavior, a dedicated **Analytics Panel** exists on the Admin Dashboard.
-This dashboard aggressively sorts your database to show you the most popular titles. You can instantly view:
-- **Total Plays** per game.
-- **Global Ratings** (Upvote to Downvote ratio).
-- **Total Favorites** globally accumulated for a game.
-
----
-
-## 7. Notice & Inbox System
-
-Need to tell the community about a new feature or a massive game drop?
-1. Go to the **Admin Dashboard** > **Notices & Inbox**.
-2. Create a Notice with a Title and Message.
-3. It instantly broadcasts to all users. 
-4. A red badge with the unread count will appear on the bell icon in their navigation bar. Once they click the bell, it marks them as read.
-
----
-
-## 8. Multi-Language Support (I18n)
-
-PixelGamez supports **28 languages**.
-The system works using `I18nContext.tsx` which wraps the entire app. It defaults to checking the user's browser language (`navigator.language`) and falling back to English.
+PixelGamez supports **28 languages** globally.
+The system uses `I18nContext.tsx` which defaults to checking the user's browser language (`navigator.language`) and gracefully falls back to English.
 
 **Translations Dictionary:**
-All translations are stored in `lib/translations.ts`.
-If you ever add a new button or text to the site, add a key to the `en` (English) dictionary. To translate it to the other 27 languages, run:
+All translations are stored in `lib/translations.ts`. If you add a new button to the site, simply add the English text to the `en` dictionary block. To instantly translate it to all other 27 languages, run:
 ```bash
 python translate.py
 ```
@@ -134,50 +117,20 @@ This script automatically scans for missing keys and uses Google Translate to po
 
 ---
 
-## 9. User Profiles & Customization
+## 8. Hotlink Bypassing & Zoom Controls
 
-Every user has a personalized public profile. They can:
-* Upload a custom **Avatar** (saved securely and referenced in the DB).
-* Change their Display Name and **Bio** (which includes "About Me", "Country", and "Working On").
-* Set a custom **Profile Banner**. They can provide standard CSS colors (e.g., `red`, `#ff0000`) or specific gradient strings directly through the UI.
-
----
-
-## 10. Game Embeds & Hotlink Bypassing
-
-Hosting games via iframes can occasionally present cross-origin and hotlinking challenges. 
+Hosting games via iframes can occasionally present cross-origin challenges. 
 
 ### Hotlink Protection Bypass
-Many portals (like itch.io) restrict their direct HTML5 game files (`html-classic.itch.zone`) from being embedded on external websites to save bandwidth. PixelGamez circumvents this by passing `referrerPolicy="no-referrer"` to the game `<iframe>`. By stripping the origin headers, the host assumes the game is being played directly and allows the connection.
+Many portals (like itch.io or CrazyGames) restrict their direct HTML5 game files from being embedded on external websites to save bandwidth. PixelGamez circumvents this by passing `referrerPolicy="no-referrer"` to the game `<iframe>`. By stripping the origin headers, the host assumes the game is being played directly and allows the connection.
 
 ### Zoom Controls & Black Borders
-Because we bypass official embed widgets, some Unity WebGL games will load in a fixed-size canvas inside the responsive iframe, resulting in large black borders. To fix this, PixelGamez includes **Manual Zoom Controls** (`+` and `-`) next to the Fullscreen button. These controls use CSS `transform: scale()` to visually enlarge the iframe, cropping out the black borders so the game perfectly fits the monitor.
+Some Unity WebGL games will load in a fixed-size canvas inside the responsive iframe, resulting in large black borders. To fix this, PixelGamez includes **Manual Zoom Controls** (`+` and `-`) next to the Fullscreen button. These controls use CSS `transform: scale()` to visually enlarge the iframe, cropping out the black borders so the game perfectly fits the monitor.
 
 ---
 
-## 11. Troubleshooting & Database Issues
-
-If your server crashes or throws database errors on startup, it is almost always related to your `.env` configuration or Prisma state.
-
-### Error: "the provided database credentials for 'postgres' are not valid"
-If you are certain your Supabase password is correct, this error occurs because your password contains **special characters** (like `@`, `#`, `!`, `?`). Since `DATABASE_URL` is parsed as a literal web URL, special characters break the parsing logic.
-**The Fix:** You must URL-encode the special characters in your `.env` file.
-* `#` becomes `%23`
-* `@` becomes `%40`
-* `$` becomes `%24`
-* `!` becomes `%21`
-* `?` becomes `%3F`
-*(Example: `MyP@ssw#rd!` must be written as `MyP%40ssw%23rd%21`)*
+## 9. Troubleshooting
 
 ### Error: "The table 'public.Ad' does not exist in the current database"
-This error occurs when the tables defined in your `prisma/schema.prisma` file do not actually exist in your Supabase PostgreSQL database yet (or you recently pulled new code with new tables).
-**The Fix:** Sync your database schema by running this command in your terminal:
-```bash
-npx prisma db push
-```
-This command safely pushes your Prisma schema to Supabase and automatically creates any missing tables or columns.
-
----
-
-### Conclusion
-You are fully equipped to run and manage PixelGamez. Leverage the robust Postgres backend, monitor your custom ad CTRs or plug in your AdSense, keep an eye on user analytics, and build an incredible gaming community!
+This occurs when the tables defined in your `prisma/schema.prisma` file do not actually exist in your Supabase PostgreSQL database yet.
+**The Fix:** Sync your database schema by running: `npx prisma db push`
