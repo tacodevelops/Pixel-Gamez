@@ -20,6 +20,8 @@ interface ProfileUser {
   country: string;
   favoriteGames: string[];
   bannerUrl?: string;
+  followersCount?: number;
+  followingCount?: number;
 }
 
 interface Submission {
