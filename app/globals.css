@@ -144,6 +144,11 @@ h3 { font-size: var(--font-size-md); }
   grid-template-columns: var(--sidebar-width) 1fr;
   grid-template-rows: var(--header-height) 1fr;
   height: 100vh;
+  max-width: 1600px;
+  margin: 0 auto;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+  background: var(--bg-primary);
+  position: relative;
 }
 #app-header {
   grid-column: 1 / -1;

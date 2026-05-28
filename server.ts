@@ -101,112 +101,128 @@ app.prepare().then(() => {
   
 
   server.post('/api/auth/register-otp', async (req: Request, res: Response) => {
-    const { email } = req.body;
-    if (!email) {
-      res.status(400).json({ error: 'Email is required.' });
-      return;
+    try {
+      const { email } = req.body;
+      if (!email) {
+        res.status(400).json({ error: 'Email is required.' });
+        return;
+      }
+      
+      const normalizedEmail = email.toLowerCase().trim();
+      
+      const existingUser = await prisma.user.findUnique({ where: { email: normalizedEmail } });
+      if (existingUser) {
+        res.status(400).json({ error: 'An account with this email already exists.' });
+        return;
+      }
+      
+      const code = Math.floor(100000 + Math.random() * 900000).toString();
+      const expiresAt = new Date(Date.now() + 15 * 60 * 1000); 
+
+      await prisma.verificationCode.upsert({
+        where: { email: normalizedEmail },
+        update: { code, expiresAt },
+        create: { email: normalizedEmail, code, expiresAt },
+      });
+
+      await sendOTP(normalizedEmail, code);
+      
+      res.json({ success: true });
+    } catch (err: any) {
+      console.error('OTP Error:', err);
+      res.status(500).json({ error: 'Internal server error: ' + (err.message || 'Unknown error') });
     }
-    
-    const normalizedEmail = email.toLowerCase().trim();
-    const existingUser = await prisma.user.findUnique({ where: { email: normalizedEmail } });
-    if (existingUser) {
-      res.status(400).json({ error: 'An account with this email already exists.' });
-      return;
-    }
-
-    
-    const code = Math.floor(100000 + Math.random() * 900000).toString();
-    const expiresAt = new Date(Date.now() + 10 * 60 * 1000); 
-
-    await prisma.verificationCode.upsert({
-      where: { email: normalizedEmail },
-      update: { code, expiresAt },
-      create: { email: normalizedEmail, code, expiresAt }
-    });
-
-    await sendOTP(normalizedEmail, code);
-    res.json({ success: true });
   });
 
   server.post('/api/auth/register', async (req: Request, res: Response) => {
-    const { email, password, displayName, code } = req.body;
-    if (!email || !password || !displayName || !code) {
-      res.status(400).json({ error: 'Email, password, display name, and code are required.' });
-      return;
-    }
-
-    const normalizedEmail = email.toLowerCase().trim();
-    
-    const verification = await prisma.verificationCode.findUnique({ where: { email: normalizedEmail } });
-    if (!verification || verification.code !== code || verification.expiresAt < new Date()) {
-      res.status(400).json({ error: 'Invalid or expired verification code.' });
-      return;
-    }
-
-    const existingUser = await prisma.user.findUnique({ where: { email: normalizedEmail } });
-    if (existingUser) {
-      res.status(400).json({ error: 'An account with this email already exists.' });
-      return;
-    }
-
-    if (password.length < 6) {
-      res.status(400).json({ error: 'Password must be at least 6 characters.' });
-      return;
-    }
-
-    const salt = bcrypt.genSaltSync(10);
-    const passwordHash = bcrypt.hashSync(password, salt);
-
-    const newUser = await prisma.user.create({
-      data: {
-        email: normalizedEmail,
-        displayName: displayName.trim(),
-        passwordHash,
-        role: normalizedEmail === 'dahiruhammajam@gmail.com' ? 'owner' : 'user',
+    try {
+      const { email, password, displayName, code } = req.body;
+      if (!email || !password || !displayName || !code) {
+        res.status(400).json({ error: 'Email, password, display name, and code are required.' });
+        return;
       }
-    });
 
-    await prisma.verificationCode.delete({ where: { email: normalizedEmail } });
+      const normalizedEmail = email.toLowerCase().trim();
+      
+      const verification = await prisma.verificationCode.findUnique({ where: { email: normalizedEmail } });
+      if (!verification || verification.code !== code || verification.expiresAt < new Date()) {
+        res.status(400).json({ error: 'Invalid or expired verification code.' });
+        return;
+      }
 
-    const token = await createSession(newUser.id);
-    res.cookie(SESSION_COOKIE_NAME, token, {
-      httpOnly: true,
-      maxAge: SESSION_COOKIE_MAX_AGE * 1000,
-      sameSite: 'lax',
-      path: '/',
-    });
-    
-    const { passwordHash: _, ...publicUser } = newUser;
-    res.json({ user: publicUser });
+      const existingUser = await prisma.user.findUnique({ where: { email: normalizedEmail } });
+      if (existingUser) {
+        res.status(400).json({ error: 'An account with this email already exists.' });
+        return;
+      }
+
+      if (password.length < 6) {
+        res.status(400).json({ error: 'Password must be at least 6 characters.' });
+        return;
+      }
+
+      const salt = bcrypt.genSaltSync(10);
+      const passwordHash = bcrypt.hashSync(password, salt);
+
+      const newUser = await prisma.user.create({
+        data: {
+          email: normalizedEmail,
+          displayName: displayName.trim(),
+          passwordHash,
+          role: normalizedEmail === 'dahiruhammajam@gmail.com' ? 'owner' : 'user',
+        }
+      });
+
+      await prisma.verificationCode.delete({ where: { email: normalizedEmail } }).catch(() => {});
+
+      const token = await createSession(newUser.id);
+      res.cookie(SESSION_COOKIE_NAME, token, {
+        httpOnly: true,
+        maxAge: SESSION_COOKIE_MAX_AGE * 1000,
+        sameSite: 'lax',
+        path: '/',
+      });
+      
+      const { passwordHash: _, ...publicUser } = newUser;
+      res.json({ user: publicUser });
+    } catch (err: any) {
+      console.error('Register Error:', err);
+      res.status(500).json({ error: 'Internal server error: ' + (err.message || 'Unknown error') });
+    }
   });
 
   server.post('/api/auth/login', async (req: Request, res: Response) => {
-    const { email, password } = req.body;
-    if (!email || !password) {
-      res.status(400).json({ error: 'Email and password are required.' });
-      return;
-    }
+    try {
+      const { email, password } = req.body;
+      if (!email || !password) {
+        res.status(400).json({ error: 'Email and password are required.' });
+        return;
+      }
 
-    const normalizedEmail = email.toLowerCase().trim();
-    const user = await prisma.user.findUnique({ 
-      where: { email: normalizedEmail },
-      include: { favoriteGames: { select: { id: true } } }
-    });
-    if (!user || !bcrypt.compareSync(password, user.passwordHash)) {
-      res.status(401).json({ error: 'Invalid email or password.' });
-      return;
-    }
+      const normalizedEmail = email.toLowerCase().trim();
+      const user = await prisma.user.findUnique({ 
+        where: { email: normalizedEmail },
+        include: { favoriteGames: { select: { id: true } } }
+      });
+      if (!user || !bcrypt.compareSync(password, user.passwordHash)) {
+        res.status(401).json({ error: 'Invalid email or password.' });
+        return;
+      }
 
-    const token = await createSession(user.id);
-    res.cookie(SESSION_COOKIE_NAME, token, {
-      httpOnly: true,
-      maxAge: SESSION_COOKIE_MAX_AGE * 1000,
-      sameSite: 'lax',
-      path: '/',
-    });
-    const { passwordHash: _, ...rest } = user;
-    const publicUser = { ...rest, favoriteGames: user.favoriteGames.map(g => g.id) };
-    res.json({ user: publicUser });
+      const token = await createSession(user.id);
+      res.cookie(SESSION_COOKIE_NAME, token, {
+        httpOnly: true,
+        maxAge: SESSION_COOKIE_MAX_AGE * 1000,
+        sameSite: 'lax',
+        path: '/',
+      });
+      const { passwordHash: _, ...rest } = user;
+      const publicUser = { ...rest, favoriteGames: user.favoriteGames.map(g => g.id) };
+      res.json({ user: publicUser });
+    } catch (err: any) {
+      console.error('Login Error:', err);
+      res.status(500).json({ error: 'Internal server error: ' + (err.message || 'Unknown error') });
+    }
   });
 
   server.post('/api/auth/logout', async (req: Request, res: Response) => {
@@ -727,6 +743,44 @@ app.prepare().then(() => {
     if (!user) { res.status(401).json({ error: 'Not authenticated' }); return; }
     const success = await unfollowUser(user.id, req.params.targetId as string);
     res.json({ success });
+  });
+
+  server.get('/api/proxy-game', async (req: Request, res: Response) => {
+    const targetUrl = req.query.url as string;
+    if (!targetUrl) {
+      res.status(400).send('URL required');
+      return;
+    }
+    try {
+      const fetchRes = await fetch(targetUrl, {
+        headers: {
+          'Referer': 'https://itch.io/',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        }
+      });
+      if (!fetchRes.ok) {
+        res.status(fetchRes.status).send('Proxy error');
+        return;
+      }
+      let html = await fetchRes.text();
+      // Inject <base> tag so relative assets load from the original itch.zone domain
+      const baseUrl = new URL('.', targetUrl).href;
+      
+      const injectCss = `<style>
+        html, body { width: 100% !important; height: 100% !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important; background-color: #000 !important; }
+        canvas, #canvas-container, #unity-container, #game-container, iframe { width: 100% !important; height: 100% !important; max-width: none !important; max-height: none !important; margin: 0 !important; object-fit: contain !important; }
+      </style>`;
+
+      if (html.includes('<head>')) {
+        html = html.replace('<head>', `<head><base href="${baseUrl}">${injectCss}`);
+      } else {
+        html = `<head><base href="${baseUrl}">${injectCss}</head>` + html;
+      }
+      res.send(html);
+    } catch (e: any) {
+      console.error('Proxy Error:', e);
+      res.status(500).send('Error proxying game: ' + e.message);
+    }
   });
 
   server.use((req: Request, res: Response) => {
