@@ -1,5 +1,7 @@
 'use client';
 
+import React from 'react';
+
 import { getFeaturedGames, getNewGames, getPopularGames, categories, getGamesByCategory, getTrendingGames, getUpAndComingGames, getMostVisitedGames, getRecommendedGames, games } from '../lib/data';
 import GameCarousel from '../components/GameCarousel';
 import AdSlot from '../components/AdSlot';
@@ -68,12 +70,18 @@ export default function Home() {
         const games = getGamesByCategory(category.id);
         if (games.length === 0) return null;
         return (
-          <GameCarousel
-            key={category.id}
-            title={t(category.id) || category.name}
-            games={games.slice(0, 14)}
-            viewMoreLink={`/category/${category.id}`}
-          />
+          <React.Fragment key={category.id}>
+            <GameCarousel
+              title={t(category.id) || category.name}
+              games={games.slice(0, 14)}
+              viewMoreLink={`/category/${category.id}`}
+            />
+            {category.id === 'action' && (
+              <div style={{ margin: '32px 0' }}>
+                <AdSlot placement="banner-home" />
+              </div>
+            )}
+          </React.Fragment>
         );
       })}
     </div>

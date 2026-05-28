@@ -60,14 +60,14 @@ export default function Sidebar() {
 
           {/* Ad slot where 'Board' used to be (after Arcade) */}
           {category.id === 'arcade' && (
-            <div style={{ padding: '8px 16px', minHeight: '100px' }}>
+            <div style={{ padding: '8px 16px' }}>
               <AdSlot placement="sidebar" />
             </div>
           )}
 
-          {/* Ad slot where the red line ended (after Simulation) */}
-          {category.id === 'simulation' && (
-            <div style={{ padding: '8px 16px', minHeight: '100px' }}>
+          {/* Ad slot at the bottom of the categories list */}
+          {category.id === 'strategy' && (
+            <div style={{ padding: '8px 16px' }}>
               <AdSlot placement="sidebar" />
             </div>
           )}
