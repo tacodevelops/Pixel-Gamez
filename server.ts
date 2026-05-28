@@ -129,7 +129,8 @@ app.prepare().then(() => {
       
       if (emailResult && emailResult.error) {
         console.error('Failed to send OTP via Resend:', emailResult.error);
-        res.status(500).json({ error: 'Failed to send email: ' + (emailResult.error.message || 'Unknown Resend error') });
+        const errMsg = (emailResult.error as any).message || JSON.stringify(emailResult.error);
+        res.status(500).json({ error: 'Failed to send email: ' + errMsg });
         return;
       }
 
