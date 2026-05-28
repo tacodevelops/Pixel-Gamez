@@ -151,11 +151,12 @@ app.prepare().then(() => {
 
       const normalizedEmail = email.toLowerCase().trim();
       
-      const verification = await prisma.verificationCode.findUnique({ where: { email: normalizedEmail } });
-      if (!verification || verification.code !== code || verification.expiresAt < new Date()) {
-        res.status(400).json({ error: 'Invalid or expired verification code.' });
-        return;
-      }
+      // --- TEMPORARILY BYPASS OTP VERIFICATION ---
+      // const verification = await prisma.verificationCode.findUnique({ where: { email: normalizedEmail } });
+      // if (!verification || verification.code !== code || verification.expiresAt < new Date()) {
+      //   res.status(400).json({ error: 'Invalid or expired verification code.' });
+      //   return;
+      // }
 
       const existingUser = await prisma.user.findUnique({ where: { email: normalizedEmail } });
       if (existingUser) {
