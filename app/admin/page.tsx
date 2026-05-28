@@ -29,12 +29,15 @@ interface Ad {
 
 export default function AdminPage() {
   const { isLoggedIn, isOwner, isModerator, loading } = useAuth();
-  const [activeTab, setActiveTab] = useState<'submissions' | 'ads' | 'notices' | 'analytics' | 'users'>('submissions');
+  const [activeTab, setActiveTab] = useState<'submissions' | 'ads' | 'notices' | 'analytics' | 'users' | 'inquiries'>('submissions');
   
   
   const [pending, setPending] = useState<Submission[]>([]);
   const [fetchingSubmissions, setFetchingSubmissions] = useState(true);
   const [actionInProgress, setActionInProgress] = useState<string | null>(null);
+  
+  const [inquiries, setInquiries] = useState<any[]>([]);
+  const [fetchingInquiries, setFetchingInquiries] = useState(true);
 
   
   const [ads, setAds] = useState<Ad[]>([]);
@@ -66,12 +69,38 @@ export default function AdminPage() {
       if (activeTab === 'notices') fetchNotices();
       if (activeTab === 'analytics' && isOwner) fetchAnalytics();
       if (activeTab === 'users' && (isOwner || isModerator)) fetchUsers();
+      if (activeTab === 'inquiries' && isOwner) fetchInquiries();
     } else {
       setFetchingSubmissions(false);
       setFetchingAds(false);
       setFetchingNotices(false);
+      setFetchingInquiries(false);
     }
   }, [loading, isOwner, isModerator, activeTab]);
+
+  async function fetchInquiries() {
+    setFetchingInquiries(true);
+    try {
+      const res = await fetch('/api/admin/inquiries');
+      if (res.ok) {
+        setInquiries(await res.json());
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    setFetchingInquiries(false);
+  }
+
+  async function markInquiryRead(id: string) {
+    try {
+      const res = await fetch(`/api/admin/inquiries/${id}/read`, { method: 'POST' });
+      if (res.ok) {
+        setInquiries(prev => prev.map(i => i.id === id ? { ...i, status: 'read' } : i));
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
   async function fetchNotices() {
     setFetchingNotices(true);
@@ -264,6 +293,11 @@ export default function AdminPage() {
           <button className={`admin-tab ${activeTab === 'notices' ? 'active' : ''}`} onClick={() => setActiveTab('notices')}>
             Notices & Inbox
           </button>
+          {isOwner && (
+            <button className={`admin-tab ${activeTab === 'inquiries' ? 'active' : ''}`} onClick={() => setActiveTab('inquiries')}>
+              Brand Inquiries {inquiries.filter(i => i.status === 'unread').length > 0 && <span style={{ background: '#ef4444', color: 'white', padding: '2px 6px', borderRadius: '10px', fontSize: '0.8rem', marginLeft: '6px' }}>{inquiries.filter(i => i.status === 'unread').length}</span>}
+            </button>
+          )}
         </div>
       </div>
 
@@ -632,6 +666,50 @@ export default function AdminPage() {
                   ))}
                 </tbody>
               </table>
+            </div>
+          )}
+        </div>
+      )}
+
+      {activeTab === 'inquiries' && isOwner && (
+        <div className="admin-section">
+          <p className="admin-section-desc">Manage incoming brand integration requests.</p>
+          {fetchingInquiries ? (
+            <div className="admin-loading">Loading inquiries...</div>
+          ) : inquiries.length === 0 ? (
+            <div className="admin-card" style={{ padding: 'var(--space-5)', textAlign: 'center', color: 'var(--text-dim)' }}>
+              No brand inquiries yet.
+            </div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              {inquiries.map(inquiry => (
+                <div key={inquiry.id} className="admin-card" style={{ padding: '20px', borderLeft: inquiry.status === 'unread' ? '4px solid var(--accent-primary)' : '4px solid transparent', opacity: inquiry.status === 'read' ? 0.7 : 1 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+                    <div>
+                      <h3 style={{ margin: '0 0 4px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        {inquiry.name} 
+                        {inquiry.status === 'unread' && <span style={{ background: 'var(--accent-primary)', color: 'var(--bg-primary)', fontSize: '0.7rem', padding: '2px 6px', borderRadius: '4px', textTransform: 'uppercase', fontWeight: 'bold' }}>New</span>}
+                      </h3>
+                      <div style={{ color: 'var(--text-dim)', fontSize: '0.9rem', display: 'flex', gap: '16px' }}>
+                        <span>Email: <a href={`mailto:${inquiry.email}`} style={{ color: 'var(--accent-primary)' }}>{inquiry.email}</a></span>
+                        {inquiry.company && <span>Company: {inquiry.company}</span>}
+                        {inquiry.budget && <span>Budget: {inquiry.budget}</span>}
+                      </div>
+                    </div>
+                    <span style={{ fontSize: '0.85rem', color: 'var(--text-dim)' }}>{new Date(inquiry.createdAt).toLocaleString()}</span>
+                  </div>
+                  <div style={{ background: 'var(--bg-secondary)', padding: '16px', borderRadius: 'var(--radius-md)', whiteSpace: 'pre-wrap', lineHeight: 1.5 }}>
+                    {inquiry.message}
+                  </div>
+                  {inquiry.status === 'unread' && (
+                    <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'flex-end' }}>
+                      <button onClick={() => markInquiryRead(inquiry.id)} style={{ background: 'var(--accent-primary)', color: 'var(--bg-primary)', border: 'none', padding: '8px 16px', borderRadius: 'var(--radius-sm)', fontWeight: 'bold', cursor: 'pointer' }}>
+                        Mark as Read
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           )}
         </div>

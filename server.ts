@@ -866,6 +866,64 @@ app.prepare().then(() => {
     }
   });
 
+  server.post('/api/contact', async (req: Request, res: Response) => {
+    try {
+      const { name, email, company, message, budget } = req.body;
+      
+      await prisma.brandInquiry.create({
+        data: {
+          name,
+          email,
+          company: company || null,
+          budget: budget || null,
+          message,
+        }
+      });
+      
+      res.status(200).json({ success: true });
+    } catch (err) {
+      console.error('Failed to save inquiry:', err);
+      res.status(500).json({ error: 'Failed to save inquiry' });
+    }
+  });
+
+  server.get('/api/admin/inquiries', async (req: Request, res: Response) => {
+    const user = await getAuthUser(req);
+    if (!user || user.role !== 'owner') {
+      res.status(403).json({ error: 'Forbidden' });
+      return;
+    }
+
+    try {
+      const inquiries = await prisma.brandInquiry.findMany({
+        orderBy: { createdAt: 'desc' }
+      });
+      res.status(200).json(inquiries);
+    } catch (err) {
+      console.error('Error fetching inquiries:', err);
+      res.status(500).json({ error: 'Failed to fetch inquiries' });
+    }
+  });
+
+  server.post('/api/admin/inquiries/:id/read', async (req: Request, res: Response) => {
+    const user = await getAuthUser(req);
+    if (!user || user.role !== 'owner') {
+      res.status(403).json({ error: 'Forbidden' });
+      return;
+    }
+
+    try {
+      await prisma.brandInquiry.update({
+        where: { id: req.params.id as string },
+        data: { status: 'read' }
+      });
+      res.status(200).json({ success: true });
+    } catch (err) {
+      console.error('Error updating inquiry:', err);
+      res.status(500).json({ error: 'Failed to update inquiry' });
+    }
+  });
+
   server.use((req: Request, res: Response) => {
     return handle(req, res);
   });

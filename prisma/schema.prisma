@@ -135,3 +135,14 @@ model Follow {
 
   @@unique([followerId, followingId])
 }
+
+model BrandInquiry {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  company   String?
+  budget    String?
+  message   String
+  status    String   @default("unread") // unread, read, archived
+  createdAt DateTime @default(now())
+}

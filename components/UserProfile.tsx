@@ -249,12 +249,12 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
             {!isOwnProfile && (
               <div style={{ marginTop: '16px', display: 'flex', gap: '12px' }}>
                 {friendStatus === 'none' && (
-                  <button style={{ background: 'var(--accent-primary)', color: 'white', border: 'none', padding: '8px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => handleFriendAction('follow')}>
+                  <button style={{ background: 'var(--accent-primary)', color: 'var(--bg-primary)', border: 'none', padding: '8px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => handleFriendAction('follow')}>
                     Follow
                   </button>
                 )}
                 {friendStatus === 'follower' && (
-                  <button style={{ background: 'var(--accent-primary)', color: 'white', border: 'none', padding: '8px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => handleFriendAction('follow')}>
+                  <button style={{ background: 'var(--accent-primary)', color: 'var(--bg-primary)', border: 'none', padding: '8px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => handleFriendAction('follow')}>
                     Follow Back
                   </button>
                 )}
@@ -444,7 +444,7 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
                       {friendsData.friends.map((friend: any) => (
                         <div key={friend.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }} onClick={() => window.location.href = `/user/${friend.playerId || friend.id}`}>
-                            {friend.avatarUrl ? <img src={friend.avatarUrl} alt="" style={{ width: '40px', height: '40px', borderRadius: '50%' }} /> : <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-primary)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{friend.displayName.charAt(0)}</div>}
+                            {friend.avatarUrl ? <img src={friend.avatarUrl} alt="" style={{ width: '40px', height: '40px', borderRadius: '50%' }} /> : <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-primary)', color: 'var(--bg-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{friend.displayName.charAt(0)}</div>}
                             <span style={{ fontWeight: 'bold', color: '#10b981' }}>{friend.displayName} ✓</span>
                           </div>
                           <button onClick={async () => {
@@ -467,13 +467,13 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
                         {friendsData.followers?.filter((f: any) => !friendsData.friends.find((fr: any) => fr.id === f.id)).map((follower: any) => (
                           <div key={follower.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }} onClick={() => window.location.href = `/user/${follower.playerId || follower.id}`}>
-                              {follower.avatarUrl ? <img src={follower.avatarUrl} alt="" style={{ width: '40px', height: '40px', borderRadius: '50%' }} /> : <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-primary)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{follower.displayName.charAt(0)}</div>}
+                              {follower.avatarUrl ? <img src={follower.avatarUrl} alt="" style={{ width: '40px', height: '40px', borderRadius: '50%' }} /> : <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-primary)', color: 'var(--bg-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{follower.displayName.charAt(0)}</div>}
                               <span style={{ fontWeight: 'bold' }}>{follower.displayName}</span>
                             </div>
                             <button onClick={async () => {
                               await fetch(`/api/friends/follow/${follower.id}`, { method: 'POST' });
                               fetch('/api/friends').then(r => r.json()).then(d => setFriendsData(d));
-                            }} style={{ flexShrink: 0, whiteSpace: 'nowrap', background: 'var(--accent-primary)', color: 'white', border: 'none', padding: '6px 12px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontSize: '0.9rem', fontWeight: 'bold' }}>Follow Back</button>
+                            }} style={{ flexShrink: 0, whiteSpace: 'nowrap', background: 'var(--accent-primary)', color: 'var(--bg-primary)', border: 'none', padding: '6px 12px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontSize: '0.9rem', fontWeight: 'bold' }}>Follow Back</button>
                           </div>
                         ))}
                       </div>
@@ -488,7 +488,7 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
                         {friendsData.following?.filter((f: any) => !friendsData.friends.find((fr: any) => fr.id === f.id)).map((following: any) => (
                           <div key={following.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }} onClick={() => window.location.href = `/user/${following.playerId || following.id}`}>
-                              {following.avatarUrl ? <img src={following.avatarUrl} alt="" style={{ width: '40px', height: '40px', borderRadius: '50%' }} /> : <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-primary)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{following.displayName.charAt(0)}</div>}
+                              {following.avatarUrl ? <img src={following.avatarUrl} alt="" style={{ width: '40px', height: '40px', borderRadius: '50%' }} /> : <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-primary)', color: 'var(--bg-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{following.displayName.charAt(0)}</div>}
                               <span style={{ fontWeight: 'bold' }}>{following.displayName}</span>
                             </div>
                              <button onClick={async () => {

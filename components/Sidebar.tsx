@@ -70,6 +70,12 @@ export default function Sidebar() {
         <span className="sidebar__icon"><Icon name="code" /></span>
         <span className="sidebar__label">{t('developer')}</span>
       </Link>
+      <Link href="/brand-integration" className={`sidebar__link ${pathname === '/brand-integration' ? 'active' : ''}`}>
+        <span className="sidebar__icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </span>
+        <span className="sidebar__label">Brand Integration</span>
+      </Link>
       {isOwner || isModerator ? (
         <Link href="/admin" className={`sidebar__link ${pathname === '/admin' ? 'active' : ''}`}>
           <span className="sidebar__icon"><Icon name="star" /></span>
