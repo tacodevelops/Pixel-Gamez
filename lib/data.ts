@@ -44,8 +44,6 @@ export const categories: Category[] = [
   { id: 'action', name: 'Action', icon: 'action' },
   { id: 'adventure', name: 'Adventure', icon: 'adventure' },
   { id: 'arcade', name: 'Arcade', icon: 'arcade' },
-  { id: 'board', name: 'Board', icon: 'board' },
-  { id: 'card', name: 'Card', icon: 'card' },
   { id: 'clicker', name: 'Clicker', icon: 'clicker' },
   { id: 'driving', name: 'Driving', icon: 'driving' },
   { id: 'io', name: '.io', icon: 'io' },

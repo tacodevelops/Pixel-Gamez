@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { categories, getGameCountByCategory } from '../lib/data';
@@ -46,16 +47,31 @@ export default function Sidebar() {
 
       <div className="sidebar__divider"></div>
 
-      {categories.map(category => (
-        <Link
-          key={category.id}
-          href={`/category/${category.id}`}
-          className={`sidebar__link ${pathname === `/category/${category.id}` ? 'active' : ''}`}
-        >
-          <span className="sidebar__icon"><Icon name={category.icon as IconName} /></span>
-          <span className="sidebar__label">{t(category.id) || category.name}</span>
-          <span className="sidebar__count">{getGameCountByCategory(category.id)}</span>
-        </Link>
+      {categories.map((category) => (
+        <React.Fragment key={category.id}>
+          <Link
+            href={`/category/${category.id}`}
+            className={`sidebar__link ${pathname === `/category/${category.id}` ? 'active' : ''}`}
+          >
+            <span className="sidebar__icon"><Icon name={category.icon as IconName} /></span>
+            <span className="sidebar__label">{t(category.id) || category.name}</span>
+            <span className="sidebar__count">{getGameCountByCategory(category.id)}</span>
+          </Link>
+
+          {/* Ad slot where 'Board' used to be (after Arcade) */}
+          {category.id === 'arcade' && (
+            <div style={{ padding: '8px 16px', minHeight: '100px' }}>
+              <AdSlot placement="sidebar" />
+            </div>
+          )}
+
+          {/* Ad slot where the red line ended (after Simulation) */}
+          {category.id === 'simulation' && (
+            <div style={{ padding: '8px 16px', minHeight: '100px' }}>
+              <AdSlot placement="sidebar" />
+            </div>
+          )}
+        </React.Fragment>
       ))}
 
       <div className="sidebar__divider"></div>
