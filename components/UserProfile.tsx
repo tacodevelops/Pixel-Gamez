@@ -389,7 +389,7 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
               ) : (
                 <GameCarousel 
                   title={`Games by ${displayUser.displayName}`} 
-                  games={submissions.map(sub => ({ ...sub, tags: sub.tags || [], id: sub.id.toString() } as any))} 
+                  games={submissions.map(sub => ({ ...sub, tags: (sub as any).tags || [], id: sub.id.toString() } as any))} 
                 />
               )}
             </div>
