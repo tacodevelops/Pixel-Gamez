@@ -13,22 +13,20 @@ interface GameCarouselProps {
 
 export default function GameCarousel({ title, games, viewMoreLink }: GameCarouselProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
-  // Default to true so they render immediately
+  
   const [canScrollLeft, setCanScrollLeft] = useState(true);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
   const checkScroll = useCallback(() => {
     const el = scrollRef.current;
     if (el) {
-      // Very simple logic: if we have more than 5 games, ALWAYS show the right arrow just to be safe.
-      // We will only hide the left arrow if we are exactly at 0.
+      
+      
       setCanScrollLeft(el.scrollLeft > 5);
       
       const isAtEnd = Math.ceil(el.scrollLeft) >= el.scrollWidth - el.clientWidth - 5;
       
-      // If we have 6 or more games, always show the right arrow (unless we are definitely at the end)
-      // If the browser thinks we are at the end, but we have 6+ games, we STILL show it just in case!
-      setCanScrollRight(!isAtEnd || games.length > 5);
+      setCanScrollRight(!isAtEnd);
     }
   }, [games.length]);
 
@@ -36,14 +34,14 @@ export default function GameCarousel({ title, games, viewMoreLink }: GameCarouse
     const el = scrollRef.current;
     if (!el) return;
     
-    // Initial check
+    
     checkScroll();
     
-    // Check on scroll and resize
+    
     el.addEventListener('scroll', checkScroll, { passive: true });
     window.addEventListener('resize', checkScroll);
     
-    // Try to trigger a check after images might have loaded
+    
     const timeout = setTimeout(checkScroll, 500);
 
     return () => {

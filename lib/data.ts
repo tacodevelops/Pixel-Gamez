@@ -115,7 +115,7 @@ export const games: Game[] = [
   { id: 'idle-restaurants', title: 'Idle Restaurants', description: 'Manage and upgrade your restaurant business.', category: 'clicker', tags: [], thumbnail: '/images/idle-restaurants.png', embedUrl: 'https://unblockedgames66.gitlab.io/idle-restaurants/', rating: 4.3, plays: 250000 },
   { id: 'flip-bottle', title: 'Flip Bottle', description: 'Can you master the bottle flip challenge?', category: 'arcade', tags: ['popular'], thumbnail: '/images/flip-bottle.png', embedUrl: 'https://unblockedgames66.gitlab.io/flip-bottle/', rating: 4.1, plays: 600000 },
   { id: 'baldis-basics', title: 'Baldi\'s Basics', description: 'A surreal horror educational game. Collect 7 notebooks and escape!', category: 'adventure', tags: ['popular', 'action'], thumbnail: '/images/baldis-basics.png', embedUrl: 'https://unblockedgames66.gitlab.io/baldis-basics/', rating: 4.6, plays: 1800000 },
-  { id: 'granny', title: 'Granny', description: 'Escape the house before Granny catches you!', category: 'adventure', tags: ['popular', 'action'], thumbnail: '/images/granny.png', embedUrl: 'https://unblockedgames66.gitlab.io/granny/', rating: 4.7, plays: 2100000 },
+  { id: 'granny', title: 'Granny', description: 'Escape the house before Granny catches you!', category: 'adventure', tags: ['popular', 'action'], thumbnail: '/images/granny.png', embedUrl: 'https://granny-games.com/', rating: 4.7, plays: 2100000 },
   { id: 'happy-wheels', title: 'Happy Wheels', description: 'A ragdoll physics-based platformer. Dodge deadly obstacles!', category: 'action', tags: ['popular'], thumbnail: '/images/happy-wheels.png', embedUrl: 'https://unblockedgames66.gitlab.io/happy-wheels/', rating: 4.8, plays: 4500000 },
   { id: 'sausage-flip', title: 'Sausage Flip', description: 'Fling the sausage to the finish line in this weirdly fun physics game.', category: 'arcade', tags: [], thumbnail: '/images/sausage-flip.png', embedUrl: 'https://unblockedgames66.gitlab.io/sausage-flip/', rating: 4.3, plays: 200000 },
   { id: 'slope-2-players', title: 'Slope 2 Players', description: 'Roll down the endless slope and compete with a friend!', category: 'arcade', tags: ['popular'], thumbnail: '/images/slope-2-players.png', embedUrl: 'https://unblockedgames66.gitlab.io/slope-2-players/', rating: 4.5, plays: 1500000 },
@@ -137,7 +137,7 @@ export const games: Game[] = [
   { id: 'dungeon-deck', title: 'Dungeon Deck', description: 'A roguelike deckbuilding game. Support the developer!', category: 'strategy', tags: ['new'], thumbnail: '/images/dungeon-deck.png', embedUrl: 'https://html-classic.itch.zone/html/15850529/index.html', developerLink: 'https://incinious.itch.io/dungeon-deck', rating: 4.6, plays: 12000 },
   { id: 'dndg', title: 'DNDG', description: 'A dungeon crawling adventure. Support the developer!', category: 'adventure', tags: ['new'], thumbnail: '/images/dungeons-and-degenerate-gamblers.png', embedUrl: 'https://html-classic.itch.zone/html/15020933/index.html', developerLink: 'https://purplemosscollectors.itch.io/dndg', rating: 4.4, plays: 8000 },
   { id: 'kraft-slash', title: 'Kraft & Slash', description: 'Action packed crafting and slashing. Support the developer!', category: 'action', tags: ['new'], thumbnail: '/images/kraft-slash.png', embedUrl: 'https://html-classic.itch.zone/html/14904819/index.html', developerLink: 'https://purejamgames.itch.io/kraft-slash', rating: 4.7, plays: 20000 },
-  { id: 'gladihoppers', title: 'Gladihoppers', description: 'Gladiator combat game with physics. Support the developer!', category: 'action', tags: ['popular'], thumbnail: '/images/gladiahppers.png', embedUrl: 'https://itch.io/embed/238179', developerLink: 'https://dreamonstudios.itch.io/gladihoppers', rating: 4.8, plays: 50000, downloadUrl: '/images/games/Gladihoppers_Win64_v_3_0_1.zip' },
+  { id: 'gladihoppers', title: 'Gladihoppers', description: 'Gladiator combat game with physics. Support the developer!', category: 'action', tags: ['popular'], thumbnail: '/images/gladiahppers.png', embedUrl: 'https://itch.io/embed-upload/238179?color=333333', developerLink: 'https://dreamonstudios.itch.io/gladihoppers', rating: 4.8, plays: 50000 },
   { id: 'scale-the-depths', title: 'Scale the Depths', description: 'An atmospheric underwater platformer. Support the developer!', category: 'adventure', tags: ['new'], thumbnail: '/images/scale-the-depths.png', embedUrl: 'https://html-classic.itch.zone/html/11252461/index.html?v=1732313552', developerLink: 'https://serpexnessie.itch.io/scale-the-depths', rating: 4.5, plays: 10000 },
   { id: 'wbwwb', title: 'We Become What We Behold', description: 'A game about news cycles, vicious cycles, infinite cycles. Support the developer!', category: 'simulation', tags: ['popular'], thumbnail: '/images/wdwwb.png', embedUrl: 'https://html-classic.itch.zone/html/300364/index.html?v=1542781840', developerLink: 'https://ncase.itch.io/wbwwb', rating: 4.9, plays: 100000 },
   { id: 'sort-the-court', title: 'Sort the Court!', description: 'Make decisions as a king to build your kingdom. Support the developer!', category: 'simulation', tags: ['popular'], thumbnail: '/images/sort-the-court.png', embedUrl: 'https://html-classic.itch.zone/html/347310/index.html?v=1542780889', developerLink: 'https://graebor.itch.io/sort-the-court', rating: 4.8, plays: 80000 },
@@ -567,19 +567,180 @@ export const games: Game[] = [
     developerName: 'Tashi501',
     rating: Number((Math.random() * 1.5 + 3.5).toFixed(1)),
     plays: Math.floor(Math.random() * 50000) + 1000
-  }
+  },
+  { id: 'retro-bowl', title: 'Retro Bowl', description: 'American football management game', category: 'sports', tags: ['new'], thumbnail: '/images/retro-bowl.png', embedUrl: 'https://retrobowlgame.org/retro-bowl.embed', rating: 4.5, plays:  0 },
+  { id: 'masterhealerkale', title: 'Master Healer Kale', description: 'Healing strategy game', category: 'strategy', tags: ['new'], thumbnail: '/images/masterhealerkale.png', embedUrl: 'https://itch.io/embed-upload/4563807?color=333333', rating: 4.5, plays: 0 },
+  { id: 'trash-hero', title: 'Trash Hero', description: 'Action cleaning game', category: 'action', tags: ['new'], thumbnail: '/images/trash-hero.png', embedUrl: 'https://itch.io/embed-upload/4561467?color=333333', rating: 4.5, plays: 0 },
+  { id: 'island-of-mine', title: 'Island of Mine', description: 'Adventure island', category: 'adventure', tags: ['new'], thumbnail: '/images/island-of-mine.png', embedUrl: 'https://itch.io/embed-upload/1476043?color=333333', rating: 4.5, plays: 0 },
+  { id: 'just-one-more-roll', title: 'Just One More Roll', description: 'Dice rolling puzzle', category: 'puzzle', tags: ['new'], thumbnail: '/images/just-one-more-roll.png', embedUrl: 'https://itch.io/embed-upload/4184629?color=333333', rating: 4.5, plays: 0 },
+  { id: 'idland', title: 'Idland', description: 'Idle strategy', category: 'strategy', tags: ['new'], thumbnail: '/images/idland.png', embedUrl: 'https://itch.io/embed-upload/4306745?color=333333', rating: 4.5, plays: 0 },
+  { id: 'trump-clicker-ld39', title: 'Trump Clicker', description: 'Clicker game', category: 'clicker', tags: ['new'], thumbnail: '/images/trump-clicker-ld39.png', embedUrl: 'https://itch.io/embed-upload/164191?color=333333', rating: 4.5, plays: 0 },
+  { id: 'idle-wealth', title: 'Idle Wealth', description: 'Wealth building idle', category: 'clicker', tags: ['new'], thumbnail: '/images/idle-wealth.png', embedUrl: 'https://itch.io/embed-upload/3802837?color=333333', rating: 4.5, plays: 0 },
+  { id: 'balls-gamble', title: 'Balls Gamble', description: 'Arcade gambling', category: 'arcade', tags: ['new'], thumbnail: '/images/balls-gamble.png', embedUrl: 'https://itch.io/embed-upload/4322741?color=333333', rating: 4.5, plays: 0 },
+  { id: 'chop-chains', title: 'Chop Chains', description: 'Action slasher', category: 'action', tags: ['new'], thumbnail: '/images/chop-chains.png', embedUrl: 'https://itch.io/embed-upload/3902152?color=333333', rating: 4.5, plays: 0 },
+{
+    id: 'papas-pizzeria',
+    title: "Papa's Pizzeria",
+    description: "Run your own restaurant in Papa's Pizzeria and serve delicious food to your customers!",
+    category: 'simulation',
+    tags: ['simulation', 'casual'],
+    thumbnail: '/images/papas-pizzeria.png',
+    embedUrl: 'https://papaspizzeria.io/papas-pizzeria.embed',
+    rating: 4.8,
+    plays: 0,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'papas-scooperia',
+    title: "Papa's Scooperia",
+    description: "Run your own restaurant in Papa's Scooperia and serve delicious food to your customers!",
+    category: 'simulation',
+    tags: ['simulation', 'casual'],
+    thumbnail: '/images/papas-scooperia.png',
+    embedUrl: 'https://papaspizzeria.io/papas-scooperia.embed',
+    rating: 4.8,
+    plays: 0,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'papas-sushiria',
+    title: "Papa's Sushiria",
+    description: "Run your own restaurant in Papa's Sushiria and serve delicious food to your customers!",
+    category: 'simulation',
+    tags: ['simulation', 'casual'],
+    thumbnail: '/images/papas-sushiria.png',
+    embedUrl: 'https://papaspizzeria.io/papas-sushiria.embed',
+    rating: 4.8,
+    plays: 0,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'papas-cheeseria',
+    title: "Papa's Cheeseria",
+    description: "Run your own restaurant in Papa's Cheeseria and serve delicious food to your customers!",
+    category: 'simulation',
+    tags: ['simulation', 'casual'],
+    thumbnail: '/images/papas-cheeseria.png',
+    embedUrl: 'https://papaspizzeria.io/papas-cheeseria.embed',
+    rating: 4.8,
+    plays: 0,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'papas-wingeria',
+    title: "Papa's Wingeria",
+    description: "Run your own restaurant in Papa's Wingeria and serve delicious food to your customers!",
+    category: 'simulation',
+    tags: ['simulation', 'casual'],
+    thumbnail: '/images/papas-wingeria.png',
+    embedUrl: 'https://papaspizzeria.io/papas-wingeria.embed',
+    rating: 4.8,
+    plays: 0,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'papas-cupcakeria',
+    title: "Papa's Cupcakeria",
+    description: "Run your own restaurant in Papa's Cupcakeria and serve delicious food to your customers!",
+    category: 'simulation',
+    tags: ['simulation', 'casual'],
+    thumbnail: '/images/papas-cupcakeria.png',
+    embedUrl: 'https://papaspizzeria.io/papas-cupcakeria.embed',
+    rating: 4.8,
+    plays: 0,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'papas-pancakeria',
+    title: "Papa's Pancakeria",
+    description: "Run your own restaurant in Papa's Pancakeria and serve delicious food to your customers!",
+    category: 'simulation',
+    tags: ['simulation', 'casual'],
+    thumbnail: '/images/papas-pancakeria.png',
+    embedUrl: 'https://papaspizzeria.io/papas-pancakeria.embed',
+    rating: 4.8,
+    plays: 0,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'papas-freezeria',
+    title: "Papa's Freezeria",
+    description: "Run your own restaurant in Papa's Freezeria and serve delicious food to your customers!",
+    category: 'simulation',
+    tags: ['simulation', 'casual'],
+    thumbnail: '/images/papas-freezeria.png',
+    embedUrl: 'https://papaspizzeria.io/papas-freezeria.embed',
+    rating: 4.8,
+    plays: 0,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'papas-donuteria',
+    title: "Papa's Donuteria",
+    description: "Run your own restaurant in Papa's Donuteria and serve delicious food to your customers!",
+    category: 'simulation',
+    tags: ['simulation', 'casual'],
+    thumbnail: '/images/papas-donuteria.png',
+    embedUrl: 'https://papaspizzeria.io/papas-donuteria.embed',
+    rating: 4.8,
+    plays: 0,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'papas-pastaria',
+    title: "Papa's Pastaria",
+    description: "Run your own restaurant in Papa's Pastaria and serve delicious food to your customers!",
+    category: 'simulation',
+    tags: ['simulation', 'casual'],
+    thumbnail: '/images/papas-pastaria.png',
+    embedUrl: 'https://papaspizzeria.io/papas-pastaria.embed',
+    rating: 4.8,
+    plays: 0,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'papas-burgeria',
+    title: "Papa's Burgeria",
+    description: "Run your own restaurant in Papa's Burgeria and serve delicious food to your customers!",
+    category: 'simulation',
+    tags: ['simulation', 'casual'],
+    thumbnail: '/images/papas-burgeria.png',
+    embedUrl: 'https://papaspizzeria.io/papas-burgeria.embed',
+    rating: 4.8,
+    plays: 0,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'papas-hot-doggeria',
+    title: "Papa's Hot Doggeria",
+    description: "Run your own restaurant in Papa's Hot Doggeria and serve delicious food to your customers!",
+    category: 'simulation',
+    tags: ['simulation', 'casual'],
+    thumbnail: '/images/papas-hot-doggeria.png',
+    embedUrl: 'https://papaspizzeria.io/papas-hot-doggeria.embed',
+    rating: 4.8,
+    plays: 0,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 'papas-bakeria',
+    title: "Papa's Bakeria",
+    description: "Run your own restaurant in Papa's Bakeria and serve delicious food to your customers!",
+    category: 'simulation',
+    tags: ['simulation', 'casual'],
+    thumbnail: '/images/papas-bakeria.png',
+    embedUrl: 'https://papaspizzeria.io/papas-bakeria.embed',
+    rating: 4.8,
+    plays: 0,
+    createdAt: new Date().toISOString()
+  },
 ];
-
 
 games.forEach(g => {
   if (!g.thumbnail) {
     g.thumbnail = makeThumbnail(g.title, g.category);
   }
 });
-
-
-
-
 
 export function getAllGames(): Game[] {
   return games;

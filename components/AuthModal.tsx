@@ -42,16 +42,16 @@ export default function AuthModal() {
       if (mode === 'login') {
         result = await login(email, password);
       } else if (mode === 'register') {
-        // --- TEMPORARILY BYPASS OTP ---
+        
         result = await register(email, password, displayName, '000000');
         
-        // TO RE-ENABLE OTP, UNCOMMENT THIS:
-        // result = await requestOTP(email);
-        // if (!result.error) {
-        //   setMode('otp');
-        //   setSubmitting(false);
-        //   return;
-        // }
+        
+        
+        
+        
+        
+        
+        
       } else if (mode === 'otp') {
         result = await register(email, password, displayName, code);
       }

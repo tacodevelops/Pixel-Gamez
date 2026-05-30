@@ -149,14 +149,14 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
       if (action === 'follow') {
         const res = await fetch(`/api/friends/follow/${displayUser.id}`, { method: 'POST' });
         if (res.ok) {
-          // If we followed them, we are now at least 'following'. If they already followed us, we are now 'friends'.
+          
           if (friendStatus === 'follower') setFriendStatus('friends');
           else setFriendStatus('following');
         }
       } else {
         const res = await fetch(`/api/friends/unfollow/${displayUser.id}`, { method: 'POST' });
         if (res.ok) {
-          // If we unfollowed them and we were friends, now we are just 'follower' (they still follow us).
+          
           if (friendStatus === 'friends') setFriendStatus('follower');
           else setFriendStatus('none');
         }
@@ -247,7 +247,7 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
               </span>
             </div>
             
-            {/* Friend Actions */}
+            {}
             {!isOwnProfile && (
               <div style={{ marginTop: '16px', display: 'flex', gap: '12px' }}>
                 {friendStatus === 'none' && (

@@ -7,7 +7,7 @@ import { games } from '../../../lib/data';
 export default async function UserPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   
-  // Look up by playerId (convert to Int) or UUID if we want backwards compatibility
+  
   const playerId = parseInt(id);
   const dbUser = await prisma.user.findUnique({
     where: isNaN(playerId) ? { id } : { playerId },

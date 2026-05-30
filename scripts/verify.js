@@ -1,0 +1,10 @@
+const d = require('fs').readFileSync('lib/data.ts','utf8');
+console.log('Total games:', (d.match(/id: '/g)||[]).length);
+const papas = d.match(/id: 'papas-[^']+'/g);
+console.log('Papa games:', papas.length);
+console.log(papas);
+console.log('Has retro-bowl-college:', d.includes('retro-bowl-college'));
+console.log('Has lumberer-island:', d.includes('lumberer-island'));
+console.log('Has level-devil:', d.includes("id: 'level-devil'"));
+console.log('Has world-conquest:', d.includes("id: 'world-conquest'"));
+console.log('Has cats:', d.includes("id: 'cats'"));

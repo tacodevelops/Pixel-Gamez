@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Game } from '../lib/data';
 import { useAuth } from './AuthContext';
 import { useI18n } from './I18nContext';
+import { usePlays } from './usePlays';
 import AdSlot from './AdSlot';
 
 interface GamePlayerProps {
@@ -13,6 +14,7 @@ interface GamePlayerProps {
 export default function GamePlayer({ game }: GamePlayerProps) {
   const { user, isLoggedIn, openAuthModal, toggleFavorite } = useAuth();
   const { t } = useI18n();
+  const plays = usePlays(game.id, game.plays);
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
   const [userVote, setUserVote] = useState<'like' | 'dislike' | null>(null);
@@ -47,6 +49,9 @@ export default function GamePlayer({ game }: GamePlayerProps) {
     fetchVotes();
     const storedVote = localStorage.getItem(`vote_${game.id}`);
     if (storedVote) setUserVote(storedVote as 'like' | 'dislike');
+    
+    
+    fetch(`/api/games/${game.id}/play`, { method: 'POST' }).catch(() => {});
   }, [game.id, fetchVotes]);
 
   const handleVote = async (type: 'like' | 'dislike') => {
@@ -111,15 +116,7 @@ export default function GamePlayer({ game }: GamePlayerProps) {
   return (
     <div className="game-player animate-scale-in">
       <div className="game-player__embed-wrapper" style={{ overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        {game.downloadUrl ? (
-          <div style={{ padding: '64px', textAlign: 'center', backgroundColor: 'var(--bg-secondary)', width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '24px' }}>
-            <h2 style={{ margin: 0, color: 'var(--text-primary)' }}>This game must be downloaded to play</h2>
-            <a href={game.downloadUrl} download className="game-player__btn game-player__btn--fav active" style={{ padding: '16px 32px', fontSize: '1.2rem', backgroundColor: 'var(--accent-primary)', color: 'black', textDecoration: 'none', borderRadius: '8px', border: 'none', fontWeight: 'bold' }}>
-              Download Game
-            </a>
-          </div>
-        ) : (
-          <iframe
+        <iframe
             id="game-iframe"
             className="game-player__iframe"
             src={game.embedUrl}
@@ -129,7 +126,6 @@ export default function GamePlayer({ game }: GamePlayerProps) {
             referrerPolicy="no-referrer"
             style={{ transform: `scale(${zoom})`, transformOrigin: 'center center', transition: 'transform 0.2s', width: '100%', height: '100%' }}
           ></iframe>
-        )}
       </div>
 
       <div className="game-player__controls">
@@ -140,11 +136,17 @@ export default function GamePlayer({ game }: GamePlayerProps) {
               return translated === `game_${game.id}_title` ? game.title : translated;
             })()}
           </h1>
-          <div className="game-player__tags">
-            {game.tags.map(tag => (
-              <span key={tag} className={`game-player__tag game-player__tag--${tag}`}>{t(tag) || tag}</span>
-            ))}
-          </div>
+            <div className="game-player__tags" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <span className="game-player__plays" style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.9rem', color: '#94a3b8', fontWeight: 500 }}>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                {new Intl.NumberFormat('en-US', { notation: "compact", compactDisplay: "short", maximumFractionDigits: 1 }).format(plays)} Plays
+              </span>
+              {game.tags.map(tag => (
+                <span key={tag} className={`game-player__tag game-player__tag--${tag}`}>{t(tag) || tag}</span>
+              ))}
+            </div>
         </div>
 
         <div className="game-player__actions">

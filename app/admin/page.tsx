@@ -480,7 +480,7 @@ export default function AdminPage() {
             <div className="admin-loading">Loading developer stats...</div>
           ) : (
             <div className="analytics-dashboard">
-              {/* KPIs */}
+              {}
               <div className="analytics-kpi-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 'var(--space-4)', marginBottom: 'var(--space-6)' }}>
                 <div className="admin-card" style={{ padding: 'var(--space-4)', textAlign: 'center' }}>
                   <div style={{ color: 'var(--text-dim)', fontSize: '0.9rem', marginBottom: '8px' }}>Total Global Plays</div>
@@ -502,7 +502,7 @@ export default function AdminPage() {
                 </div>
               </div>
 
-              {/* Detailed Table */}
+              {}
               <div className="admin-card" style={{ overflowX: 'auto' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: 'var(--space-4)', borderBottom: '1px solid var(--border)' }}>
                   <h3 style={{ margin: 0 }}>Game Engagement</h3>

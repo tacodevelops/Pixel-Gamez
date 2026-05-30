@@ -45,8 +45,8 @@ export default function GameAnalyticsPage({ params }: { params: { id: string } }
   const favorites = data._count?.favoritedBy || 0;
   const plays = data.plays || 0;
 
-  // Funnel calculations
-  const step1 = plays; // Base
+  
+  const step1 = plays; 
   const step2 = totalVotes;
   const step3 = favorites;
   const maxFunnel = Math.max(step1, 1);
