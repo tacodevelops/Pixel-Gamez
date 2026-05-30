@@ -12,7 +12,7 @@ interface GamePlayerProps {
 }
 
 export default function GamePlayer({ game }: GamePlayerProps) {
-  const { user, isLoggedIn, openAuthModal, toggleFavorite } = useAuth();
+  const { user, isLoggedIn, openAuthModal, toggleFavorite, addRecentGame } = useAuth();
   const { t } = useI18n();
   const plays = usePlays(game.id, game.plays);
   const [likes, setLikes] = useState(0);
@@ -23,6 +23,12 @@ export default function GamePlayer({ game }: GamePlayerProps) {
   const [zoom, setZoom] = useState(1);
 
   const isFavorited = user?.favoriteGames?.includes(game.id) ?? false;
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      addRecentGame(game.id).catch(() => {});
+    }
+  }, [game.id, isLoggedIn, addRecentGame]);
 
   const handleFavorite = async () => {
     if (!isLoggedIn) { openAuthModal(); return; }

@@ -4,21 +4,24 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, FormEvent, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { searchGames, Game } from '../lib/data';
+import { searchGames, games, Game } from '../lib/data';
 import { useAuth } from './AuthContext';
 import { useTheme } from './ThemeContext';
 import { useI18n } from './I18nContext';
 import LanguageSelector from './LanguageSelector';
+import ChatWidget from './ChatWidget';
 
 export default function Header() {
   const [search, setSearch] = useState('');
   const [results, setResults] = useState<Game[]>([]);
+  const [userResults, setUserResults] = useState<any[]>([]);
   const [notifications, setNotifications] = useState<any[]>([]);
   const [isNotifOpen, setIsNotifOpen] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isEditingProfile, setIsEditingProfile] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const router = useRouter();
   const dropdownRef = useRef<HTMLFormElement>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
@@ -30,11 +33,21 @@ export default function Header() {
 
   useEffect(() => {
     if (search.trim()) {
-      const found = searchGames(search).slice(0, 6);
-      setResults(found);
-      setIsDropdownOpen(true);
+      if (search.startsWith('@')) {
+        setResults([]);
+        fetch(`/api/users/search?q=${encodeURIComponent(search.substring(1))}`)
+          .then(res => res.json())
+          .then(data => { setUserResults(data); setIsDropdownOpen(true); })
+          .catch(() => setUserResults([]));
+      } else {
+        setUserResults([]);
+        const found = searchGames(search).slice(0, 6);
+        setResults(found);
+        setIsDropdownOpen(true);
+      }
     } else {
       setResults([]);
+      setUserResults([]);
       setIsDropdownOpen(false);
     }
   }, [search]);
@@ -58,6 +71,10 @@ export default function Header() {
         }
       })
       .catch(console.error);
+
+    const handleOpenChat = () => setIsChatOpen(true);
+    window.addEventListener('open-chat', handleOpenChat);
+    return () => window.removeEventListener('open-chat', handleOpenChat);
   }, []);
 
   useEffect(() => {
@@ -81,7 +98,16 @@ export default function Header() {
     e.preventDefault();
     if (search.trim()) {
       setIsDropdownOpen(false);
-      router.push(`/search?q=${encodeURIComponent(search)}`);
+      if (!search.startsWith('@')) {
+        router.push(`/search?q=${encodeURIComponent(search)}`);
+      }
+    }
+  };
+
+  const handleRandomize = () => {
+    if (games.length > 0) {
+      const randomGame = games[Math.floor(Math.random() * games.length)];
+      router.push(`/game/${randomGame.id}`);
     }
   };
 
@@ -133,8 +159,21 @@ export default function Header() {
         )}
         {isDropdownOpen && search.trim() && (
           <div className="search-dropdown">
-            {results.length > 0 ? (
+            {results.length > 0 || userResults.length > 0 ? (
               <>
+                {userResults.map(u => (
+                  <Link key={u.id} href={`/user/${u.id}`} className="search-dropdown__item" onClick={handleResultClick}>
+                    {u.avatarUrl ? (
+                      <Image src={u.avatarUrl} alt={u.displayName} width={32} height={32} style={{ borderRadius: '50%', objectFit: 'cover', marginRight: '10px' }} unoptimized />
+                    ) : (
+                      <div style={{ width: 32, height: 32, borderRadius: '50%', background: '#ff3366', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', marginRight: '10px' }}>{u.displayName.charAt(0).toUpperCase()}</div>
+                    )}
+                    <div className="search-dropdown__info">
+                      <div className="search-dropdown__title">{u.displayName}</div>
+                      <div className="search-dropdown__category">User</div>
+                    </div>
+                  </Link>
+                ))}
                 {results.map(game => (
                   <Link key={game.id} href={`/game/${game.id}`} className="search-dropdown__item" onClick={handleResultClick}>
                     <Image src={game.thumbnail} alt={game.title} width={60} height={45} className="search-dropdown__thumb" style={{ objectFit: 'cover' }} />
@@ -144,9 +183,11 @@ export default function Header() {
                     </div>
                   </Link>
                 ))}
-                <div className="search-dropdown__footer" onClick={() => { setIsDropdownOpen(false); router.push(`/search?q=${encodeURIComponent(search)}`); }}>
-                  See all results for &quot;{search}&quot;
-                </div>
+                {!search.startsWith('@') && (
+                  <div className="search-dropdown__footer" onClick={() => { setIsDropdownOpen(false); router.push(`/search?q=${encodeURIComponent(search)}`); }}>
+                    See all results for &quot;{search}&quot;
+                  </div>
+                )}
               </>
             ) : (
               <div className="search-dropdown__empty">No games found for &quot;{search}&quot;</div>
@@ -156,6 +197,9 @@ export default function Header() {
       </form>
 
       <div className="header__right">
+        <button className="header__theme-btn" onClick={handleRandomize} aria-label="Random Game" title="Play a random game">
+          <img src="/images/randomiser.png" alt="Random Game" width={20} height={20} style={{ filter: theme === 'dark' ? 'invert(1)' : 'none' }} />
+        </button>
         <LanguageSelector />
         
         <button className="header__theme-btn" onClick={toggleTheme} aria-label="Toggle theme" title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}>
@@ -168,6 +212,9 @@ export default function Header() {
 
         {isLoggedIn && user ? (
           <>
+            <button className="header__theme-btn" onClick={() => setIsChatOpen(!isChatOpen)} aria-label="Messages" title="Messages">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </button>
             <div className="header__notif" ref={notifMenuRef}>
               <button className="header__notif-btn" onClick={handleNotifClick}>
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
@@ -285,6 +332,7 @@ export default function Header() {
           <button className="header__signin-btn" onClick={openAuthModal}>{t('sign_in')}</button>
         )}
       </div>
+      {isChatOpen && <ChatWidget onClose={() => setIsChatOpen(false)} />}
     </header>
   );
 }

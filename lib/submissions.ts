@@ -13,7 +13,15 @@ export async function getPendingSubmissions() {
 }
 
 export async function getSubmissionsByUser(userId: string) {
-  return await prisma.submission.findMany({ where: { userId } });
+  return await prisma.submission.findMany({ 
+    where: { userId },
+    select: {
+      id: true, title: true, category: true, 
+      thumbnail: true, status: true, submittedAt: true, plays: true, 
+      rating: true, developerName: true,
+      description: true
+    }
+  });
 }
 
 export async function getSubmissionById(id: string) {

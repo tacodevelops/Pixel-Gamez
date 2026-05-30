@@ -212,7 +212,7 @@ app.prepare().then(() => {
         where: { email: normalizedEmail },
         include: { favoriteGames: { select: { id: true } } }
       });
-      if (!user || !bcrypt.compareSync(password, user.passwordHash)) {
+      if (!user || !user.passwordHash || !bcrypt.compareSync(password, user.passwordHash)) {
         res.status(401).json({ error: 'Invalid email or password.' });
         return;
       }
@@ -238,6 +238,78 @@ app.prepare().then(() => {
     if (token) await deleteSession(token);
     res.clearCookie(SESSION_COOKIE_NAME, { path: '/' });
     res.json({ success: true });
+  });
+
+  server.post('/api/auth/google', async (req: Request, res: Response) => {
+    try {
+      const { credential } = req.body;
+      if (!credential) {
+        res.status(400).json({ error: 'No credential provided.' });
+        return;
+      }
+
+      const { OAuth2Client } = require('google-auth-library');
+      const client = new OAuth2Client(process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID);
+      const ticket = await client.verifyIdToken({
+        idToken: credential,
+        audience: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+      });
+      const payload = ticket.getPayload();
+      if (!payload) {
+        res.status(401).json({ error: 'Invalid Google token.' });
+        return;
+      }
+
+      const { sub: googleId, email, name, picture } = payload;
+      const normalizedEmail = email ? email.toLowerCase().trim() : '';
+
+      let user = await prisma.user.findFirst({
+        where: {
+          OR: [
+            { googleId },
+            { email: normalizedEmail }
+          ]
+        },
+        include: { favoriteGames: { select: { id: true } } }
+      });
+
+      if (!user) {
+        // Create new user
+        user = await prisma.user.create({
+          data: {
+            email: normalizedEmail,
+            displayName: name || 'Google User',
+            googleId,
+            passwordHash: null,
+            avatarUrl: picture || '',
+            role: normalizedEmail === 'dahiruhammajam@gmail.com' ? 'owner' : 'user',
+          },
+          include: { favoriteGames: { select: { id: true } } }
+        });
+      } else if (!user.googleId) {
+        // Link existing user to googleId
+        user = await prisma.user.update({
+          where: { id: user.id },
+          data: { googleId },
+          include: { favoriteGames: { select: { id: true } } }
+        });
+      }
+
+      const token = await createSession(user.id);
+      res.cookie(SESSION_COOKIE_NAME, token, {
+        httpOnly: true,
+        maxAge: SESSION_COOKIE_MAX_AGE * 1000,
+        sameSite: 'lax',
+        path: '/',
+      });
+      
+      const { passwordHash: _, ...rest } = user;
+      const publicUser = { ...rest, favoriteGames: user.favoriteGames.map(g => g.id) };
+      res.json({ user: publicUser });
+    } catch (err: any) {
+      console.error('Google Auth Error:', err);
+      res.status(500).json({ error: 'Internal server error: ' + (err.message || 'Unknown error') });
+    }
   });
 
   server.get('/api/auth/me', async (req: Request, res: Response) => {
@@ -268,15 +340,18 @@ app.prepare().then(() => {
       }
     } catch {  }
 
-    fs.renameSync(req.file.path, destPath);
+    fs.copyFileSync(req.file.path, destPath);
+    fs.unlinkSync(req.file.path);
     const avatarUrl = `/avatars/${filename}?t=${Date.now()}`;
     
     try {
       const updated = await prisma.user.update({
         where: { id: user.id },
-        data: { avatarUrl }
+        data: { avatarUrl },
+        include: { favoriteGames: { select: { id: true } } }
       });
-      const { passwordHash: _, ...publicUser } = updated;
+      const { passwordHash: _, ...rest } = updated;
+      const publicUser = { ...rest, favoriteGames: updated.favoriteGames.map(g => g.id) };
       res.json({ success: true, user: publicUser });
     } catch (e) {
       res.status(500).json({ error: 'Failed to update avatar.' });
@@ -300,15 +375,18 @@ app.prepare().then(() => {
       }
     } catch {  }
 
-    fs.renameSync(req.file.path, destPath);
+    fs.copyFileSync(req.file.path, destPath);
+    fs.unlinkSync(req.file.path);
     const bannerUrl = `/banners/${filename}?t=${Date.now()}`;
     
     try {
       const updated = await prisma.user.update({
         where: { id: user.id },
-        data: { bannerUrl }
+        data: { bannerUrl },
+        include: { favoriteGames: { select: { id: true } } }
       });
-      const { passwordHash: _, ...publicUser } = updated;
+      const { passwordHash: _, ...rest } = updated;
+      const publicUser = { ...rest, favoriteGames: updated.favoriteGames.map(g => g.id) };
       res.json({ success: true, user: publicUser });
     } catch (e) {
       res.status(500).json({ error: 'Failed to update banner.' });
@@ -333,9 +411,11 @@ app.prepare().then(() => {
     try {
       const updated = await prisma.user.update({
         where: { id: user.id },
-        data: { bannerUrl: color }
+        data: { bannerUrl: color },
+        include: { favoriteGames: { select: { id: true } } }
       });
-      const { passwordHash: _, ...publicUser } = updated;
+      const { passwordHash: _, ...rest } = updated;
+      const publicUser = { ...rest, favoriteGames: updated.favoriteGames.map(g => g.id) };
       res.json({ user: publicUser });
     } catch (e) {
       res.status(500).json({ error: 'Failed to update banner.' });
@@ -350,16 +430,56 @@ app.prepare().then(() => {
     try {
       const updated = await prisma.user.update({
         where: { id: user.id },
-        data: { displayName: displayName.trim() }
+        data: { displayName: displayName.trim() },
+        include: { favoriteGames: { select: { id: true } } }
       });
-      const { passwordHash: _, ...publicUser } = updated;
+      const { passwordHash: _, ...rest } = updated;
+      const publicUser = { ...rest, favoriteGames: updated.favoriteGames.map(g => g.id) };
       res.json({ user: publicUser });
     } catch (e) {
       res.status(500).json({ error: 'Failed to update profile.' });
     }
   });
 
-  
+  server.post('/api/user/recent', async (req: Request, res: Response) => {
+    const user = await getAuthUser(req);
+    if (!user) { res.status(401).json({ error: 'Not authenticated.' }); return; }
+    
+    const { gameId } = req.body;
+    if (!gameId) { res.status(400).json({ error: 'gameId required.' }); return; }
+
+    const recent = user.recentGames || [];
+    const newRecent = [gameId, ...recent.filter((id: string) => id !== gameId)].slice(0, 10);
+
+    try {
+      const updated = await prisma.user.update({
+        where: { id: user.id },
+        data: { recentGames: newRecent },
+        include: { favoriteGames: { select: { id: true } } }
+      });
+      const { passwordHash: _, ...rest } = updated;
+      const publicUser = { ...rest, favoriteGames: updated.favoriteGames.map(g => g.id) };
+      res.json({ success: true, user: publicUser });
+    } catch (e) {
+      res.status(500).json({ error: 'Failed to update recent games.' });
+    }
+  });
+
+  server.get('/api/users/search', async (req: Request, res: Response) => {
+    const q = req.query.q as string;
+    if (!q) { res.json([]); return; }
+    
+    try {
+      const users = await prisma.user.findMany({
+        where: { displayName: { contains: q, mode: 'insensitive' } },
+        select: { id: true, displayName: true, avatarUrl: true },
+        take: 10
+      });
+      res.json(users);
+    } catch {
+      res.status(500).json({ error: 'Search failed' });
+    }
+  });
 
   server.get('/api/games/plays', async (req: Request, res: Response) => {
     try {
@@ -640,9 +760,11 @@ app.prepare().then(() => {
           aboutMe: aboutMe !== undefined ? aboutMe.slice(0, 500) : undefined,
           workingOn: workingOn !== undefined ? workingOn.slice(0, 500) : undefined,
           country: country !== undefined ? country.slice(0, 60) : undefined
-        }
+        },
+        include: { favoriteGames: { select: { id: true } } }
       });
-      const { passwordHash: _, ...publicUser } = updated;
+      const { passwordHash: _, ...rest } = updated;
+      const publicUser = { ...rest, favoriteGames: updated.favoriteGames.map(g => g.id) };
       res.json({ user: publicUser });
     } catch (e) {
       res.status(500).json({ error: 'Failed to update bio.' });
@@ -951,6 +1073,102 @@ app.prepare().then(() => {
       console.error('Error updating inquiry:', err);
       res.status(500).json({ error: 'Failed to update inquiry' });
     }
+  });
+
+  server.get('/api/chat/conversations', async (req: Request, res: Response) => {
+    const user = await getAuthUser(req);
+    if (!user) { res.status(401).json({ error: 'Not authenticated.' }); return; }
+
+    try {
+      const conversations = await prisma.conversation.findMany({
+        where: { participants: { some: { userId: user.id } } },
+        include: {
+          participants: { include: { user: { select: { id: true, displayName: true, avatarUrl: true } } } },
+          messages: { orderBy: { createdAt: 'desc' }, take: 1 }
+        },
+        orderBy: { createdAt: 'desc' }
+      });
+      res.json(conversations);
+    } catch { res.status(500).json({ error: 'Failed to fetch conversations' }); }
+  });
+
+  server.get('/api/chat/messages/:conversationId', async (req: Request, res: Response) => {
+    const user = await getAuthUser(req);
+    if (!user) { res.status(401).json({ error: 'Not authenticated.' }); return; }
+
+    const conversationId = req.params.conversationId as string;
+    try {
+      const isParticipant = await prisma.participant.findFirst({ where: { conversationId, userId: user.id } });
+      if (!isParticipant) { res.status(403).json({ error: 'Forbidden' }); return; }
+
+      const messages = await prisma.message.findMany({
+        where: { conversationId },
+        orderBy: { createdAt: 'asc' },
+        include: { sender: { select: { id: true, displayName: true, avatarUrl: true } } }
+      });
+      res.json(messages);
+    } catch { res.status(500).json({ error: 'Failed to fetch messages' }); }
+  });
+
+  server.post('/api/chat/messages', async (req: Request, res: Response) => {
+    const user = await getAuthUser(req);
+    if (!user) { res.status(401).json({ error: 'Not authenticated.' }); return; }
+
+    const text = req.body.text as string;
+    const conversationId = req.body.conversationId as string;
+    if (!text || !conversationId) { res.status(400).json({ error: 'Missing fields' }); return; }
+
+    try {
+      const isParticipant = await prisma.participant.findFirst({ where: { conversationId, userId: user.id } });
+      if (!isParticipant) { res.status(403).json({ error: 'Forbidden' }); return; }
+
+      const message = await prisma.message.create({
+        data: { conversationId, senderId: user.id, text },
+        include: { sender: { select: { id: true, displayName: true, avatarUrl: true } } }
+      });
+      res.json(message);
+    } catch { res.status(500).json({ error: 'Failed to send message' }); }
+  });
+
+  server.post('/api/chat/conversations', async (req: Request, res: Response) => {
+    const user = await getAuthUser(req);
+    if (!user) { res.status(401).json({ error: 'Not authenticated.' }); return; }
+
+    const { participantIds, isGroup, name } = req.body;
+    if (!participantIds || !Array.isArray(participantIds)) { res.status(400).json({ error: 'Invalid participants' }); return; }
+
+    try {
+      const pIds = Array.from(new Set([...participantIds, user.id]));
+      
+      if (!isGroup && pIds.length === 2) {
+        const existing = await prisma.conversation.findFirst({
+          where: {
+            isGroup: false,
+            AND: [
+              { participants: { some: { userId: pIds[0] } } },
+              { participants: { some: { userId: pIds[1] } } }
+            ]
+          },
+          include: {
+            participants: { include: { user: { select: { id: true, displayName: true, avatarUrl: true } } } },
+            messages: { orderBy: { createdAt: 'desc' }, take: 1 }
+          }
+        });
+        if (existing) { res.json(existing); return; }
+      }
+
+      const conversation = await prisma.conversation.create({
+        data: {
+          isGroup: !!isGroup,
+          name: name || null,
+          participants: { create: pIds.map(id => ({ userId: id })) }
+        },
+        include: {
+          participants: { include: { user: { select: { id: true, displayName: true, avatarUrl: true } } } }
+        }
+      });
+      res.json(conversation);
+    } catch { res.status(500).json({ error: 'Failed to create conversation' }); }
   });
 
   server.use((req: Request, res: Response) => {

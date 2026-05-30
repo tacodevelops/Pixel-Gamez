@@ -33,6 +33,7 @@ export default async function UserPage({ params }: { params: Promise<{ id: strin
     ...dbUser,
     createdAt: dbUser.createdAt.toISOString(),
     favoriteGames: dbUser.favoriteGames.map(g => g.id),
+    recentGames: dbUser.recentGames || [],
     followersCount,
     followingCount
   };

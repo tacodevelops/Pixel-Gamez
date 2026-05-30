@@ -2,9 +2,10 @@
 
 import { useState, FormEvent } from 'react';
 import { useAuth } from './AuthContext';
+import { GoogleLogin } from '@react-oauth/google';
 
 export default function AuthModal() {
-  const { showAuthModal, closeAuthModal, login, register, requestOTP } = useAuth();
+  const { showAuthModal, closeAuthModal, login, loginWithGoogle, register, requestOTP } = useAuth();
   const [mode, setMode] = useState<'login' | 'register' | 'otp'>('login');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -71,6 +72,28 @@ export default function AuthModal() {
     }
   };
 
+  const handleGoogleSuccess = async (credentialResponse: any) => {
+    if (credentialResponse.credential) {
+      setSubmitting(true);
+      setError('');
+      const result = await loginWithGoogle(credentialResponse.credential);
+      setSubmitting(false);
+      if (result.error) {
+        setError(result.error);
+      } else {
+        setSuccessMsg('Successfully logged in!');
+        setTimeout(() => {
+          resetForm();
+          closeAuthModal();
+        }, 1500);
+      }
+    }
+  };
+
+  const handleGoogleError = () => {
+    setError('Google login failed.');
+  };
+
   return (
     <div className="auth-overlay" onClick={closeAuthModal}>
       <div className="auth-modal" onClick={(e) => e.stopPropagation()}>
@@ -98,6 +121,18 @@ export default function AuthModal() {
           >
             Create Account
           </button>
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px', marginBottom: '16px' }}>
+          <GoogleLogin
+            onSuccess={handleGoogleSuccess}
+            onError={handleGoogleError}
+            useOneTap
+          />
+        </div>
+
+        <div style={{ textAlign: 'center', fontSize: '12px', color: '#666', marginBottom: '16px' }}>
+          — OR —
         </div>
 
         <form onSubmit={handleSubmit} className="auth-modal__form">

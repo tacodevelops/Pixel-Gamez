@@ -6,6 +6,7 @@ import { AuthProvider } from '../components/AuthContext';
 import { ThemeProvider } from '../components/ThemeContext';
 import { I18nProvider } from '../components/I18nContext';
 import AuthModal from '../components/AuthModal';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 export const metadata: Metadata = {
   title: 'PixelGamez — Free Online Games',
@@ -27,26 +28,28 @@ export default function RootLayout({
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5180435033473520" crossOrigin="anonymous"></script>
       </head>
       <body suppressHydrationWarning>
-        <I18nProvider>
-          <AuthProvider>
-          <ThemeProvider>
-            <div id="app">
-              <div id="app-header">
-                <Header />
-              </div>
-              <div id="app-sidebar">
-                <Sidebar />
-              </div>
-              <main id="app-main">
-                <div id="app-content">
-                  {children}
+        <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || 'dummy_client_id_please_configure_in_env'}>
+          <I18nProvider>
+            <AuthProvider>
+            <ThemeProvider>
+              <div id="app">
+                <div id="app-header">
+                  <Header />
                 </div>
-              </main>
-            </div>
-            <AuthModal />
-          </ThemeProvider>
-        </AuthProvider>
-        </I18nProvider>
+                <div id="app-sidebar">
+                  <Sidebar />
+                </div>
+                <main id="app-main">
+                  <div id="app-content">
+                    {children}
+                  </div>
+                </main>
+              </div>
+              <AuthModal />
+            </ThemeProvider>
+          </AuthProvider>
+          </I18nProvider>
+        </GoogleOAuthProvider>
       </body>
     </html>
   );

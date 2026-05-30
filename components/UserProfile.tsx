@@ -21,6 +21,7 @@ interface ProfileUser {
   workingOn: string;
   country: string;
   favoriteGames: string[];
+  recentGames: string[];
   bannerUrl?: string;
   followersCount?: number;
   followingCount?: number;
@@ -59,7 +60,7 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
 
   const [friendStatus, setFriendStatus] = useState<string>('none');
   const [friendsData, setFriendsData] = useState<any>(null);
-  const [activeTab, setActiveTab] = useState<'submissions' | 'favorites' | 'friends'>('submissions');
+  const [activeTab, setActiveTab] = useState<'submissions' | 'favorites' | 'friends' | 'recent'>('submissions');
 
   const avatarInputRef = useRef<HTMLInputElement>(null);
   const bannerInputRef = useRef<HTMLInputElement>(null);
@@ -246,9 +247,7 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
                 <strong style={{ color: 'white', marginRight: '4px' }}>{displayUser.followingCount || 0}</strong> Following
               </span>
             </div>
-            
-            {}
-            {!isOwnProfile && (
+            {!isOwnProfile && user && (
               <div style={{ marginTop: '16px', display: 'flex', gap: '12px' }}>
                 {friendStatus === 'none' && (
                   <button style={{ background: 'var(--accent-primary)', color: 'var(--bg-primary)', border: 'none', padding: '8px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => handleFriendAction('follow')}>
@@ -266,9 +265,27 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
                   </button>
                 )}
                 {friendStatus === 'friends' && (
-                  <button style={{ background: 'transparent', border: '1px solid var(--border)', color: '#ef4444', padding: '8px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => handleFriendAction('unfollow')}>
-                    Unfriend
-                  </button>
+                  <>
+                    <button style={{ background: 'transparent', border: '1px solid var(--border)', color: '#ef4444', padding: '8px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => handleFriendAction('unfollow')}>
+                      Unfriend
+                    </button>
+                    <button 
+                      onClick={async () => {
+                        const res = await fetch('/api/chat/conversations', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({ participantIds: [displayUser.id], isGroup: false })
+                        });
+                        if (res.ok) {
+                          const conversation = await res.json();
+                          window.dispatchEvent(new CustomEvent('open-chat', { detail: { conversation } }));
+                        }
+                      }}
+                      style={{ background: '#3a3a5a', border: 'none', color: 'white', padding: '8px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontWeight: 'bold' }}
+                    >
+                      Message
+                    </button>
+                  </>
                 )}
               </div>
             )}
@@ -373,6 +390,14 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
                 {friendsData?.pendingRequests?.length > 0 && <span style={{ marginLeft: '6px', background: '#ef4444', color: 'white', borderRadius: '50%', padding: '2px 6px', fontSize: '0.75rem' }}>{friendsData.pendingRequests.length}</span>}
               </button>
             )}
+            {isOwnProfile && (
+              <button
+                className={`profile-tab ${activeTab === 'recent' ? 'active' : ''}`}
+                onClick={() => setActiveTab('recent')}
+              >
+                {t('recent') || 'Recent'}
+              </button>
+            )}
           </div>
 
           {activeTab === 'submissions' && (
@@ -390,6 +415,26 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
                 <GameCarousel 
                   title={`Games by ${displayUser.displayName}`} 
                   games={submissions.map(sub => ({ ...sub, tags: (sub as any).tags || [], id: sub.id.toString() } as any))} 
+                />
+              )}
+            </div>
+          )}
+
+          {activeTab === 'recent' && isOwnProfile && (
+            <div className="profile-card-wrapper" style={{ marginBottom: 'var(--space-6)' }}>
+              {displayUser.recentGames?.length === 0 ? (
+                <div className="profile-card">
+                  <div className="profile-card__header">
+                    <h3 className="profile-card__title">Recently Played</h3>
+                  </div>
+                  <div className="profile-card__body">
+                    <p className="profile-card__empty">No recent games played yet.</p>
+                  </div>
+                </div>
+              ) : (
+                <GameCarousel 
+                  title="Recently Played" 
+                  games={(displayUser.recentGames || []).map(id => allGames.find(g => g.id === id)).filter(Boolean) as any} 
                 />
               )}
             </div>

@@ -19,7 +19,15 @@ async function getPendingSubmissions() {
     return await prisma_1.prisma.submission.findMany({ where: { status: 'pending' } });
 }
 async function getSubmissionsByUser(userId) {
-    return await prisma_1.prisma.submission.findMany({ where: { userId } });
+    return await prisma_1.prisma.submission.findMany({
+        where: { userId },
+        select: {
+            id: true, title: true, category: true,
+            thumbnail: true, status: true, submittedAt: true, plays: true,
+            rating: true, developerName: true,
+            description: true
+        }
+    });
 }
 async function getSubmissionById(id) {
     return await prisma_1.prisma.submission.findUnique({ where: { id } });

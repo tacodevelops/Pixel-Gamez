@@ -16,7 +16,8 @@ model User {
   playerId               Int            @unique @default(autoincrement())
   email                  String         @unique
   displayName            String
-  passwordHash           String
+  passwordHash           String?
+  googleId               String?        @unique
   role                   String         @default("user")
   avatarUrl              String         @default("")
   bannerUrl              String         @default("")
@@ -24,6 +25,7 @@ model User {
   aboutMe                String         @default("")
   workingOn              String         @default("")
   country                String         @default("")
+  recentGames            String[]       @default([])
   
   // Relations
   favoriteGames          Game[]         @relation("UserFavorites")
@@ -31,6 +33,8 @@ model User {
   sessions               Session[]
   following              Follow[]       @relation("Following")
   followers              Follow[]       @relation("Followers")
+  participants           Participant[]
+  messages               Message[]
 }
 
 model Game {
@@ -146,4 +150,35 @@ model BrandInquiry {
   message   String
   status    String   @default("unread") // unread, read, archived
   createdAt DateTime @default(now())
+}
+
+model Conversation {
+  id        String   @id @default(uuid())
+  isGroup   Boolean  @default(false)
+  name      String?
+  createdAt DateTime @default(now())
+
+  participants Participant[]
+  messages     Message[]
+}
+
+model Participant {
+  id             String       @id @default(uuid())
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  conversationId String
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId         String
+  joinedAt       DateTime     @default(now())
+
+  @@unique([conversationId, userId])
+}
+
+model Message {
+  id             String       @id @default(uuid())
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  conversationId String
+  sender         User         @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  senderId       String
+  text           String
+  createdAt      DateTime     @default(now())
 }

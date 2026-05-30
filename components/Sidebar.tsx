@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { categories, getGameCountByCategory } from '../lib/data';
+import { categories, getGameCountByCategory, games } from '../lib/data';
 import { Icon, IconName } from './Icons';
 import { useAuth } from './AuthContext';
 import { useI18n } from './I18nContext';
@@ -11,7 +11,7 @@ import AdSlot from './AdSlot';
 
 export default function Sidebar() {
   const pathname = usePathname();
-  const { isOwner, isModerator } = useAuth();
+  const { isOwner, isModerator, user } = useAuth();
   const { t } = useI18n();
 
   return (
@@ -44,6 +44,25 @@ export default function Sidebar() {
         <span className="sidebar__icon"><Icon name="star" /></span>
         <span className="sidebar__label">{t('recommended')}</span>
       </Link>
+
+      {user && user.recentGames && user.recentGames.length > 0 && (
+        <>
+          <div className="sidebar__divider"></div>
+          <div style={{ padding: '0 16px', fontSize: '12px', textTransform: 'uppercase', color: '#888', fontWeight: 'bold', marginBottom: '8px' }}>
+            {t('recently_played') || 'Recently Played'}
+          </div>
+          {user.recentGames.map(gameId => {
+            const game = games.find(g => g.id === gameId);
+            if (!game) return null;
+            return (
+              <Link key={`sidebar-recent-${game.id}`} href={`/game/${game.id}`} className={`sidebar__link ${pathname === `/game/${game.id}` ? 'active' : ''}`}>
+                <span className="sidebar__icon"><Icon name="controller" /></span>
+                <span className="sidebar__label" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{game.title}</span>
+              </Link>
+            );
+          })}
+        </>
+      )}
 
       <div className="sidebar__divider"></div>
 

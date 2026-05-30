@@ -27,6 +27,7 @@ export interface User {
   workingOn: string;
   country: string;
   favoriteGames: string[];
+  recentGames?: string[];
 }
 
 export type PublicUser = Omit<User, 'passwordHash'>;

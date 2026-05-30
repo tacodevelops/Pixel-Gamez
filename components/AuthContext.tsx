@@ -12,6 +12,7 @@ interface User {
   workingOn: string;
   country: string;
   favoriteGames: string[];
+  recentGames: string[];
 }
 
 interface AuthContextType {
@@ -24,12 +25,14 @@ interface AuthContextType {
   openAuthModal: () => void;
   closeAuthModal: () => void;
   login: (email: string, password: string) => Promise<{ error?: string }>;
+  loginWithGoogle: (credential: string) => Promise<{ error?: string }>;
   register: (email: string, password: string, displayName: string, code: string) => Promise<{ error?: string }>;
   requestOTP: (email: string) => Promise<{ error?: string }>;
   logout: () => Promise<void>;
   uploadAvatar: (file: File) => Promise<{ error?: string }>;
   updateBio: (data: { aboutMe?: string; workingOn?: string; country?: string }) => Promise<{ error?: string }>;
   toggleFavorite: (gameId: string, action: 'add' | 'remove') => Promise<{ error?: string }>;
+  addRecentGame: (gameId: string) => Promise<void>;
   refreshUser: () => Promise<void>;
 }
 
@@ -64,6 +67,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
     const data = await res.json();
     if (!res.ok) return { error: data.error || 'Login failed.' };
+    setUser(data.user);
+    return { success: true };
+  };
+
+  const loginWithGoogle = async (credential: string) => {
+    const res = await fetch('/api/auth/google', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ credential }),
+    });
+    const data = await res.json();
+    if (!res.ok) return { error: data.error || 'Google login failed.' };
     setUser(data.user);
     return { success: true };
   };
@@ -134,6 +149,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return {};
   };
 
+  const addRecentGame = async (gameId: string) => {
+    if (!user) return;
+    const res = await fetch('/api/user/recent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ gameId })
+    });
+    if (res.ok) {
+      const data = await res.json();
+      setUser(data.user);
+    }
+  };
+
   return (
     <AuthContext.Provider value={{
       user,
@@ -145,12 +173,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       openAuthModal: () => setShowAuthModal(true),
       closeAuthModal: () => setShowAuthModal(false),
       login,
+      loginWithGoogle,
       register,
       requestOTP,
       logout,
       uploadAvatar,
       updateBio,
       toggleFavorite,
+      addRecentGame,
       refreshUser,
     }}>
       {children}
