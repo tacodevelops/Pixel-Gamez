@@ -76,7 +76,7 @@ export default function Home() {
               games={games.slice(0, 14)}
               viewMoreLink={`/category/${category.id}`}
             />
-            {category.id === 'action' && (
+            {['action', 'simulation'].includes(category.id) && (
               <div style={{ margin: '32px 0' }}>
                 <AdSlot placement="banner-home" />
               </div>

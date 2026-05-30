@@ -24,9 +24,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/images/logo.png" type="image/png" />
         <link rel="apple-touch-icon" href="/images/logo.png" />
-        {adSenseClientId && (
-          <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adSenseClientId}`} crossOrigin="anonymous"></script>
-        )}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5180435033473520" crossOrigin="anonymous"></script>
       </head>
       <body suppressHydrationWarning>
         <I18nProvider>

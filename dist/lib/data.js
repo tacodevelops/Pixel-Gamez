@@ -88,7 +88,7 @@ exports.games = [
     { id: 'stack-bump-3d', title: 'Stack Bump 3D', description: 'Smash through the helix platforms and reach the bottom.', category: 'arcade', tags: [], thumbnail: '/images/stack-bump-3d.png', embedUrl: 'https://unblockedgames66.gitlab.io/stack-bump-3d/', rating: 4.2, plays: 400000 },
     { id: 'snake-io', title: 'Snake.io', description: 'Slither your way to the top in this competitive multiplayer snake game.', category: 'io', tags: ['popular'], thumbnail: '/images/snake-io.png', embedUrl: 'https://unblockedgames66.gitlab.io/snake-io/', rating: 4.6, plays: 2800000 },
     { id: 'smash-karts-io', title: 'Smash Karts', description: 'Multiplayer kart battle arena! Collect weapons and blow up your opponents.', category: 'io', tags: ['popular', 'action', 'driving'], thumbnail: '/images/smash-karts-io.png', embedUrl: 'https://unblockedgames66.gitlab.io/smash-karts-io/', rating: 4.8, plays: 1700000 },
-    { id: 'getaway-shootout', title: 'Getaway Shootout', description: 'Race to the getaway vehicle while jumping and shooting your rivals.', category: 'action', tags: ['popular'], thumbnail: '/images/getaway-shootout.png', embedUrl: 'https://unblockedgames66.gitlab.io/getaway-shootout/', rating: 4.7, plays: 850000 },
+    { id: 'getaway-shootout', title: 'Getaway Shootout', description: 'Race to the getaway vehicle while jumping and shooting your rivals.', category: 'arcade', tags: ['popular'], thumbnail: '/images/getaway-shootout.png', embedUrl: 'https://unblockedgames66.gitlab.io/getaway-shootout/', rating: 4.7, plays: 850000 },
     { id: 'drift-boss', title: 'Drift Boss', description: 'Timing is everything! Drift around tight corners to survive.', category: 'driving', tags: ['popular'], thumbnail: '/images/drift-boss.png', embedUrl: 'https://unblockedgames66.gitlab.io/drift-boss/', rating: 4.4, plays: 900000 },
     { id: 'johny-revenge', title: 'Johnny Revenge', description: 'Flip, shoot, and take down the bad guys in slow motion.', category: 'shooting', tags: ['action'], thumbnail: '/images/johny-revenge.png', embedUrl: 'https://unblockedgames66.gitlab.io/johny-revenge/', rating: 4.5, plays: 300000 },
     { id: 'johny-trigger', title: 'Johnny Trigger', description: 'More slow-motion shooting action as you clear out rooms of enemies.', category: 'shooting', tags: ['action', 'popular'], thumbnail: '/images/johny-trigger.png', embedUrl: 'https://unblockedgames66.gitlab.io/johny-trigger/', rating: 4.6, plays: 1100000 },
@@ -215,7 +215,7 @@ exports.games = [
         id: 'silhouette-showdown',
         title: 'Silhouette Showdown',
         description: 'Play Silhouette Showdown by Weentermakesgames on PixelGamez.',
-        category: 'action',
+        category: 'arcade',
         tags: ['new'],
         thumbnail: '/images/silhouette-showdown.png',
         embedUrl: 'https://html-classic.itch.zone/html/12735707/SilhouetteShowdownHTML_V090/index.html',
@@ -696,7 +696,18 @@ exports.games = [
         embedUrl: 'https://leveldevil-trollgame.github.io/',
         rating: 4.8,
         plays: 3500
-    }
+    },
+    {
+        id: 'worldguessr',
+        title: 'Worldguessr',
+        description: 'Explore the world and guess your location in this free alternative to Geoguessr.',
+        category: 'puzzle',
+        tags: ['exploration', 'geography', 'multiplayer'],
+        thumbnail: '/images/worldguessr.png',
+        embedUrl: 'https://www.worldguessr.com/',
+        rating: 4.9,
+        plays: 5000
+    },
 ];
 exports.games.forEach(g => {
     if (!g.thumbnail) {
