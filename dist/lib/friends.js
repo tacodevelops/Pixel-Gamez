@@ -44,11 +44,8 @@ async function getFriendsAndFollows(userId) {
     ]);
     const following = followingRecords.map(f => f.following);
     const followers = followerRecords.map(f => f.follower);
-    // Friends are those who are in both following and followers
     const followingIds = new Set(following.map(u => u.id));
     const friends = followers.filter(u => followingIds.has(u.id));
-    // If they are friends, we might want to exclude them from the pure "followers/following" list in the UI,
-    // but usually it's fine to just return all 3 lists and let the UI sort it out.
     return { friends, following, followers };
 }
 async function getFriendshipStatus(userId, targetId) {

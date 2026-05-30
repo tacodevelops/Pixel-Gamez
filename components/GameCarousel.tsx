@@ -14,7 +14,7 @@ interface GameCarouselProps {
 export default function GameCarousel({ title, games, viewMoreLink }: GameCarouselProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   
-  const [canScrollLeft, setCanScrollLeft] = useState(true);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
   const checkScroll = useCallback(() => {

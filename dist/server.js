@@ -138,12 +138,6 @@ app.prepare().then(() => {
                 return;
             }
             const normalizedEmail = email.toLowerCase().trim();
-            // --- TEMPORARILY BYPASS OTP VERIFICATION ---
-            // const verification = await prisma.verificationCode.findUnique({ where: { email: normalizedEmail } });
-            // if (!verification || verification.code !== code || verification.expiresAt < new Date()) {
-            //   res.status(400).json({ error: 'Invalid or expired verification code.' });
-            //   return;
-            // }
             const existingUser = await prisma_1.prisma.user.findUnique({ where: { email: normalizedEmail } });
             if (existingUser) {
                 res.status(400).json({ error: 'An account with this email already exists.' });
@@ -347,6 +341,34 @@ app.prepare().then(() => {
             res.status(500).json({ error: 'Failed to update profile.' });
         }
     });
+    server.get('/api/games/plays', async (req, res) => {
+        try {
+            const games = await prisma_1.prisma.game.findMany({
+                select: { id: true, plays: true }
+            });
+            const playsMap = games.reduce((acc, game) => {
+                acc[game.id] = game.plays;
+                return acc;
+            }, {});
+            res.json(playsMap);
+        }
+        catch (e) {
+            res.status(500).json({ error: 'Failed to fetch plays' });
+        }
+    });
+    server.post('/api/games/:id/play', async (req, res) => {
+        try {
+            const gameId = req.params.id;
+            await prisma_1.prisma.game.update({
+                where: { id: gameId },
+                data: { plays: { increment: 1 } }
+            }).catch(() => { });
+            res.json({ success: true });
+        }
+        catch (e) {
+            res.status(500).json({ error: 'Failed to track play' });
+        }
+    });
     server.get('/api/votes/:gameId', async (req, res) => {
         const votes = await (0, votes_1.getVotes)(req.params.gameId);
         res.json(votes);
@@ -445,7 +467,6 @@ app.prepare().then(() => {
             res.status(500).json({ error: error instanceof Error ? error.message : 'Failed to submit game' });
         }
     });
-    // --- USER MANAGEMENT ENDPOINTS ---
     server.get('/api/admin/users', async (req, res) => {
         try {
             const user = await getAuthUser(req);
@@ -492,7 +513,6 @@ app.prepare().then(() => {
             res.status(500).json({ error: 'Internal server error' });
         }
     });
-    // --- SUBMISSION ENDPOINTS ---
     server.get('/api/admin/pending', async (req, res) => {
         const user = await getAuthUser(req);
         if (!user || !(0, users_1.isAdmin)(user.id)) {
@@ -512,7 +532,6 @@ app.prepare().then(() => {
             res.status(404).json({ error: 'Submission not found.' });
             return;
         }
-        // Inject the game into lib/data.ts
         try {
             const dataPath = path_1.default.join(process.cwd(), 'lib', 'data.ts');
             let dataContent = fs_1.default.readFileSync(dataPath, 'utf-8');
@@ -551,7 +570,6 @@ app.prepare().then(() => {
             res.status(404).json({ error: 'User not found.' });
             return;
         }
-        // Fetch followers and following counts
         const followersCount = await prisma_1.prisma.follow.count({ where: { followingId: user.id } });
         const followingCount = await prisma_1.prisma.follow.count({ where: { followerId: user.id } });
         const allSubmissions = await prisma_1.prisma.submission.findMany({ where: { userId: user.id, status: 'approved' } });
@@ -767,7 +785,6 @@ app.prepare().then(() => {
         await (0, notifications_1.deleteNotification)(req.params.id);
         res.json({ success: true });
     });
-    // --- FRIENDS / FOLLOW ENDPOINTS ---
     server.get('/api/friends', async (req, res) => {
         const user = await getAuthUser(req);
         if (!user) {
@@ -820,7 +837,6 @@ app.prepare().then(() => {
                 return;
             }
             let html = await fetchRes.text();
-            // Inject <base> tag so relative assets load from the original itch.zone domain
             const baseUrl = new URL('.', targetUrl).href;
             const injectCss = `<style>
         html, body { width: 100% !important; height: 100% !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important; background-color: #000 !important; }

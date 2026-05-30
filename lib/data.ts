@@ -180,7 +180,7 @@ export const games: Game[] = [
     id: 'smashing-bottles',
     title: 'Smashing Bottles',
     description: 'Play Smashing Bottles by Blue Makes Games on PixelGamez.',
-    category: 'action',
+    category: 'clicker',
     tags: ['new'],
     thumbnail: '/images/smashing-bottles.png',
     embedUrl: 'https://html-classic.itch.zone/html/17723034/html/index.html?v=1780019605',
@@ -587,8 +587,7 @@ export const games: Game[] = [
     thumbnail: '/images/papas-pizzeria.png',
     embedUrl: 'https://papaspizzeria.io/papas-pizzeria.embed',
     rating: 4.8,
-    plays: 0,
-    createdAt: new Date().toISOString()
+    plays: 0
   },
   {
     id: 'papas-scooperia',
@@ -599,8 +598,7 @@ export const games: Game[] = [
     thumbnail: '/images/papas-scooperia.png',
     embedUrl: 'https://papaspizzeria.io/papas-scooperia.embed',
     rating: 4.8,
-    plays: 0,
-    createdAt: new Date().toISOString()
+    plays: 0
   },
   {
     id: 'papas-sushiria',
@@ -611,8 +609,7 @@ export const games: Game[] = [
     thumbnail: '/images/papas-sushiria.png',
     embedUrl: 'https://papaspizzeria.io/papas-sushiria.embed',
     rating: 4.8,
-    plays: 0,
-    createdAt: new Date().toISOString()
+    plays: 0
   },
   {
     id: 'papas-cheeseria',
@@ -623,8 +620,7 @@ export const games: Game[] = [
     thumbnail: '/images/papas-cheeseria.png',
     embedUrl: 'https://papaspizzeria.io/papas-cheeseria.embed',
     rating: 4.8,
-    plays: 0,
-    createdAt: new Date().toISOString()
+    plays: 0
   },
   {
     id: 'papas-wingeria',
@@ -635,8 +631,7 @@ export const games: Game[] = [
     thumbnail: '/images/papas-wingeria.png',
     embedUrl: 'https://papaspizzeria.io/papas-wingeria.embed',
     rating: 4.8,
-    plays: 0,
-    createdAt: new Date().toISOString()
+    plays: 0
   },
   {
     id: 'papas-cupcakeria',
@@ -647,8 +642,7 @@ export const games: Game[] = [
     thumbnail: '/images/papas-cupcakeria.png',
     embedUrl: 'https://papaspizzeria.io/papas-cupcakeria.embed',
     rating: 4.8,
-    plays: 0,
-    createdAt: new Date().toISOString()
+    plays: 0
   },
   {
     id: 'papas-pancakeria',
@@ -659,8 +653,7 @@ export const games: Game[] = [
     thumbnail: '/images/papas-pancakeria.png',
     embedUrl: 'https://papaspizzeria.io/papas-pancakeria.embed',
     rating: 4.8,
-    plays: 0,
-    createdAt: new Date().toISOString()
+    plays: 0
   },
   {
     id: 'papas-freezeria',
@@ -671,8 +664,7 @@ export const games: Game[] = [
     thumbnail: '/images/papas-freezeria.png',
     embedUrl: 'https://papaspizzeria.io/papas-freezeria.embed',
     rating: 4.8,
-    plays: 0,
-    createdAt: new Date().toISOString()
+    plays: 0
   },
   {
     id: 'papas-donuteria',
@@ -683,8 +675,7 @@ export const games: Game[] = [
     thumbnail: '/images/papas-donuteria.png',
     embedUrl: 'https://papaspizzeria.io/papas-donuteria.embed',
     rating: 4.8,
-    plays: 0,
-    createdAt: new Date().toISOString()
+    plays: 0
   },
   {
     id: 'papas-pastaria',
@@ -695,8 +686,7 @@ export const games: Game[] = [
     thumbnail: '/images/papas-pastaria.png',
     embedUrl: 'https://papaspizzeria.io/papas-pastaria.embed',
     rating: 4.8,
-    plays: 0,
-    createdAt: new Date().toISOString()
+    plays: 0
   },
   {
     id: 'papas-burgeria',
@@ -707,8 +697,7 @@ export const games: Game[] = [
     thumbnail: '/images/papas-burgeria.png',
     embedUrl: 'https://papaspizzeria.io/papas-burgeria.embed',
     rating: 4.8,
-    plays: 0,
-    createdAt: new Date().toISOString()
+    plays: 0
   },
   {
     id: 'papas-hot-doggeria',
@@ -719,8 +708,7 @@ export const games: Game[] = [
     thumbnail: '/images/papas-hot-doggeria.png',
     embedUrl: 'https://papaspizzeria.io/papas-hot-doggeria.embed',
     rating: 4.8,
-    plays: 0,
-    createdAt: new Date().toISOString()
+    plays: 0
   },
   {
     id: 'papas-bakeria',
@@ -731,9 +719,19 @@ export const games: Game[] = [
     thumbnail: '/images/papas-bakeria.png',
     embedUrl: 'https://papaspizzeria.io/papas-bakeria.embed',
     rating: 4.8,
-    plays: 0,
-    createdAt: new Date().toISOString()
+    plays: 0
   },
+  {
+    id: 'level-devil',
+    title: 'Level Devil',
+    description: 'Level Devil is a challenging puzzle platformer with unexpected traps.',
+    category: 'puzzle',
+    tags: ['platformer', 'hard', 'funny'],
+    thumbnail: '/images/level-devil.png',
+    embedUrl: 'https://leveldevil-trollgame.github.io/',
+    rating: 4.8,
+    plays: 3500
+  }
 ];
 
 games.forEach(g => {
