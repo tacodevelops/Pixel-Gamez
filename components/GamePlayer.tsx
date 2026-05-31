@@ -125,7 +125,7 @@ export default function GamePlayer({ game }: GamePlayerProps) {
         <iframe
             id="game-iframe"
             className="game-player__iframe"
-            src={game.embedUrl}
+            src={game.embedUrl.includes('itch.zone') ? `/api/proxy-game?url=${encodeURIComponent(game.embedUrl)}` : game.embedUrl}
             frameBorder="0"
             scrolling="no"
             allowFullScreen
