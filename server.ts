@@ -1094,6 +1094,10 @@ app.prepare().then(() => {
       } else {
         html = `<head><base href="${baseUrl}">${injectCss}</head>` + html;
       }
+      
+      // Strip out itch.io's anti-hotlinking script which replaces the DOM
+      html = html.replace(/<script[^>]*src=["']https:\/\/static\.itch\.io\/htmlgame\.js["'][^>]*><\/script>/gi, '');
+      
       res.send(html);
     } catch (e: any) {
       console.error('Proxy Error:', e);
