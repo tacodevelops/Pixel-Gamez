@@ -28,8 +28,11 @@ if (!fs.existsSync(communityGamesDir)) {
   fs.mkdirSync(communityGamesDir, { recursive: true });
 }
 
+const uploadsDir = path.join(process.cwd(), 'data', 'uploads');
+if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true });
+
 const upload = multer({
-  dest: path.join(process.cwd(), 'data', 'uploads'),
+  dest: uploadsDir,
   limits: { fileSize: 50 * 1024 * 1024 },
   fileFilter: (_req, file, cb) => {
     const allowed = ['.zip', '.html', '.htm'];
@@ -37,7 +40,6 @@ const upload = multer({
     cb(null, allowed.includes(ext));
   },
 });
-
 
 const avatarsDir = path.join(process.cwd(), 'public', 'avatars');
 if (!fs.existsSync(avatarsDir)) fs.mkdirSync(avatarsDir, { recursive: true });

@@ -130,6 +130,7 @@ export default function GamePlayer({ game }: GamePlayerProps) {
             scrolling="no"
             allowFullScreen
             referrerPolicy="no-referrer"
+            sandbox={game.embedUrl.includes('itch.io') || game.embedUrl.includes('itch.zone') ? "allow-scripts allow-same-origin allow-popups allow-forms allow-pointer-lock allow-downloads" : undefined}
             style={{ transform: `scale(${zoom})`, transformOrigin: 'center center', transition: 'transform 0.2s', width: '100%', height: '100%' }}
           ></iframe>
       </div>
