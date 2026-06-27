@@ -9,8 +9,6 @@ import { useAuth } from './AuthContext';
 import { useTheme } from './ThemeContext';
 import { useI18n } from './I18nContext';
 import LanguageSelector from './LanguageSelector';
-import ChatWidget from './ChatWidget';
-
 export default function Header() {
   const [search, setSearch] = useState('');
   const [results, setResults] = useState<Game[]>([]);
@@ -21,13 +19,12 @@ export default function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isEditingProfile, setIsEditingProfile] = useState(false);
-  const [isChatOpen, setIsChatOpen] = useState(false);
   const router = useRouter();
   const dropdownRef = useRef<HTMLFormElement>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
   const notifMenuRef = useRef<HTMLDivElement>(null);
   const avatarInputRef = useRef<HTMLInputElement>(null);
-  const { user, isLoggedIn, isOwner, isModerator, openAuthModal, logout, uploadAvatar } = useAuth();
+  const { user, isLoggedIn, isOwner, isModerator, openAuthModal, logout, uploadAvatar, loading } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const { t } = useI18n();
 
@@ -81,9 +78,6 @@ export default function Header() {
       })
       .catch(console.error);
 
-    const handleOpenChat = () => setIsChatOpen(true);
-    window.addEventListener('open-chat', handleOpenChat);
-    return () => window.removeEventListener('open-chat', handleOpenChat);
   }, []);
 
   useEffect(() => {
@@ -142,8 +136,7 @@ export default function Header() {
     <header className="header">
       <div className="header__left">
         <Link href="/" className="header__logo">
-          <Image src="/images/logo.png" alt="PixelGamez Logo" width={32} height={32} className="header__logo-icon" priority />
-          <span className="header__logo-text">PixelGamez</span>
+          <Image src="/images/logo/PixelGamezLogoText.png" alt="PixelGamez Logo" width={140} height={32} className="header__logo-icon" priority style={{ width: 'auto', height: '32px' }} unoptimized />
         </Link>
       </div>
 
@@ -221,9 +214,6 @@ export default function Header() {
 
         {isLoggedIn && user ? (
           <>
-            <button className="header__theme-btn" onClick={() => setIsChatOpen(!isChatOpen)} aria-label="Messages" title="Messages">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </button>
             <div className="header__notif" ref={notifMenuRef}>
               <button className="header__notif-btn" onClick={handleNotifClick}>
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
@@ -349,11 +339,10 @@ export default function Header() {
             )}
           </div>
           </>
-        ) : (
+        ) : !loading ? (
           <button className="header__signin-btn" onClick={openAuthModal}>{t('sign_in')}</button>
-        )}
+        ) : null}
       </div>
-      {isChatOpen && <ChatWidget onClose={() => setIsChatOpen(false)} />}
     </header>
   );
 }

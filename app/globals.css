@@ -647,7 +647,7 @@ h3 { font-size: var(--font-size-md); }
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 99;
+  z-index: 10;
   width: 52px;
   height: 52px;
   border-radius: 18px;

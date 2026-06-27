@@ -38,8 +38,11 @@ const communityGamesDir = path_1.default.join(process.cwd(), 'public', 'communit
 if (!fs_1.default.existsSync(communityGamesDir)) {
     fs_1.default.mkdirSync(communityGamesDir, { recursive: true });
 }
+const uploadsDir = path_1.default.join(process.cwd(), 'data', 'uploads');
+if (!fs_1.default.existsSync(uploadsDir))
+    fs_1.default.mkdirSync(uploadsDir, { recursive: true });
 const upload = (0, multer_1.default)({
-    dest: path_1.default.join(process.cwd(), 'data', 'uploads'),
+    dest: uploadsDir,
     limits: { fileSize: 50 * 1024 * 1024 },
     fileFilter: (_req, file, cb) => {
         const allowed = ['.zip', '.html', '.htm'];
@@ -141,6 +144,13 @@ app.prepare().then(() => {
             const existingUser = await prisma_1.prisma.user.findUnique({ where: { email: normalizedEmail } });
             if (existingUser) {
                 res.status(400).json({ error: 'An account with this email already exists.' });
+                return;
+            }
+            const existingName = await prisma_1.prisma.user.findFirst({
+                where: { displayName: { equals: displayName.trim(), mode: 'insensitive' } }
+            });
+            if (existingName) {
+                res.status(400).json({ error: 'This display name is already taken.' });
                 return;
             }
             if (password.length < 6) {
@@ -262,11 +272,18 @@ app.prepare().then(() => {
                 include: { favoriteGames: { select: { id: true } } }
             });
             if (!user) {
+                let baseName = name || 'Google User';
+                let finalName = baseName;
+                let suffix = 1;
+                while (await prisma_1.prisma.user.findFirst({ where: { displayName: { equals: finalName, mode: 'insensitive' } } })) {
+                    finalName = `${baseName}${suffix}`;
+                    suffix++;
+                }
                 // Create new user
                 user = await prisma_1.prisma.user.create({
                     data: {
                         email: normalizedEmail,
-                        displayName: name || 'Google User',
+                        displayName: finalName,
                         googleId,
                         passwordHash: null,
                         avatarUrl: picture || '',
@@ -338,6 +355,16 @@ app.prepare().then(() => {
             return;
         }
         try {
+            const existingName = await prisma_1.prisma.user.findFirst({
+                where: {
+                    displayName: { equals: displayName.trim(), mode: 'insensitive' },
+                    id: { not: user.id }
+                }
+            });
+            if (existingName) {
+                res.status(400).json({ error: 'This display name is already taken.' });
+                return;
+            }
             const updatedUser = await prisma_1.prisma.user.update({
                 where: { id: user.id },
                 data: { displayName: displayName.trim() },
@@ -1034,6 +1061,8 @@ app.prepare().then(() => {
             else {
                 html = `<head><base href="${baseUrl}">${injectCss}</head>` + html;
             }
+            // Strip out itch.io's anti-hotlinking script which replaces the DOM
+            html = html.replace(/<script[^>]*src=["']https:\/\/static\.itch\.io\/htmlgame\.js["'][^>]*><\/script>/gi, '');
             res.send(html);
         }
         catch (e) {

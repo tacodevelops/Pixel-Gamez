@@ -20,6 +20,17 @@ export default function Home() {
   const mostVisitedGames = getMostVisitedGames();
   const recommendedGames = getRecommendedGames();
 
+  let topPicks: typeof games = [];
+  if (user && user.recentGames && user.recentGames.length > 0) {
+    const recentCategories = user.recentGames
+      .map(id => games.find(g => g.id === id)?.category)
+      .filter(Boolean);
+    
+    if (recentCategories.length > 0) {
+      const preferredCategories = [...new Set(recentCategories)];
+      topPicks = recommendedGames.filter(g => preferredCategories.includes(g.category));
+    }
+  }
   
   const favoriteGames = user?.favoriteGames
     ? games.filter(g => user.favoriteGames.includes(g.id))
@@ -56,7 +67,9 @@ export default function Home() {
         <GameCarousel title="Your Favorites" games={favoriteGames.slice(0, 14)} viewMoreLink={`/user/${(user as any)?.playerId || user?.id}`} />
       )}
 
-      <GameCarousel title={t('top_picks')} games={recommendedGames.slice(0, 14)} viewMoreLink="/recommended" />
+      {topPicks.length > 0 && (
+        <GameCarousel title={t('top_picks')} games={topPicks.slice(0, 14)} viewMoreLink="/recommended" />
+      )}
       <GameCarousel title={t('trending')} games={trendingGames.slice(0, 14)} viewMoreLink="/trending" />
       
       <AdSlot placement="banner-home" />
