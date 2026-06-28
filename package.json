@@ -20,7 +20,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vendia/serverless-express": "^4.12.6",
-    "bad-words": "^4.0.0",
+    "bad-words": "^3.0.4",
     "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",
     "express": "^5.2.1",
