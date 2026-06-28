@@ -384,9 +384,6 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
 
         <div className="profile-col profile-col--right">
           <div className="profile-tabs" style={{ display: 'flex', gap: '8px', marginBottom: '16px', borderBottom: '1px solid var(--border)', paddingBottom: '8px' }}>
-            <button className={`admin-tab ${activeTab === 'submissions' ? 'active' : ''}`} onClick={() => setActiveTab('submissions')} style={{ background: 'none', border: 'none', color: activeTab === 'submissions' ? 'var(--text)' : 'var(--text-dim)', fontWeight: activeTab === 'submissions' ? 'bold' : 'normal', cursor: 'pointer' }}>
-              Submissions
-            </button>
             <button className={`admin-tab ${activeTab === 'favorites' ? 'active' : ''}`} onClick={() => setActiveTab('favorites')} style={{ background: 'none', border: 'none', color: activeTab === 'favorites' ? 'var(--text)' : 'var(--text-dim)', fontWeight: activeTab === 'favorites' ? 'bold' : 'normal', cursor: 'pointer' }}>
               Favorites
             </button>
@@ -406,25 +403,7 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
             )}
           </div>
 
-          {activeTab === 'submissions' && (
-            <div className="profile-card-wrapper" style={{ marginBottom: 'var(--space-6)' }}>
-              {submissions.length === 0 ? (
-                <div className="profile-card">
-                  <div className="profile-card__header">
-                    <h3 className="profile-card__title">Games by {displayUser.displayName}</h3>
-                  </div>
-                  <div className="profile-card__body">
-                    <p className="profile-card__empty">{displayUser.displayName} hasn't published any games yet.</p>
-                  </div>
-                </div>
-              ) : (
-                <GameGrid 
-                  title={`Games by ${displayUser.displayName}`} 
-                  games={submissions.map(sub => ({ ...sub, tags: (sub as any).tags || [], id: sub.id.toString() } as any))} 
-                />
-              )}
-            </div>
-          )}
+
 
           {activeTab === 'recent' && isOwnProfile && (
             <div className="profile-card-wrapper" style={{ marginBottom: 'var(--space-6)' }}>

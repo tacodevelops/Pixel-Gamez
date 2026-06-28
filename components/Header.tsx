@@ -214,47 +214,7 @@ export default function Header() {
 
         {isLoggedIn && user ? (
           <>
-            <div className="header__notif" ref={notifMenuRef}>
-              <button className="header__notif-btn" onClick={handleNotifClick}>
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                  <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                </svg>
-                {unreadCount > 0 && <span className="header__notif-badge">{unreadCount}</span>}
-              </button>
-              {isNotifOpen && (
-                <div className="header__notif-menu">
-                  <div className="header__notif-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <h4>Notices & Inbox</h4>
-                    {notifications.length > 0 && (
-                      <button 
-                        onClick={() => {
-                          localStorage.setItem('clearedNotifsAt', Date.now().toString());
-                          setNotifications([]);
-                          setUnreadCount(0);
-                        }}
-                        style={{ background: 'transparent', border: 'none', color: '#ff4444', fontSize: '0.8rem', cursor: 'pointer', fontWeight: 'bold' }}
-                      >
-                        Clear Inbox
-                      </button>
-                    )}
-                  </div>
-                  <div className="header__notif-list">
-                    {notifications.length > 0 ? (
-                      notifications.map(n => (
-                        <div key={n.id} className="header__notif-item">
-                          <h5>{n.title}</h5>
-                          <p>{n.message}</p>
-                          <small>{new Date(n.createdAt).toLocaleDateString()}</small>
-                        </div>
-                      ))
-                    ) : (
-                      <div className="header__notif-empty">No new notices.</div>
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
+
             <div className="header__user" ref={userMenuRef}>
               <button className="header__avatar" onClick={() => { setIsUserMenuOpen(!isUserMenuOpen); setIsEditingProfile(false); }} aria-label="User menu">
                 {user.avatarUrl ? (
