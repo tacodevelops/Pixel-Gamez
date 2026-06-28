@@ -1658,8 +1658,8 @@ h3 { font-size: var(--font-size-md); }
   padding: 11px;
   border: none;
   border-radius: var(--radius-md);
-  background: var(--text-primary);
-  color: var(--bg-base);
+  background: var(--accent-gradient);
+  color: white;
   font-size: var(--font-size-sm);
   font-weight: 800;
   cursor: pointer;
@@ -3174,3 +3174,12 @@ h3 { font-size: var(--font-size-md); }
 .profile-banner__menu-btn:hover {
   background: var(--bg-body);
 }
+
+
+/* --- Global Polish Animations --- */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.page-content { animation: fadeInUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+.game-grid { animation: fadeInUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+.game-card:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 12px 24px rgba(0,0,0,0.25); transition: all 0.3s ease; }
+.btn:hover, button:hover { transform: translateY(-1px); transition: all 0.2s ease; }
+.sidebar__item:hover, .header__user-link:hover { transform: translateX(2px); transition: all 0.2s ease; }

@@ -1,4 +1,7 @@
 import express from 'express';
+const Filter = require('bad-words');
+
+const profanityFilter = new Filter();
 import type { Request, Response } from 'express';
 import next from 'next';
 import path from 'path';
@@ -836,7 +839,11 @@ app.prepare().then(() => {
   server.post('/api/auth/bio', async (req: Request, res: Response) => {
     const user = await getAuthUser(req);
     if (!user) { res.status(401).json({ error: 'Not authenticated.' }); return; }
-    const { aboutMe, workingOn, country } = req.body;
+    let { aboutMe, workingOn, country } = req.body;
+    
+    if (aboutMe) aboutMe = profanityFilter.clean(aboutMe);
+    if (workingOn) workingOn = profanityFilter.clean(workingOn);
+
     try {
       const updated = await prisma.user.update({
         where: { id: user.id },

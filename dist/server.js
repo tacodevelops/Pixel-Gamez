@@ -15,6 +15,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const Filter = require('bad-words');
+const profanityFilter = new Filter();
 const next_1 = __importDefault(require("next"));
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
@@ -798,7 +800,11 @@ app.prepare().then(() => {
             res.status(401).json({ error: 'Not authenticated.' });
             return;
         }
-        const { aboutMe, workingOn, country } = req.body;
+        let { aboutMe, workingOn, country } = req.body;
+        if (aboutMe)
+            aboutMe = profanityFilter.clean(aboutMe);
+        if (workingOn)
+            workingOn = profanityFilter.clean(workingOn);
         try {
             const updated = await prisma_1.prisma.user.update({
                 where: { id: user.id },

@@ -62,30 +62,9 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
   const [editingDisplayName, setEditingDisplayName] = useState(false);
   const [displayNameText, setDisplayNameText] = useState(displayUser.displayName || '');
 
-  const [friendStatus, setFriendStatus] = useState<string>('none');
-  const [friendsData, setFriendsData] = useState<any>(null);
-  const [activeTab, setActiveTab] = useState<'submissions' | 'favorites' | 'friends' | 'recent'>('submissions');
+  const [color1, setColor1] = useState('#ec4899');
+  const [color2, setColor2] = useState('#8b5cf6');
 
-  const avatarInputRef = useRef<HTMLInputElement>(null);
-  const bannerInputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (!isOwnProfile && displayUser.id && user) {
-      fetch(`/api/friends/status/${displayUser.id}`)
-        .then(res => res.json())
-        .then(data => setFriendStatus(data.status))
-        .catch(() => {});
-    }
-  }, [isOwnProfile, displayUser.id, user]);
-
-  useEffect(() => {
-    if (isOwnProfile && user) {
-      fetch('/api/friends')
-        .then(res => res.json())
-        .then(data => setFriendsData(data))
-        .catch(() => {});
-    }
-  }, [isOwnProfile, user]);
 
   const joinDate = new Date(displayUser.createdAt).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -116,27 +95,6 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
     }
   };
 
-  const handleAvatarChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const res = await uploadAvatar(file);
-    if (!res.error) window.location.reload();
-    if (avatarInputRef.current) avatarInputRef.current.value = '';
-  };
-
-  const handleBannerChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const formData = new FormData();
-    formData.append('banner', file);
-    try {
-      const res = await fetch('/api/auth/banner', { method: 'POST', body: formData });
-      if (res.ok) window.location.reload();
-    } catch {}
-    if (bannerInputRef.current) bannerInputRef.current.value = '';
-    setShowBannerOptions(false);
-  };
-
   const handleBannerColorChange = async (color: string) => {
     try {
       const res = await fetch('/api/auth/banner-color', {
@@ -149,29 +107,7 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
     setShowBannerOptions(false);
   };
 
-  const handleFriendAction = async (action: 'follow' | 'unfollow') => {
-    if (!user) {
-      openAuthModal();
-      return;
-    }
-    try {
-      if (action === 'follow') {
-        const res = await fetch(`/api/friends/follow/${displayUser.id}`, { method: 'POST' });
-        if (res.ok) {
-          
-          if (friendStatus === 'follower') setFriendStatus('friends');
-          else setFriendStatus('following');
-        }
-      } else {
-        const res = await fetch(`/api/friends/unfollow/${displayUser.id}`, { method: 'POST' });
-        if (res.ok) {
-          
-          if (friendStatus === 'friends') setFriendStatus('follower');
-          else setFriendStatus('none');
-        }
-      }
-    } catch {}
-  };
+
 
   const presetGradients = [
     'linear-gradient(to right, #ec4899, #8b5cf6)',
@@ -193,39 +129,22 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
           <div className="profile-banner__edit-container">
             <button className="profile-banner__edit-btn" onClick={() => setShowBannerOptions(!showBannerOptions)}>Edit Banner</button>
             {showBannerOptions && (
-              <div className="profile-banner__options-menu">
-                <div className="profile-banner__color-grid">
-                  {presetGradients.map((grad, i) => (
-                    <button key={i} className="profile-banner__color-btn" style={{ background: grad }} onClick={() => handleBannerColorChange(grad)} />
-                  ))}
+              <div className="profile-banner__options-menu" style={{ padding: '12px', background: 'var(--bg-secondary)', borderRadius: '8px', border: '1px solid var(--border)', marginTop: '8px' }}>
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                  <input type="color" value={color1} onChange={e => setColor1(e.target.value)} style={{ width: '40px', height: '40px', padding: '0', border: 'none', borderRadius: '4px', cursor: 'pointer' }} />
+                  <input type="color" value={color2} onChange={e => setColor2(e.target.value)} style={{ width: '40px', height: '40px', padding: '0', border: 'none', borderRadius: '4px', cursor: 'pointer' }} />
+                  <button className="profile-banner__menu-btn" style={{ background: 'var(--accent-gradient)', color: 'white', fontWeight: 'bold', border: 'none' }} onClick={() => handleBannerColorChange(`linear-gradient(to right, ${color1}, ${color2})`)}>Save Gradient</button>
                 </div>
-                <button className="profile-banner__menu-btn" onClick={() => bannerInputRef.current?.click()}>Upload Image</button>
               </div>
             )}
           </div>
         )}
-        <input type="file" ref={bannerInputRef} style={{ display: 'none' }} accept="image/*" onChange={handleBannerChange} />
         
         <div className="profile-banner__content">
-          <div className="profile-avatar-wrapper" onClick={() => isOwnProfile && avatarInputRef.current?.click()}>
-            {displayUser.avatarUrl ? (
-              <Image src={displayUser.avatarUrl} alt={displayUser.displayName} className="profile-avatar__img" width={128} height={128} style={{ objectFit: 'cover' }} unoptimized />
-            ) : (
-              <div className="profile-avatar__placeholder">
-                {displayUser.displayName.charAt(0).toUpperCase()}
-              </div>
-            )}
-            {isOwnProfile && (
-              <div className="profile-avatar__overlay">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-                  <circle cx="12" cy="13" r="4" />
-                </svg>
-              </div>
-            )}
-            {isOwnProfile && (
-              <input ref={avatarInputRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={handleAvatarChange} />
-            )}
+          <div className="profile-avatar-wrapper" style={{ cursor: 'default' }}>
+            <div className="profile-avatar__placeholder" style={{ background: 'var(--accent-primary)', fontSize: '4rem' }}>
+              {displayUser.displayName.charAt(0).toUpperCase()}
+            </div>
           </div>
           <div className="profile-banner__info">
             <div className="profile-banner__name-row" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -269,39 +188,7 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
                   {displayUser.country}
                 </span>
               )}
-              <span className="profile-banner__meta-item" style={{ marginLeft: '12px' }}>
-                <strong style={{ color: 'white', marginRight: '4px' }}>{displayUser.followersCount || 0}</strong> Followers
-              </span>
-              <span className="profile-banner__meta-item">
-                <strong style={{ color: 'white', marginRight: '4px' }}>{displayUser.followingCount || 0}</strong> Following
-              </span>
             </div>
-            {!isOwnProfile && user && (
-              <div style={{ marginTop: '16px', display: 'flex', gap: '12px' }}>
-                {friendStatus === 'none' && (
-                  <button style={{ background: 'var(--accent-primary)', color: 'var(--bg-primary)', border: 'none', padding: '8px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => handleFriendAction('follow')}>
-                    Follow
-                  </button>
-                )}
-                {friendStatus === 'follower' && (
-                  <button style={{ background: 'var(--accent-primary)', color: 'var(--bg-primary)', border: 'none', padding: '8px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => handleFriendAction('follow')}>
-                    Follow Back
-                  </button>
-                )}
-                {friendStatus === 'following' && (
-                  <button style={{ background: 'var(--bg-tertiary)', color: 'var(--text-dim)', border: 'none', padding: '8px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => handleFriendAction('unfollow')}>
-                    Unfollow
-                  </button>
-                )}
-                {friendStatus === 'friends' && (
-                  <>
-                    <button style={{ background: 'transparent', border: '1px solid var(--border)', color: '#ef4444', padding: '8px 16px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontWeight: 'bold' }} onClick={() => handleFriendAction('unfollow')}>
-                      Unfriend
-                    </button>
-                  </>
-                )}
-              </div>
-            )}
           </div>
         </div>
       </div>
@@ -382,144 +269,7 @@ export default function UserProfile({ profileUser, submissions }: UserProfilePro
 
         </div>
 
-        <div className="profile-col profile-col--right">
-          <div className="profile-tabs" style={{ display: 'flex', gap: '8px', marginBottom: '16px', borderBottom: '1px solid var(--border)', paddingBottom: '8px' }}>
-            <button className={`admin-tab ${activeTab === 'favorites' ? 'active' : ''}`} onClick={() => setActiveTab('favorites')} style={{ background: 'none', border: 'none', color: activeTab === 'favorites' ? 'var(--text)' : 'var(--text-dim)', fontWeight: activeTab === 'favorites' ? 'bold' : 'normal', cursor: 'pointer' }}>
-              Favorites
-            </button>
-            {isOwnProfile && (
-              <button className={`admin-tab ${activeTab === 'friends' ? 'active' : ''}`} onClick={() => setActiveTab('friends')} style={{ background: 'none', border: 'none', color: activeTab === 'friends' ? 'var(--text)' : 'var(--text-dim)', fontWeight: activeTab === 'friends' ? 'bold' : 'normal', cursor: 'pointer' }}>
-                Friends
-                {friendsData?.pendingRequests?.length > 0 && <span style={{ marginLeft: '6px', background: '#ef4444', color: 'white', borderRadius: '50%', padding: '2px 6px', fontSize: '0.75rem' }}>{friendsData.pendingRequests.length}</span>}
-              </button>
-            )}
-            {isOwnProfile && (
-              <button
-                className={`profile-tab ${activeTab === 'recent' ? 'active' : ''}`}
-                onClick={() => setActiveTab('recent')}
-              >
-                {t('recent') || 'Recent'}
-              </button>
-            )}
-          </div>
 
-
-
-          {activeTab === 'recent' && isOwnProfile && (
-            <div className="profile-card-wrapper" style={{ marginBottom: 'var(--space-6)' }}>
-              {displayUser.recentGames?.length === 0 ? (
-                <div className="profile-card">
-                  <div className="profile-card__header">
-                    <h3 className="profile-card__title">Recently Played</h3>
-                  </div>
-                  <div className="profile-card__body">
-                    <p className="profile-card__empty">No recent games played yet.</p>
-                  </div>
-                </div>
-              ) : (
-                <GameGrid 
-                  title="Recently Played" 
-                  games={(displayUser.recentGames || []).map(id => allGames.find(g => g.id === id)).filter(Boolean).slice(0, 8) as any} 
-                />
-              )}
-            </div>
-          )}
-
-          {activeTab === 'favorites' && (
-            <div className="profile-card-wrapper" style={{ marginBottom: 'var(--space-6)' }}>
-              {displayUser.favoriteGames?.length === 0 ? (
-                <div className="profile-card">
-                  <div className="profile-card__header">
-                    <h3 className="profile-card__title">Favorite Games</h3>
-                  </div>
-                  <div className="profile-card__body">
-                    <p className="profile-card__empty">No favorite games yet.</p>
-                  </div>
-                </div>
-              ) : (
-                <GameGrid 
-                  title="Favorite Games" 
-                  games={displayUser.favoriteGames?.map(id => allGames.find(g => g.id === id)).filter(Boolean) as any || []} 
-                />
-              )}
-            </div>
-          )}
-
-          {activeTab === 'friends' && isOwnProfile && friendsData && (
-            <div className="profile-card">
-              <div className="profile-card__header">
-                <h3 className="profile-card__title">Friends & Requests</h3>
-              </div>
-              <div className="profile-card__body">
-                {friendsData.friends?.length > 0 && (
-                  <div style={{ marginBottom: '24px' }}>
-                    <h4 style={{ color: 'var(--text-dim)', marginBottom: '12px' }}>Mutual Friends</h4>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                      {friendsData.friends.map((friend: any) => (
-                        <div key={friend.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer', overflow: 'hidden' }} onClick={() => window.location.href = `/user/${friend.playerId || friend.id}`}>
-                            {friend.avatarUrl ? <Image src={friend.avatarUrl} alt="" width={40} height={40} style={{ borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }} unoptimized /> : <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-primary)', color: 'var(--bg-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{friend.displayName.charAt(0)}</div>}
-                            <span style={{ fontWeight: 'bold', color: '#10b981', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{friend.displayName} ✓</span>
-                          </div>
-                          <button onClick={async () => {
-                            await fetch(`/api/friends/unfollow/${friend.id}`, { method: 'POST' });
-                            fetch('/api/friends').then(r => r.json()).then(d => setFriendsData(d));
-                          }} style={{ background: 'transparent', color: '#ef4444', border: '1px solid var(--border)', padding: '6px 12px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontSize: '0.9rem' }}>Unfriend</button>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
-                  <div>
-                    <h4 style={{ color: 'var(--text-dim)', marginBottom: '12px' }}>Followers</h4>
-                    {friendsData.followers?.length === 0 ? (
-                      <p className="profile-card__empty" style={{ margin: 0 }}>No followers yet.</p>
-                    ) : (
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                        {friendsData.followers?.filter((f: any) => !friendsData.friends.find((fr: any) => fr.id === f.id)).map((follower: any) => (
-                          <div key={follower.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer', overflow: 'hidden' }} onClick={() => window.location.href = `/user/${follower.playerId || follower.id}`}>
-                              {follower.avatarUrl ? <Image src={follower.avatarUrl} alt="" width={40} height={40} style={{ borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }} unoptimized /> : <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-primary)', color: 'var(--bg-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{follower.displayName.charAt(0)}</div>}
-                              <span style={{ fontWeight: 'bold', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{follower.displayName}</span>
-                            </div>
-                            <button onClick={async () => {
-                              await fetch(`/api/friends/follow/${follower.id}`, { method: 'POST' });
-                              fetch('/api/friends').then(r => r.json()).then(d => setFriendsData(d));
-                            }} style={{ flexShrink: 0, whiteSpace: 'nowrap', background: 'var(--accent-primary)', color: 'var(--bg-primary)', border: 'none', padding: '6px 12px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontSize: '0.9rem', fontWeight: 'bold' }}>Follow Back</button>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                  <div>
-                    <h4 style={{ color: 'var(--text-dim)', marginBottom: '12px' }}>Following</h4>
-                    {friendsData.following?.length === 0 ? (
-                      <p className="profile-card__empty" style={{ margin: 0 }}>Not following anyone.</p>
-                    ) : (
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                        {friendsData.following?.filter((f: any) => !friendsData.friends.find((fr: any) => fr.id === f.id)).map((following: any) => (
-                          <div key={following.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer', overflow: 'hidden' }} onClick={() => window.location.href = `/user/${following.playerId || following.id}`}>
-                              {following.avatarUrl ? <Image src={following.avatarUrl} alt="" width={40} height={40} style={{ borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }} unoptimized /> : <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-primary)', color: 'var(--bg-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{following.displayName.charAt(0)}</div>}
-                              <span style={{ fontWeight: 'bold', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{following.displayName}</span>
-                            </div>
-                             <button onClick={async () => {
-                              await fetch(`/api/friends/unfollow/${following.id}`, { method: 'POST' });
-                              fetch('/api/friends').then(r => r.json()).then(d => setFriendsData(d));
-                            }} style={{ flexShrink: 0, whiteSpace: 'nowrap', background: 'var(--bg-tertiary)', color: 'var(--text-dim)', border: 'none', padding: '6px 12px', borderRadius: 'var(--radius-sm)', cursor: 'pointer', fontSize: '0.9rem', fontWeight: 'bold' }}>Unfollow</button>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          )}
-        </div>
       </div>
 
       <div style={{ marginTop: 'var(--space-6)' }}>
