@@ -136,7 +136,7 @@ export default function Header() {
     <header className="header">
       <div className="header__left">
         <Link href="/" className="header__logo">
-          <Image src="/images/logo/PixelGamezLogoText.png" alt="PixelGamez Logo" width={220} height={48} className="header__logo-icon" priority style={{ width: 'auto', height: '48px' }} unoptimized />
+          <Image src="/images/logo/PixelGamezLogoTextNoBackround.png" alt="PixelGamez Logo" width={220} height={48} className="header__logo-icon" priority style={{ width: 'auto', height: '48px' }} unoptimized />
         </Link>
       </div>
 
