@@ -151,6 +151,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const toggleFavorite = async (gameId: string, action: 'add' | 'remove') => {
+    if (user) {
+      const prevFavorites = user.favoriteGames || [];
+      const newFavorites = action === 'add' ? [...prevFavorites, gameId] : prevFavorites.filter(id => id !== gameId);
+      setUser({ ...user, favoriteGames: newFavorites });
+    }
     const res = await fetch(`/api/auth/favorite/${gameId}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

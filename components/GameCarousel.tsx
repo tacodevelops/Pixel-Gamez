@@ -78,7 +78,7 @@ export default function GameCarousel({ title, games, viewMoreLink }: GameCarouse
             className="carousel-arrow carousel-arrow--left" 
             onClick={() => scroll('left')} 
             aria-label="Scroll left"
-            style={{ display: 'flex', position: 'absolute', left: '8px', zIndex: 100 }}
+            style={{ display: 'flex', position: 'absolute', zIndex: 100 }}
           >
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
           </button>
@@ -97,7 +97,7 @@ export default function GameCarousel({ title, games, viewMoreLink }: GameCarouse
             className="carousel-arrow carousel-arrow--right" 
             onClick={() => scroll('right')} 
             aria-label="Scroll right"
-            style={{ display: 'flex', position: 'absolute', right: '8px', zIndex: 100 }}
+            style={{ display: 'flex', position: 'absolute', zIndex: 100 }}
           >
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"/></svg>
           </button>

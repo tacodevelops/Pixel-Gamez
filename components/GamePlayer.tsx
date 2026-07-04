@@ -66,9 +66,17 @@ export default function GamePlayer({ game }: GamePlayerProps) {
     }
     if (isVoting) return;
     setIsVoting(true);
+    
+    const previousUserVote = userVote;
+    const previousLikes = likes;
+    const previousDislikes = dislikes;
 
     try {
       if (userVote === type) {
+        setUserVote(null);
+        if (type === 'like') setLikes(l => l - 1);
+        if (type === 'dislike') setDislikes(d => d - 1);
+
         const res = await fetch(`/api/votes/${game.id}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -78,15 +86,25 @@ export default function GamePlayer({ game }: GamePlayerProps) {
           const data = await res.json();
           setLikes(data.likes);
           setDislikes(data.dislikes);
-          setUserVote(null);
           localStorage.removeItem(`vote_${game.id}`);
+        } else {
+          throw new Error('Failed to remove vote');
         }
       } else {
-        if (userVote) {
+        setUserVote(type);
+        if (type === 'like') {
+            setLikes(l => l + 1);
+            if (previousUserVote === 'dislike') setDislikes(d => d - 1);
+        } else {
+            setDislikes(d => d + 1);
+            if (previousUserVote === 'like') setLikes(l => l - 1);
+        }
+
+        if (previousUserVote) {
           await fetch(`/api/votes/${game.id}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ type: userVote, action: 'remove' }),
+            body: JSON.stringify({ type: previousUserVote, action: 'remove' }),
           });
         }
         const res = await fetch(`/api/votes/${game.id}`, {
@@ -98,12 +116,15 @@ export default function GamePlayer({ game }: GamePlayerProps) {
           const data = await res.json();
           setLikes(data.likes);
           setDislikes(data.dislikes);
-          setUserVote(type);
           localStorage.setItem(`vote_${game.id}`, type);
+        } else {
+          throw new Error('Failed to add vote');
         }
       }
     } catch {
-      
+      setUserVote(previousUserVote);
+      setLikes(previousLikes);
+      setDislikes(previousDislikes);
     } finally {
       setIsVoting(false);
     }

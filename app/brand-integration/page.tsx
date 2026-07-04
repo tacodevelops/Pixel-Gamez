@@ -39,12 +39,11 @@ export default function BrandIntegrationPage() {
           <li><strong>Sponsored Games:</strong> Feature your custom-branded games directly on our platform.</li>
           <li><strong>In-Game Advertising:</strong> Seamlessly integrate your brand into existing popular titles.</li>
           <li><strong>Homepage Takeovers:</strong> Maximize visibility with premium placement on our front page.</li>
-          <li><strong>Custom Tournaments:</strong> Sponsor competitive events and reward players with your products.</li>
         </ul>
       </div>
 
-      <div style={{ background: 'var(--bg-tertiary)', padding: '24px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)' }}>
-        <h2 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>Get in Touch</h2>
+      <div style={{ background: 'var(--bg-secondary)', padding: '32px', borderRadius: 'var(--radius-lg)', border: '2px solid var(--accent-primary)', boxShadow: '0 8px 32px rgba(236, 72, 153, 0.1)' }}>
+        <h2 style={{ fontSize: '1.5rem', marginBottom: '16px', color: 'var(--text-primary)' }}>Get in Touch</h2>
         <p style={{ marginBottom: '16px', color: 'var(--text-dim)' }}>
           Interested in partnering with us? Fill out the form below and our team will get back to you shortly.
         </p>
@@ -74,6 +73,13 @@ export default function BrandIntegrationPage() {
               />
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <input 
+                type="text" 
+                placeholder="Company Website" 
+                value={(formData as any).website || ''}
+                onChange={e => setFormData({...formData, website: e.target.value} as any)}
+                style={{ background: 'var(--bg-primary)', border: '1px solid var(--border)', color: 'var(--text-primary)', padding: '12px', borderRadius: 'var(--radius-md)' }} 
+              />
               <input 
                 type="text" 
                 placeholder="Company Name" 

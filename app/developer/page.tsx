@@ -10,6 +10,9 @@ export default function DeveloperPage() {
     <div className="dev-page animate-fade-in">
 
       <div className="dev-intro">
+        <div style={{ background: 'rgba(239, 68, 68, 0.1)', border: '1px solid #ef4444', color: '#ef4444', padding: '16px', borderRadius: '8px', marginBottom: '24px' }}>
+          <strong>Notice:</strong> This feature is currently inactive as we finalize payment and monetization systems for developers. Check back later!
+        </div>
         <h1>Publish your game</h1>
         <p>
           Got an HTML5 or Unity WebGL game? Upload it here and it&apos;ll be available
