@@ -163,8 +163,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
     const result = await res.json();
     if (!res.ok) {
-      // Revert if failed
-      setUser(user);
       return { error: result.error || 'Failed.' };
     }
     return {};

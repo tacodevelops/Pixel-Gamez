@@ -115,10 +115,8 @@ export default function GamePlayer({ game }: GamePlayerProps) {
           throw new Error('Failed to add vote');
         }
       }
-    } catch {
-      setUserVote(previousUserVote);
-      setLikes(previousLikes);
-      setDislikes(previousDislikes);
+    } catch (e) {
+      console.error('Vote failed:', e);
     } finally {
       setIsVoting(false);
     }
