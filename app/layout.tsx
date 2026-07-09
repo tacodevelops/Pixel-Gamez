@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import './globals.css';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
@@ -19,13 +20,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const adSenseClientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
-
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/images/logo/PixelGamezLogoNoBackround.png" type="image/png" />
         <link rel="apple-touch-icon" href="/images/logo/PixelGamezLogoNoBackround.png" />
-
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-FL7J3KLSH5"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-FL7J3KLSH5');
+          `}
+        </Script>
       </head>
       <body suppressHydrationWarning>
         <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || 'dummy_client_id_please_configure_in_env'}>
