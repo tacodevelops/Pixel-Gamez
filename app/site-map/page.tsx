@@ -6,60 +6,89 @@ export const metadata: Metadata = {
   description: 'Browse all pages available on PixelGamez.',
 }
 
-const sections: { title: string; links: { href: string; label: string }[] }[] = [
+const links: { href: string; label: string; description: string }[] = [
   {
-    title: 'Games',
-    links: [
-      { href: '/', label: 'Home' },
-      { href: '/trending', label: 'Trending' },
-      { href: '/new', label: 'New' },
-      { href: '/popular', label: 'Popular' },
-      { href: '/up-and-coming', label: 'Up & Coming' },
-      { href: '/most-visited', label: 'Most Visited' },
-      { href: '/recommended', label: 'Recommended' },
-    ],
+    href: '/',
+    label: 'Home',
+    description: 'The main entry to PixelGamez, showcasing our latest and most played free browser games.',
   },
   {
-    title: 'For Developers & Brands',
-    links: [
-      { href: '/developer', label: 'Developer' },
-      { href: '/brand-integration', label: 'Brand Integration' },
-    ],
+    href: '/trending',
+    label: 'Trending',
+    description: 'See what games are picking up momentum with players right now.',
   },
   {
-    title: 'Legal',
-    links: [
-      { href: '/privacy-policy', label: 'Privacy Policy' },
-      { href: '/terms-of-service', label: 'Terms of Service' },
-    ],
+    href: '/new',
+    label: 'New',
+    description: 'The freshest games just added to the site.',
+  },
+  {
+    href: '/popular',
+    label: 'Popular',
+    description: 'The most-played games on PixelGamez, all time.',
+  },
+  {
+    href: '/up-and-coming',
+    label: 'Up & Coming',
+    description: 'Rising games worth keeping an eye on before they blow up.',
+  },
+  {
+    href: '/most-visited',
+    label: 'Most Visited',
+    description: 'The games players keep coming back to.',
+  },
+  {
+    href: '/recommended',
+    label: 'Recommended',
+    description: 'Picks tailored to what you like to play.',
+  },
+  {
+    href: '/developer',
+    label: 'Developer',
+    description: 'Information for developers who want to submit or manage games on PixelGamez.',
+  },
+  {
+    href: '/brand-integration',
+    label: 'Brand Integration',
+    description: 'Partnership and sponsorship opportunities for brands.',
+  },
+  {
+    href: '/privacy-policy',
+    label: 'Privacy Policy',
+    description: 'How we collect, use, and protect your information.',
+  },
+  {
+    href: '/terms-of-service',
+    label: 'Terms of Service',
+    description: 'The terms and conditions for using PixelGamez.',
   },
 ]
 
 export default function SiteMapPage() {
   return (
-    <div className="max-w-3xl mx-auto px-6 py-12 text-[var(--text-primary)]">
-      <h1 className="text-3xl font-bold mb-2">Site Map</h1>
-      <p className="text-sm opacity-70 mb-10">
-        All pages available on PixelGamez.
-      </p>
+    <div className="min-h-screen bg-black text-white px-6 md:px-12 py-16 md:py-24">
+      <div className="max-w-3xl mx-auto">
+        <p className="text-xs md:text-sm font-bold tracking-[0.2em] text-red-500 uppercase mb-4">
+          / Navigation
+        </p>
+        <h1 className="text-5xl md:text-7xl font-black uppercase leading-[0.95] mb-16">
+          Site Map
+        </h1>
 
-      {sections.map((section) => (
-        <section key={section.title} className="mb-10">
-          <h2 className="text-xl font-semibold mb-4">{section.title}</h2>
-          <ul className="space-y-2">
-            {section.links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-red-500 hover:underline"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
+        {links.map((link, i) => (
+          <div key={link.href}>
+            {i > 0 && <div className="border-t border-white/10 my-10" />}
+            <Link href={link.href} className="group block">
+              <h2 className="text-xl md:text-2xl font-bold uppercase mb-2 group-hover:text-red-500 transition-colors">
+                {link.label}
+              </h2>
+              <p className="text-sm md:text-base opacity-70 leading-relaxed">
+                {link.description}
+              </p>
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
