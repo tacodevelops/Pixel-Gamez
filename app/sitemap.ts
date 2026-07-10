@@ -1,82 +1,65 @@
-import type { MetadataRoute } from 'next'
+import type { Metadata } from 'next'
+import Link from 'next/link'
 
-const BASE_URL = 'https://www.pixelgamez.com'
+export const metadata: Metadata = {
+  title: 'Site Map — PixelGamez',
+  description: 'Browse all pages available on PixelGamez.',
+}
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date()
+const sections: { title: string; links: { href: string; label: string }[] }[] = [
+  {
+    title: 'Games',
+    links: [
+      { href: '/', label: 'Home' },
+      { href: '/trending', label: 'Trending' },
+      { href: '/new', label: 'New' },
+      { href: '/popular', label: 'Popular' },
+      { href: '/up-and-coming', label: 'Up & Coming' },
+      { href: '/most-visited', label: 'Most Visited' },
+      { href: '/recommended', label: 'Recommended' },
+    ],
+  },
+  {
+    title: 'For Developers & Brands',
+    links: [
+      { href: '/developer', label: 'Developer' },
+      { href: '/brand-integration', label: 'Brand Integration' },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      { href: '/privacy-policy', label: 'Privacy Policy' },
+      { href: '/terms-of-service', label: 'Terms of Service' },
+    ],
+  },
+]
 
-  return [
-    {
-      url: `${BASE_URL}/`,
-      lastModified: now,
-      changeFrequency: 'daily',
-      priority: 1.0,
-    },
-    {
-      url: `${BASE_URL}/trending`,
-      lastModified: now,
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/new`,
-      lastModified: now,
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/popular`,
-      lastModified: now,
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/up-and-coming`,
-      lastModified: now,
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/most-visited`,
-      lastModified: now,
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/recommended`,
-      lastModified: now,
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/developer`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.6,
-    },
-    {
-      url: `${BASE_URL}/brand-integration`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.6,
-    },
-    {
-      url: `${BASE_URL}/privacy-policy`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${BASE_URL}/about-us`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${BASE_URL}/terms-of-service`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-  ]
+export default function SiteMapPage() {
+  return (
+    <div className="max-w-3xl mx-auto px-6 py-12 text-[var(--text-primary)]">
+      <h1 className="text-3xl font-bold mb-2">Site Map</h1>
+      <p className="text-sm opacity-70 mb-10">
+        All pages available on PixelGamez.
+      </p>
+
+      {sections.map((section) => (
+        <section key={section.title} className="mb-10">
+          <h2 className="text-xl font-semibold mb-4">{section.title}</h2>
+          <ul className="space-y-2">
+            {section.links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-red-500 hover:underline"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  )
 }
