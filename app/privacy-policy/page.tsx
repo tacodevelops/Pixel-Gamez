@@ -1,4 +1,7 @@
 import type { Metadata } from 'next'
+import { Anton } from 'next/font/google'
+
+const anton = Anton({ subsets: ['latin'], weight: '400' })
 
 export const metadata: Metadata = {
   title: 'Privacy Policy — PixelGamez',
@@ -41,10 +44,10 @@ export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-black text-white px-6 md:px-12 py-16 md:py-24">
       <div className="max-w-3xl mx-auto">
-        <p className="text-xs md:text-sm font-bold tracking-[0.2em] text-red-500 uppercase mb-4">
+        <p className="text-xs md:text-sm font-bold tracking-[0.2em] text-teal-400 uppercase mb-4">
           Legal
         </p>
-        <h1 className="text-5xl md:text-7xl font-black uppercase leading-[0.95] mb-6">
+        <h1 className={`${anton.className} text-5xl md:text-7xl uppercase leading-[0.95] mb-6`}>
           Privacy Policy
         </h1>
         <p className="text-sm opacity-60 mb-16">Effective Date: July 10, 2026</p>
@@ -52,7 +55,7 @@ export default function PrivacyPolicyPage() {
         {sections.map((section, i) => (
           <div key={section.title}>
             {i > 0 && <div className="border-t border-white/10 my-10" />}
-            <h2 className="text-xl md:text-2xl font-bold uppercase mb-3">
+            <h2 className={`${anton.className} text-xl md:text-2xl uppercase mb-3`}>
               {section.title}
             </h2>
             <p className="text-sm md:text-base opacity-70 leading-relaxed">
