@@ -181,13 +181,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  if (loading) {
-    return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: 'var(--bg-primary)' }}>
-        <div className="game-player__loader"></div>
-      </div>
-    );
-  }
+  // Removed global loading spinner to fix hydration errors and improve SSR.
+  // Individual components that require auth should check the `loading` state instead.
 
   return (
     <AuthContext.Provider value={{

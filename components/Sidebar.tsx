@@ -66,6 +66,13 @@ export default function Sidebar() {
       ) : null}
       
       <div className="sidebar__divider"></div>
+
+      <div style={{ padding: '0 20px', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.8rem', color: '#9ca3af', marginTop: 'auto', marginBottom: '16px' }}>
+        <Link href="/privacy-policy" className="sidebar__footer-link" style={{ textDecoration: 'none', color: '#9ca3af', transition: 'color 0.2s' }}>Privacy Policy</Link>
+        <Link href="/terms-of-service" className="sidebar__footer-link" style={{ textDecoration: 'none', color: '#9ca3af', transition: 'color 0.2s' }}>Terms of Service</Link>
+        <div style={{ marginTop: '4px' }}>&copy; 2026 PixelGamez</div>
+      </div>
+
       <AdSlot placement="sidebar" />
     </nav>
   );
