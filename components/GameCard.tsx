@@ -32,15 +32,41 @@ const GameCard = React.memo(function GameCard({ game }: GameCardProps) {
           {plays !== null ? new Intl.NumberFormat('en-US', { notation: "compact", compactDisplay: "short", maximumFractionDigits: 1 }).format(plays) : '...'}
         </span>
       </div>
-      {game.tags.length > 0 && (
-        <div className="game-card__badges">
-          {game.tags.slice(0, 1).map(tag => (
-            <span key={tag} className={`game-card__badge game-card__badge--${tag}`}>
-              {t(tag) || tag}
-            </span>
-          ))}
-        </div>
-      )}
+      {(() => {
+        const computedTags: string[] = [];
+        
+        if (game.createdAt && Date.now() - new Date(game.createdAt).getTime() <= 10 * 24 * 60 * 60 * 1000) {
+          computedTags.push('new');
+        }
+        
+        const currentPlays = plays !== null ? plays : game.plays;
+        if (currentPlays > 100000 || game.tags.includes('popular')) {
+          if (!computedTags.includes('popular')) computedTags.push('popular');
+        }
+
+        for (const tag of game.tags) {
+          if (computedTags.length >= 2) break;
+          if (tag !== 'new' && tag !== 'popular' && !computedTags.includes(tag)) {
+            computedTags.push(tag);
+          }
+        }
+        
+        if (computedTags.length === 0) {
+          computedTags.push(game.category);
+        }
+
+        const finalTags = computedTags.slice(0, 2);
+
+        return finalTags.length > 0 ? (
+          <div className="game-card__badges">
+            {finalTags.map(tag => (
+              <span key={tag} className={`game-card__badge game-card__badge--${tag.toLowerCase()}`}>
+                {t(tag) || tag}
+              </span>
+            ))}
+          </div>
+        ) : null;
+      })()}
     </Link>
   );
 });

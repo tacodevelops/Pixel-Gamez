@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { getFeaturedGames, getNewGames, getPopularGames, categories, getGamesByCategory, getTrendingGames, getUpAndComingGames, getMostVisitedGames, getRecommendedGames, games } from '../lib/data';
 import GameCarousel from '../components/GameCarousel';
@@ -12,12 +12,32 @@ import { useAuth } from '../components/AuthContext';
 export default function Home() {
   const { t } = useI18n();
   const { user } = useAuth();
+  const [playsMap, setPlaysMap] = useState<Record<string, number> | undefined>(undefined);
+
+  useEffect(() => {
+    let active = true;
+    const fetchPlays = async () => {
+      try {
+        const res = await fetch('/api/games/plays');
+        if (res.ok) {
+          const data = await res.json();
+          if (active) setPlaysMap(data);
+        }
+      } catch (err) {
+        console.error('Failed to fetch plays', err);
+      }
+    };
+    fetchPlays();
+    const interval = setInterval(fetchPlays, 15 * 60 * 1000); // 15 mins
+    return () => { active = false; clearInterval(interval); };
+  }, []);
+
   const featuredGames = getFeaturedGames();
   const newGames = getNewGames();
-  const popularGames = getPopularGames();
-  const trendingGames = getTrendingGames();
-  const upAndComingGames = getUpAndComingGames();
-  const mostVisitedGames = getMostVisitedGames();
+  const popularGames = getPopularGames(playsMap);
+  const trendingGames = getTrendingGames(playsMap);
+  const upAndComingGames = getUpAndComingGames(playsMap);
+  const mostVisitedGames = getMostVisitedGames(playsMap);
   const recommendedGames = getRecommendedGames();
 
   let topPicks: typeof games = [];
@@ -72,11 +92,23 @@ export default function Home() {
       )}
       <GameCarousel title={t('trending')} games={trendingGames.slice(0, 14)} viewMoreLink="/trending" />
       
-      <AdSlot placement="banner-home" />
+      <div style={{ margin: '32px 0' }}>
+        <AdSlot placement="banner-home" />
+      </div>
 
       <GameCarousel title={t('new')} games={newGames.slice(0, 14)} viewMoreLink="/new" />
       <GameCarousel title={t('most_visited')} games={mostVisitedGames.slice(0, 14)} viewMoreLink="/most-visited" />
+      
+      <div style={{ margin: '32px 0' }}>
+        <AdSlot placement="banner-home" />
+      </div>
+
       <GameCarousel title={t('up_and_coming')} games={upAndComingGames.slice(0, 14)} viewMoreLink="/up-and-coming" />
+      
+      <div style={{ margin: '32px 0' }}>
+        <AdSlot placement="banner-home" />
+      </div>
+      
       <GameCarousel title={t('popular')} games={popularGames.slice(0, 14)} viewMoreLink="/popular" />
 
       {categories.map(category => {
