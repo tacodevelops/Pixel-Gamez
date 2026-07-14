@@ -19,18 +19,6 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
-  async rewrites() {
-    // In production, use the actual backend URL from env vars
-    // Locally, default to localhost:8080
-    const backendUrl = process.env.API_URL || "http://localhost:8080";
-    
-    return [
-      {
-        source: "/api/:path*",
-        destination: `${backendUrl}/api/:path*`,
-      },
-    ];
-  },
 };
 
 export default nextConfig;
