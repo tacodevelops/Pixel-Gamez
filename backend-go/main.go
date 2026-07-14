@@ -28,7 +28,7 @@ func main() {
 	// Middleware
 	app.Use(logger.New())
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "http://localhost:3000, https://pixelgamez.com",
+		AllowOrigins:     "http://localhost:3000, https://pixelgamez.com, https://pixelgamez.vercel.app",
 		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",
 		AllowCredentials: true,
 	}))

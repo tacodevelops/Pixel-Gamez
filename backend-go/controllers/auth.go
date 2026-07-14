@@ -113,12 +113,19 @@ func Register(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "Failed to create session"})
 	}
 
+	isProd := c.Hostname() != "localhost" && c.Hostname() != "127.0.0.1"
+	sameSite := "lax"
+	if isProd {
+		sameSite = "none"
+	}
+
 	c.Cookie(&fiber.Cookie{
 		Name:     utils.SessionCookieName,
 		Value:    token,
 		HTTPOnly: true,
+		Secure:   isProd,
 		MaxAge:   int(utils.SessionMaxAge.Seconds()),
-		SameSite: "lax",
+		SameSite: sameSite,
 		Path:     "/",
 	})
 
@@ -165,12 +172,19 @@ func Login(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "Failed to create session"})
 	}
 
+	isProd := c.Hostname() != "localhost" && c.Hostname() != "127.0.0.1"
+	sameSite := "lax"
+	if isProd {
+		sameSite = "none"
+	}
+
 	c.Cookie(&fiber.Cookie{
 		Name:     utils.SessionCookieName,
 		Value:    token,
 		HTTPOnly: true,
+		Secure:   isProd,
 		MaxAge:   int(utils.SessionMaxAge.Seconds()),
-		SameSite: "lax",
+		SameSite: sameSite,
 		Path:     "/",
 	})
 
