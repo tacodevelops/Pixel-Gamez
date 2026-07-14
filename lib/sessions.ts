@@ -1,41 +1,34 @@
-import crypto from 'crypto';
-import { prisma } from './prisma';
+import jwt from 'jsonwebtoken';
 
-const SESSION_MAX_AGE = 30 * 24 * 60 * 60 * 1000; 
+const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret-for-development-only';
+const SESSION_MAX_AGE = 30 * 24 * 60 * 60 * 1000; // 30 days
 
 export async function createSession(userId: string): Promise<string> {
-  const token = crypto.randomBytes(32).toString('hex');
-  const now = Date.now();
-
-  await prisma.session.create({
-    data: {
-      token,
-      userId,
-      expiresAt: new Date(now + SESSION_MAX_AGE),
-    }
+  const token = jwt.sign({ userId }, JWT_SECRET, {
+    expiresIn: '30d'
   });
-
   return token;
 }
 
 export async function getSession(token: string) {
   if (!token) return null;
-  const session = await prisma.session.findUnique({ where: { token } });
-  if (!session) return null;
   
-  if (session.expiresAt.getTime() < Date.now()) {
-    await prisma.session.delete({ where: { token } });
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET) as { userId: string, exp: number };
+    return {
+      token,
+      userId: decoded.userId,
+      expiresAt: new Date(decoded.exp * 1000)
+    };
+  } catch (err) {
+    // Token is invalid or expired
     return null;
   }
-  return session;
 }
 
 export async function deleteSession(token: string): Promise<void> {
-  try {
-    await prisma.session.delete({ where: { token } });
-  } catch {
-    
-  }
+  // With JWT, we don't need to delete anything from the database.
+  // The client will just clear the cookie.
 }
 
 export const SESSION_COOKIE_NAME = 'pgz_session';

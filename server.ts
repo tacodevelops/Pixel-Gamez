@@ -568,8 +568,18 @@ app.prepare().then(() => {
     }
   });
 
+  let cachedPlaysMap: Record<string, number> | null = null;
+  let lastPlaysCacheTime = 0;
+  const PLAYS_CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
   server.get('/api/games/plays', async (req: Request, res: Response) => {
     try {
+      const now = Date.now();
+      if (cachedPlaysMap && (now - lastPlaysCacheTime < PLAYS_CACHE_TTL)) {
+        res.json(cachedPlaysMap);
+        return;
+      }
+
       const games = await prisma.game.findMany({
         select: { id: true, plays: true }
       });
@@ -577,6 +587,10 @@ app.prepare().then(() => {
         acc[game.id] = game.plays;
         return acc;
       }, {} as Record<string, number>);
+      
+      cachedPlaysMap = playsMap;
+      lastPlaysCacheTime = now;
+      
       res.json(playsMap);
     } catch (e) {
       res.status(500).json({ error: 'Failed to fetch plays' });

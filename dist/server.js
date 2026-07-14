@@ -554,8 +554,16 @@ app.prepare().then(() => {
             res.status(500).json({ error: 'Search failed' });
         }
     });
+    let cachedPlaysMap = null;
+    let lastPlaysCacheTime = 0;
+    const PLAYS_CACHE_TTL = 5 * 60 * 1000; // 5 minutes
     server.get('/api/games/plays', async (req, res) => {
         try {
+            const now = Date.now();
+            if (cachedPlaysMap && (now - lastPlaysCacheTime < PLAYS_CACHE_TTL)) {
+                res.json(cachedPlaysMap);
+                return;
+            }
             const games = await prisma_1.prisma.game.findMany({
                 select: { id: true, plays: true }
             });
@@ -563,6 +571,8 @@ app.prepare().then(() => {
                 acc[game.id] = game.plays;
                 return acc;
             }, {});
+            cachedPlaysMap = playsMap;
+            lastPlaysCacheTime = now;
             res.json(playsMap);
         }
         catch (e) {
