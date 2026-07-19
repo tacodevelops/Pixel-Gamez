@@ -1,0 +1,59 @@
+# Papa's Scooperia
+
+Papa's Scooperia has you baking cookies and building ice cream sundaes on top of them, following the same time-management structure as the rest of the Papa's Games series. It adds an extra step most other entries don't have — baking your own base from scratch before the sundae assembly even begins.
+
+## How to Play
+
+The setup ties into the wider Papa Louie storyline: after losing your belongings in Oniontown, you're left needing to earn your way back home, and Papa Louie offers a way to do it by opening an ice cream shop in the city. A short training day walks you through the basics before real customers start arriving.
+
+**The Four Stations**
+
+Scooperia splits its process across four distinct stations:
+
+- **Order Station** — Take incoming orders, typically a scoop of ice cream on a freshly baked cookie with a choice of toppings.
+- **Dough Station** — Scoop cookie dough and dip it in chocolate, vanilla, or colored chips before baking.
+- **Bake Station** — Bake the cookie, watching for the blinking green bar that signals it's ready, then plate and send it forward.
+- **Build Station** — Assemble the finished order, layering on ice cream, toppings, and anything else requested.
+
+Customers score you across several factors: how accurately the order matches what they asked for, how long they waited, how well the cookie was baked, and how cleanly the final dish came together. All of that adds up into your overall score and rank.
+
+**Progression**
+
+Higher ranks unlock new regular customers, additional ingredients, and cosmetic options for both your character and the shop itself. Between stations, optional bonus minigames offer a chance to earn extra points, and can be skipped if you'd rather stay focused on the main gameplay loop.
+
+**Closers**
+
+Even after the shop technically closes, a handful of extra customers — known as closers — tend to show up right at the end of the day. They're notably picky about scoring, so staying sharp through the final stretch matters.
+
+## Upgrades
+
+Tips earned throughout the day can be spent on shop upgrades, new outfits for your character, and furniture to improve the shop's appearance over time.
+
+## Features
+
+- 116 unlockable customers
+- Seven minigames with earnable prizes
+- Over 120 sundae ingredients to unlock
+- Extensive character customization options
+- 40 unique special recipes to master
+- Four seasons and 12 holiday events
+
+## Controls
+
+Played primarily with left-click and drag.
+
+## Background
+
+Papa's Scooperia was developed by Flipline Studios as the fourteenth entry in the Papa's Games series, and the last to originally release as a Flash game. It launched on Flash and Android in July 2018, with an iOS version following in August 2018. Players can choose between two characters, Carlo Romano or Koilee, both selected by the Papa Louie fanbase during development.
+
+## Platform
+
+Playable in the browser on both desktop and mobile, as well as on Android and iOS.
+
+## FAQ
+
+**Is Papa's Scooperia available on mobile?**
+Yes, it's playable on both iOS and Android in addition to desktop browsers.
+
+**How do you score well in Papa's Scooperia?**
+Success comes down to timing, memory, and precision — building each sundae exactly to the customer's order across all four stations.

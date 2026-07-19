@@ -1,0 +1,50 @@
+# Papa's Donuteria
+
+Papa's Donuteria hands you the fryer and the frosting, tasking you with building donuts from scratch for a steady line of customers. It carries the same time-management structure as the rest of the Papa's Games series, built around the specific steps of frying, coating, and topping a proper donut.
+
+## How to Play
+
+The setup is a bit gentler than most Papa's games: rather than being roped in through debt or an accident, Papa Louie simply gives you a shot at working the Donuteria, and takes you through the basics of donut-making from there.
+
+**Frying the Dough**
+
+Every order starts with rolling and slicing dough into neat rings, then frying them until they reach the marked line on one side before flipping to finish cooking the other. Getting the timing right here sets the foundation for the rest of the order — a donut that's under or overcooked won't score well no matter how well it's finished afterward.
+
+**Coating and Topping**
+
+Once fried, donuts move to the coating station, where they're dunked in glazes or sugar coatings, with filling pumped in for any order that calls for it. From there, it's on to toppings, where precision matters most — matching a customer's request exactly is what earns the highest satisfaction scores.
+
+## Downtime and Minigames
+
+After each shift, you get three chances to play one of several minigames, such as Papa's Raceria. Doing well earns a reward that helps you going forward, and tips collected during the day can be spent on upgrades for the shop.
+
+## Upgrading the Donuteria
+
+Beyond gameplay rewards, earnings can go toward decorations and equipment upgrades. Furniture and posters help keep customers patient while waiting, and better equipment speeds up food prep. Given enough time and effort, the entire shop can be outfitted with new furniture, flooring, and walls.
+
+## Features
+
+- Choose a premade character or build your own
+- A full donut-making process: frying, coating, filling, and topping
+- Unlockable minigames after each shift
+- A complete restaurant upgrade system
+
+## Controls
+
+Played entirely with the left mouse button.
+
+## Background
+
+Papa's Donuteria was developed by Flipline Studios, part of the wider Papa's Games series. It originally released as a Flash game in June 2014, with Android and iOS versions following in June 2019.
+
+## Platform
+
+Playable in the browser on both desktop and mobile, as well as on Android and iOS.
+
+## FAQ
+
+**Is Papa's Donuteria free to play?**
+Yes, it's playable online at no cost.
+
+**Does Papa's Donuteria have an ending?**
+Yes, the game concludes at Rank 61.

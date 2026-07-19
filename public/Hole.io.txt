@@ -1,0 +1,39 @@
+# Hole.io
+
+Hole.io hands you control of a hole in the ground and sets you loose on a city, where the entire goal is simple: eat everything smaller than you until you're the biggest hole around. Cars, streetlights, buildings, even other holes — if it fits, it's fair game.
+
+## How to Play
+
+Movement is as simple as dragging your hole around the map with the mouse or your finger. Anything smaller than your current size gets swallowed on contact, growing your hole a little more with every object consumed. That growth is the whole engine of the game: bigger holes can eat bigger things, which means early growth compounds quickly if you play it smart.
+
+The best approach early on is targeting small, easy objects rather than going after anything flashy — building size steadily gives you the option to start consuming larger structures, and eventually other holes on the map, once you're big enough to safely take them on. Getting too ambitious too early, on the other hand, usually just means bouncing off something you're not big enough to eat yet.
+
+**Game Modes**
+
+Hole.io includes a few different ways to play. Classic and Battle modes pit you against computer-controlled opponents competing to be the biggest hole by the end of the match, while a separate Solo mode drops the competition entirely — instead, the goal is consuming as much of the city as possible, aiming for close to 100%, within a two-minute time limit.
+
+## Features
+
+- Simple drag-to-move controls
+- Growth-based gameplay where size determines what you can consume
+- Multiple modes, including head-to-head and solo city-clearing challenges
+- Cityscapes filled with a wide variety of consumable objects
+
+## Background
+
+Hole.io was developed and published by Voodoo, a French mobile game studio, and originally released in 2018. It found early success as a hyper-casual hit, known for its simple, instantly understandable mechanics.
+
+## Platform
+
+Playable in the browser, as well as on Android, iOS, Windows, and consoles including PlayStation and Xbox.
+
+## FAQ
+
+**Is Hole.io played against real players?**
+No — both the Classic and Battle modes pit you against computer-controlled opponents rather than other real players online.
+
+**What's the goal of Solo mode?**
+Rather than competing against other holes, Solo mode challenges you to consume close to 100% of the city within a two-minute time limit.
+
+**Who developed Hole.io?**
+Hole.io was created by Voodoo.

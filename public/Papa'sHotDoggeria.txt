@@ -1,0 +1,53 @@
+# Papa's Hot Doggeria
+
+Papa's Hot Doggeria has you grilling hot dogs for baseball fans, following the same time-management format as the rest of the Papa's Games series. It swaps out the usual restaurant setting for a ballpark backdrop, though the core rhythm of building fast, accurate orders stays exactly the same.
+
+## How to Play
+
+The setup here is a bit of a bait-and-switch: with season tickets sold out, working at Papa's Hot Doggeria becomes the only way in to a baseball game — except instead of watching the action, you're stuck watching a grill full of sausages.
+
+**Grilling the Dogs**
+
+Each order starts on the grill, where hot dogs need to be cooked with the same careful timing as any other Papa's game. Getting them right, and adding requested extras cleanly, is what earns the biggest tips and pushes your overall score higher.
+
+**Sauce and Toppings**
+
+Once grilled, dogs get loaded up with sauce and whatever toppings the order calls for. Precision matters most when a "closer" shows up — these especially picky customers tend to arrive right before closing time and expect their order done exactly right, no exceptions.
+
+**Finishing the Order**
+
+The last step covers any sides the customer's ordered, like popcorn or drinks, before the whole plate gets sent out. The ballpark sound design leans into that stadium-night atmosphere throughout, even if you're really just sitting at a keyboard the whole time.
+
+## Upgrades and Progress
+
+Earnings from tips can be spent on upgrades that improve scoring and make the day-to-day grill work easier to manage as orders pick up pace.
+
+## Features
+
+- Choose a premade character or fully customize your own
+- A full hot dog-building process, from grilling to sauce to toppings
+- Unlockable minigames after each shift
+- A complete restaurant upgrade system
+
+## Controls
+
+Played entirely with the left mouse button.
+
+## Background
+
+Papa's Hot Doggeria was developed by Flipline Studios, part of the wider Papa Louie series, and released in November 2012.
+
+## Platform
+
+Playable in the web browser, as well as on Android and iOS.
+
+## FAQ
+
+**How many ranks does Papa's Hot Doggeria have?**
+There are 59 ranks in total — more than most other Papa's games, aside from Papa's Cheeseria.
+
+**Can Papa's Hot Doggeria be played without Flash?**
+Yes — thanks to emulation technology, it runs directly in the browser with no Flash plugin required.
+
+**Why might Papa's Hot Doggeria not be working properly?**
+It's best played on a desktop using a supported browser like Chrome or Firefox. If issues persist, clearing your browser cache and disabling ad-blocking extensions often helps.

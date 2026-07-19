@@ -1,0 +1,46 @@
+# Papa's Burgeria
+
+Papa's Burgeria puts you behind the grill, taking orders and building burgers exactly the way each customer wants them. As the game that started the wider Papa's Games series, it lays out the basic time-management formula that the rest of the franchise builds on.
+
+## How to Play
+
+Each order walks you through the same core process: take the order, fry the patty, and build the burger on top of it — layering on tomatoes, onions, sauces, seeded buns, and whatever other ingredients the customer's asked for. Early orders are simple enough to follow step by step, giving you a feel for the rhythm before things speed up.
+
+**Balancing the Rush**
+
+As you progress, customers start arriving faster and with more complicated orders, meaning you'll often be juggling multiple burgers at different stages at once. Learning to time each step well — rather than handling orders one at a time in sequence — is what separates a good score from a great one.
+
+**Spending Tips Wisely**
+
+Tips earned from happy customers go toward restaurant upgrades rather than anything for yourself, at least according to Papa. After each level, you get the option to spend earnings on things like a television to help ease customer wait times, lamps to keep finished burgers warm, and other shop improvements that make the day-to-day grind a bit smoother.
+
+**Regular Customers**
+
+A customer book tracks the preferences of returning regulars, giving you a shortcut to getting their order exactly right before they even place it.
+
+## Features
+
+- A full burger-building process, from frying to topping
+- Increasingly complex orders as levels progress
+- A restaurant upgrade system funded by tips
+- A customer preference book for returning regulars
+
+## Controls
+
+Left-click to interact with items and build each order.
+
+## Background
+
+Papa's Burgeria was developed by Flipline Studios and released in December 2010, serving as the original entry in the wider Papa's Games series.
+
+## Platform
+
+Playable in the web browser, as well as on Android and iOS.
+
+## FAQ
+
+**Can Papa's Burgeria still be played today?**
+Yes, it's playable in the browser without needing Flash.
+
+**Who developed Papa's Burgeria?**
+Papa's Burgeria was developed by Flipline Studios, who went on to create the rest of the Papa's Games series.

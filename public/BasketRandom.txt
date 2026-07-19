@@ -1,0 +1,46 @@
+# Basket Random
+
+Basket Random is a two-player arcade basketball game where physics has a mind of its own. Players flop, spin, and lurch across the court in ways you can't fully predict, turning every possession into a scramble. Score a basket and the game immediately throws a new court, new rules, or a new twist at you before the next round begins.
+
+## How to Play
+
+Basket Random belongs to the same "Random" series as other titles built around unpredictable, loose-limbed physics — your character will often react to input in ways you didn't quite intend, and that's the point. You can play solo against the CPU or head-to-head with a friend on the same keyboard.
+
+The core idea is standard basketball: get the ball through the hoop. What isn't standard is how hard that is to pull off with characters who wobble, overreach, and occasionally fling themselves in unintended directions.
+
+**Setup**
+
+- Two teams, two players each.
+- **Player one** — W key
+- **Player two** — Up arrow key
+
+Both players scramble for the same ball at the same time, jumping, spinning, and colliding in an effort to land a basket. Whichever team scores first wins that round, and the first team to win five rounds takes the match.
+
+**Random Variety**
+
+After every basket, the game resets you into a completely different setting — new court, new backdrop, sometimes new physics entirely. One round might stretch your players' arms out unnaturally far, another might make the ball heavier and harder to control, and some rounds double the point value of a basket. No two rounds play quite the same way.
+
+## Features
+
+- Physics-driven, unpredictable player movement
+- Randomized courts and rules after every basket
+- Local two-player support
+- A comedic, chaotic twist on standard basketball
+
+## Release Info
+
+Basket Random launched in April 2020 across both HTML5 (browser) and Android, developed by RHM Interactive.
+
+## Platforms
+
+Playable in the browser on desktop and mobile, plus dedicated apps on Android and iOS.
+
+## Controls
+
+- **W** — Player one
+- **Up arrow** — Player two
+
+## FAQ
+
+**What can I play Basket Random on?**
+It runs in the browser on most desktop and mobile devices, and is also available as a standalone app.

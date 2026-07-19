@@ -1,0 +1,46 @@
+# Papa's Cupcakeria
+
+Papa's Cupcakeria has you baking and decorating cupcakes for a steady stream of customers, following the same time-management structure as the rest of the Papa's Games series. The focus here shifts toward decoration — layering frosting and toppings just right is where most of the game's challenge, and satisfaction, comes from.
+
+## How to Play
+
+The setup leans into the series' usual absurd humor: Papa Louie and Roy engineer a minor car accident to rope you into working at the newly opened Cupcakeria, offering employment instead of dealing with the crash properly. You end up working it off as either James, Willow, or a character you build yourself.
+
+**Baking the Cupcake**
+
+Every order starts simply — pick a cup, add batter, and bake. The real depth of the game shows up at the build station afterward, where frosting gets layered on with care before finishing touches like sprinkles and sauces go on top. Getting the placement and amounts right is what separates an average score from a great one.
+
+## Downtime and Minigames
+
+After each shift, you get three tickets to spend on one of seven available minigames. Winning one earns a reward that helps going forward, and tips collected during the day can be spent on new items for the restaurant.
+
+## Upgrading the Cupcakeria
+
+Beyond gameplay rewards, earnings can go toward decorations and equipment. Furniture and posters help keep customers patient while they wait, and equipment upgrades speed up food prep. Given enough time, the whole shop can be fully outfitted with new furniture, flooring, and walls.
+
+## Features
+
+- Play as James, Willow, or a fully custom character
+- A detailed cupcake-building process centered on frosting and toppings
+- Seven unlockable minigames after each shift
+- A full restaurant upgrade system
+
+## Controls
+
+Played entirely with the left mouse button.
+
+## Background
+
+Papa's Cupcakeria was developed by Flipline Studios, part of the wider Papa's Games series. It was announced on June 25, 2013, and released as a Flash game on August 7, 2013, with Android and iOS versions following in November 2015.
+
+## Platform
+
+Playable in the browser on both desktop and mobile, as well as on Android and iOS.
+
+## FAQ
+
+**Is Papa's Cupcakeria difficult?**
+It's generally considered one of the easier entries in the Papa's Games series — the baking station involves fewer steps than the prep stations in most other titles.
+
+**Can Papa's Cupcakeria be played online?**
+Yes, it's playable online in the browser.

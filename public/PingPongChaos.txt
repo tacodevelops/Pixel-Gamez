@@ -1,0 +1,59 @@
+# Ping Pong Chaos
+
+Ping Pong Chaos is a chaotic 2-player game developed by New Eich Games, known for its unpredictable physics and humorous gameplay. It offers insane ping pong matches against the computer or friends, where the objective is to hit the ball and make it land on the opponent's side of the table.
+
+## How to Play
+
+The game challenges players with intentionally chaotic controls, making it difficult yet entertaining to hit the ball. The goal is to score 5 points to win a match. A key rule is to avoid touching the referee's table, as doing so awards points to your opponent.
+
+**Gameplay Mechanics**
+
+- **Objective:** Score 5 points to win a match.
+
+- **Chaotic Controls:** Players use specific keys to make their character jump left or right, attempting to hit the ball.
+
+- **Dynamic Rounds:** Each round introduces a different map, ball type, and random effects, ensuring no two rounds are exactly alike.
+
+- **Fouls:** Touching the referee's table results in a point for the opponent.
+
+## Features
+
+- **Chaotic Controls:** Designed for unpredictable and humorous gameplay.
+
+- **Multiplayer Support:** Play solo against a bot, with up to 2 players in local multiplayer, or create a tournament with up to 8 friends.
+
+- **Customization Options:** Personalize the game experience by customizing maps.
+
+- **Dynamic Environments:** Different maps, balls, and random effects in each round.
+
+## Release Date
+
+The game was initially released in **September 2017**. It was updated in **October 2020** to use Unity 2020, enabling support for mobile browsers.
+
+## Developer
+
+Ping Pong Chaos is developed by **New Eich Games**.
+
+## Platforms
+
+- **Web browser:** Playable on desktop and mobile browsers.
+
+- **iOS app:** Available as a dedicated application.
+
+## Last Updated
+
+Apr 16, 2025
+
+## Controls
+
+**Player 1:**
+
+- **W:** Jump left
+
+- **E:** Jump right
+
+**Player 2:**
+
+- **I:** Jump left
+
+- **O:** Jump right

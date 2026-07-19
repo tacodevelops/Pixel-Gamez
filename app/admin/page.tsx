@@ -29,7 +29,7 @@ interface Ad {
 }
 
 export default function AdminPage() {
-  const { isLoggedIn, isOwner, isModerator, loading } = useAuth();
+  const { isLoggedIn, isOwner, isModerator, loading, openAuthModal } = useAuth();
   const [activeTab, setActiveTab] = useState<'submissions' | 'ads' | 'notices' | 'analytics' | 'users' | 'inquiries'>('submissions');
   
   
@@ -268,7 +268,20 @@ export default function AdminPage() {
   }
 
   if (loading) return <div className="admin-page">Loading...</div>;
-  if (!isLoggedIn || (!isOwner && !isModerator)) return <div className="admin-page">Access denied.</div>;
+  if (!isLoggedIn || (!isOwner && !isModerator)) {
+    return (
+      <div className="admin-page" style={{ textAlign: 'center', padding: '100px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <h2>Access Denied</h2>
+        <p style={{ color: 'var(--text-dim)', marginBottom: '24px' }}>You must be logged in as an administrator to view this page.</p>
+        <button 
+          onClick={openAuthModal}
+          style={{ background: 'var(--accent-primary)', color: 'var(--bg-primary)', border: 'none', padding: '12px 24px', borderRadius: 'var(--radius-sm)', fontWeight: 'bold', cursor: 'pointer' }}
+        >
+          Sign In
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="admin-page animate-fade-in">

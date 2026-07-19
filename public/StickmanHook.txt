@@ -1,0 +1,61 @@
+# Stickman Hook
+
+Stickman Hook is a fast-paced swinging game built around a single mechanic: a grappling hook. There's no running or jumping here — every bit of forward motion comes from latching onto a hook point, swinging, and releasing at exactly the right moment to carry that momentum into the next swing. It's easy to pick up and brutally easy to get wrong, which is a big part of why runs rarely feel like "just one more try."
+
+## How to Play
+
+The entire game comes down to timing. Attach your hook, let the swing build up speed, and release at the right point to keep moving forward. Let go too late and you'll fly straight up instead of ahead, killing your momentum. Let go too early and you might not clear the gap at all. Bouncing pads scattered through some levels give you an extra boost — forward or upward — letting you reposition mid-run to line up your next swing.
+
+Most runs are short, often over in a matter of seconds, which makes failing feel less like a setback and more like an invitation to try again immediately.
+
+**Controls**
+
+- **Desktop** — Hold a mouse click or spacebar to attach the hook, release to launch.
+- **Mobile** — Tap and hold the screen to attach, lift your finger to release.
+
+## Game Modes
+
+Stickman Hook offers two distinct ways to play:
+
+- **Classic Mode** — Hundreds of levels that steadily ramp up in difficulty, built around mastering swing control and carrying momentum between hooks. Good for both newcomers and players chasing a personal best.
+- **Grapple Hook Mode** — Unlocked after clearing 30 Classic levels. Grabbing a hook here propels you forward immediately instead of building a long swing, cutting down recovery time between moves and rewarding tighter, faster input.
+
+## Skins
+
+There's a solid lineup of unlockable skins to work toward, split across a few categories: several are earned simply by progressing through Classic levels, a separate set (including some novelty designs) unlocks by watching short video ads, and a rotating batch of limited-time skins appears on a weekly basis.
+
+## Tips for Better Runs
+
+- **Release before the peak of your swing.** Letting go at the very top sends you upward instead of forward — release a touch earlier to keep your momentum going.
+- **Don't hold on too long after a strong swing.** It's tempting to keep riding a good swing, but overholding often leaves you too high or too slow for the next one.
+- **Skip hooks you don't need.** Grabbing every hook you pass isn't necessary and can actually reset your momentum in an awkward way.
+- **Use bouncing pads to reset your angle.** They're useful for repositioning mid-swing when your current line isn't going to clear the next obstacle.
+
+## Features
+
+- Simple, timing-based swinging mechanics
+- Hundreds of levels across two distinct game modes
+- A large collection of unlockable skins
+- Short, replayable runs
+
+## Background
+
+Stickman Hook was developed by Madbox and originally released in December 2018. It built a large following on the strength of its simple controls paired with a surprising amount of depth in swing timing and momentum management.
+
+## Platforms
+
+Playable in the browser on desktop, phone, and tablet, and also available as an app on iOS and Android.
+
+## FAQ
+
+**Is Stickman Hook hard?**
+It can be — each swing sets up your position for the next one, so a poor release early in a run tends to make everything after it harder to recover from.
+
+**How many levels does Stickman Hook have?**
+Classic Mode alone includes hundreds of levels, with Grapple Hook Mode adding a second set once it's unlocked.
+
+**Why do I keep failing at the same spot?**
+Usually it traces back to a bad swing a step or two earlier that leaves you at the wrong angle or speed. When that happens, restarting is often faster than trying to fix it mid-run.
+
+**Who made Stickman Hook?**
+Stickman Hook was developed by Madbox.

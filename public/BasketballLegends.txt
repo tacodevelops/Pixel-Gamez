@@ -1,0 +1,46 @@
+# Basketball Legends
+
+Basketball Legends puts a roster of bobblehead-style NBA stars on the court for fast, arcade-style 1v1 and 2v2 matches. It's the sequel to Basketball Stars, keeping the same over-the-top dunks and three-pointers while adding a deeper roster and more ways to play.
+
+## How to Play
+
+Matches revolve around three basics: shoot, dunk, and defend. Jumping near the hoop and shooting sets up a dunk, while timing your jump well against an opponent lets you contest or block their shot. Each player also has access to a supershot — a flashy, sci-fi-style dunk that becomes available once a charge meter fills up during the match, though not every player in the game has access to one.
+
+That last point matters more than it might seem. Every character in Basketball Legends has a specific special ability tied to their playstyle, and those abilities aren't universal — a player known for shooting and passing, for instance, might not have access to the acrobatic mega dunk that a more athletic character does. Learning which players fit your preferred style is a real part of getting good at the game, rather than just picking whoever looks fastest.
+
+**Teams and Modes**
+
+There are 16 selectable teams, each modeled after the branding of a real NBA franchise, with three players to choose from within each roster. You can play solo against AI opponents, team up with a friend cooperatively, or go head-to-head in 1v1 or 2v2 matches. For longer sessions, a full tournament mode is available, alongside quick play for shorter matches and a training mode for practicing shots and timing.
+
+**Controls**
+
+- **Move** — On-screen buttons or arrow keys, depending on platform
+- **Shoot / Jump** — Left mouse button or spacebar
+- **Supershot** — K or Z, once the charge meter is full
+
+## Features
+
+- 16 teams modeled after real NBA franchises, each with 3 selectable players
+- Character-specific special abilities, from mega dunks to strong defense
+- Supershot mechanic with a fillable charge meter
+- Solo, cooperative, and head-to-head match options
+- Full tournament mode alongside quick play and training
+
+## Background
+
+Basketball Legends was developed by MadPuffers as a sequel to their earlier game, Basketball Stars. It's part of a wider lineup of sports titles from the same studio.
+
+## Platform
+
+Playable in the browser on both desktop and mobile.
+
+## FAQ
+
+**Can you play Basketball Legends solo?**
+Yes, though AI opponents can be genuinely challenging without a second player to help out.
+
+**What is a supershot?**
+A high-impact, sci-fi-style dunk that becomes available once a player's charge meter is fully loaded — not every character in the game has one.
+
+**Who developed Basketball Legends?**
+Basketball Legends was created by MadPuffers, the same studio behind Basketball Stars.

@@ -1,0 +1,34 @@
+# Stack Bump 3D
+
+Stack Bump 3D is a quick, reflex-driven arcade game built around one simple idea: shoot down a stack of blocks before it shoots back at you. Tap or click to fire, clear the tower down to its last block, and move on to the next one — just don't hit black.
+
+## How to Play
+
+Each level presents you with a tower made up of colored blocks. Tapping or clicking fires at the tower, chipping away at it block by block until nothing's left, at which point you move on to a fresh tower and the process starts again.
+
+The twist is the black blocks scattered throughout each tower. Hit one, and your run ends instantly, so the challenge isn't really about speed — it's about staying precise even as the pace picks up. Landing shots in a row builds a combo, and stacking enough hits together unlocks a short burst of unstoppable "fire mode," letting you tear through blocks without worrying about the usual restrictions for a few seconds.
+
+Later towers add more black blocks and denser layouts, making it progressively harder to keep a clean streak going without breaking concentration.
+
+## Controls
+
+Tap or click to shoot. Holding down the input keeps you firing continuously.
+
+## Features
+
+- Simple one-input shooting mechanic
+- A stack of levels with increasingly complex tower layouts
+- Combo-based fire mode for temporary invincible shooting
+- Fast, replayable arcade sessions
+
+## Platform
+
+Playable directly in the browser on both desktop and mobile.
+
+## FAQ
+
+**What happens if you hit a black block?**
+Your run ends immediately, so avoiding them matters more than shooting quickly.
+
+**How do you unlock fire mode?**
+Landing a streak of consecutive hits builds a combo that triggers a short window of unrestricted shooting.

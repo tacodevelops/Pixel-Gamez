@@ -1,0 +1,36 @@
+# Worldguessr
+
+Worldguessr drops you somewhere on Google Street View and leaves you to figure out exactly where you are, using nothing but what's visible around you. It's a free take on the geography-guessing formula popularized by GeoGuessr, built around the same core thrill: turning road signs, architecture, and scenery into detective work.
+
+## How to Play
+
+Every round starts the same way — you're placed at a random point on the map, and more often than not, that point is an unremarkable stretch of road with no obvious landmarks in sight. From there, you're free to move around and explore, hunting for anything that might narrow down your location: coastlines, distinctive architecture, road markings, or anything with visible language on it, like signs or billboards, which can often pin down a country or region almost immediately.
+
+The appeal goes beyond just guessing correctly. Because rounds pull from real Street View imagery all over the world, playing regularly builds a genuine, if informal, sense of how different regions actually look — the kind of geographic intuition that's hard to pick up any other way.
+
+**Maps and Modes**
+
+Rather than one fixed pool of locations, Worldguessr offers hundreds of community-made maps focused on specific regions or themes, letting you choose between dense cities, rural backroads, or entire continents depending on what kind of challenge you're after. Rounds are unlimited, and beyond solo play, there are multiplayer modes for competing against friends or other players online.
+
+**Hints and Scoring**
+
+If a round has you completely stuck, a hint option is available — it won't hand you the answer, but it will narrow things down to a general region, like the correct continent, leaving the rest of the deduction up to you. Once you lock in a guess, the game shows exactly how far off you were from the real location, which is genuinely useful for spotting patterns in what you keep missing.
+
+## Controls
+
+Played entirely with the mouse.
+
+## Features
+
+- Real Street View imagery pulled from locations worldwide
+- Hundreds of community-created maps across different regions and themes
+- Unlimited rounds with both solo and multiplayer modes
+- A hint system and distance-based scoring for tracking improvement
+
+## FAQ
+
+**Is Worldguessr free to play?**
+Yes, it's free to play in the browser.
+
+**How do you figure out your location in Worldguessr?**
+The best approach is exploring your surroundings for cultural and environmental clues — language on signs, architectural style, road markings, and vegetation are all strong indicators of where you might be.

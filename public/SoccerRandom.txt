@@ -1,0 +1,48 @@
+# Soccer Random
+
+Soccer Random takes the basic idea of soccer — get the ball in the net — and strips away almost everything else, leaving a single-input game where a well-timed click matters more than any real strategy. Two players, one button each, and a match that changes its setting, uniforms, and even the ball every time someone scores.
+
+## How to Play
+
+There's really only one input to learn: pressing the up arrow (or left-click) makes your team jump and kick. Each team controls two players who move together on the same input, which sounds simple but rarely feels precise — since one click moves both characters at once, timing a jump for your attacker often means your goalkeeper jumps at the same moment, whether that's useful or not. Holding the action button keeps a player airborne a little longer, which can help when a well-timed pause works better than an immediate kick.
+
+Matches are won by reaching five goals first, and every goal scored sends both teams to a brand-new setting for the next round — a fresh backdrop, new player designs, and often a completely different ball to chase.
+
+**Solo or With a Friend**
+
+Soccer Random supports both single-player matches against the CPU and local two-player matches, with the two-player mode generally producing much more chaotic, unpredictable action since both sides are reacting to another real player's timing.
+
+## What Makes It "Random"
+
+Aside from the core goal — score more than your opponent — nearly everything else changes from match to match. Settings range from beaches and snowfields to nighttime cityscapes, uniforms shift between colors and styles (sometimes swapping to swimsuits or no proper uniform at all), and the ball itself might be a standard soccer ball one round and a football, tennis ball, or beach ball the next. Even the characters themselves change between matches, keeping every round visually distinct from the last.
+
+## Tips
+
+Even with such limited controls, staying reactive matters — the ball can easily sail over or under your character's head if you're not paying attention. Since one click controls both of your players at once, it helps to think about which of the two matters more in the moment: pushing forward on offense, or staying back to defend the goal.
+
+## Controls
+
+Press W or the up arrow to jump and kick.
+
+## Features
+
+- Constantly changing pitches, uniforms, and equipment after every goal
+- Simple one-button controls with unpredictable physics
+- Local one- or two-player modes
+- Matches played as a race to five goals
+
+## Background
+
+Soccer Random was developed by RHM Interactive, releasing as an HTML5 browser game in February 2020, with an Android version following in March of the same year.
+
+## Platform
+
+Playable in the browser on both desktop and mobile, as well as on Android and iOS.
+
+## FAQ
+
+**Can Soccer Random be played on mobile?**
+Yes, it's playable on both desktop and mobile browsers, as well as through dedicated Android and iOS apps.
+
+**Can you play Soccer Random alone?**
+Yes, there's a single-player mode against the CPU in addition to local two-player matches.

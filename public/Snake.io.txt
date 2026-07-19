@@ -1,0 +1,50 @@
+# Snake.io
+
+Snake.io drops you into a shared arena as a growing snake, racing other players to eat the most and survive the longest. Grow big enough and you stop being prey — instead, you become the thing everyone else on the map is trying to avoid.
+
+## How to Play
+
+The basics are simple: slither around the arena picking up scattered food to grow longer. The bigger you get, the more dangerous — and more of a target — you become.
+
+**Speed and Risk**
+
+Holding down the left mouse button lets your snake move faster, burning through some of the length you've built up in exchange for a quick burst of speed. That trade-off is central to the game: sprinting fast enough to cut off another player takes energy you can't get back instantly, so timing a burst of speed matters as much as having it available. Take down another snake and everything they were carrying gets scattered as food, giving you a big payout if you're quick enough to grab it.
+
+**Skins**
+
+A skins shop lets you customize your snake's appearance once you've unlocked enough of them. New skins come from hitting milestones like high scores or logging consecutive days played.
+
+## Tips and Tricks
+
+- Stay aggressive and take more risks early, while you're still small and have little to lose.
+- Keep an eye out for the crown icon — it marks the largest snake currently on the map.
+- Once you're big enough, try circling smaller snakes to box them in rather than chasing them directly.
+- A large snake is intimidating on its own — sometimes the safest strategy is just to be too big to bother with.
+
+## Controls
+
+- **Mouse, WASD, or arrow keys** — Move
+- **Hold left-click or spacebar** — Speed boost
+
+## Features
+
+- Real-time multiplayer snake battles
+- Growth and speed mechanics tied to risk-reward tradeoffs
+- Unlockable skins tied to in-game achievements
+- Cross-platform play across browser, Android, and iOS
+
+## Background
+
+Snake.io was developed by Kooapps and originally released on iOS and Android in April 2016. A WebGL browser version followed later, launching in September 2022.
+
+## Platforms
+
+Playable in the browser, as well as on Android and iOS.
+
+## FAQ
+
+**Is there an official world record for Snake.io?**
+Not really — there are videos online claiming record-breaking scores, but none of them are officially verified as the highest.
+
+**When was Snake.io originally released?**
+It launched on Android and iOS in April 2016, with the WebGL browser version arriving in September 2022.

@@ -1,0 +1,55 @@
+# Papa's Freezeria
+
+Papa's Freezeria has you running an ice cream shop on a small beachfront island, building sundaes exactly to spec for a steady stream of vacationing customers. It follows the same time-management formula as the rest of the Papa's Games series, spread across a few more stations than most.
+
+## How to Play
+
+The premise starts deceptively easy: Papa Louie sells the job as a relaxed gig on a sparsely populated island, only for a boat full of tourists to show up the moment he leaves for vacation. You take on the role of either Alberto or Penny, working through a short tutorial before the shop opens for real.
+
+**The Four Stations**
+
+Freezeria splits the sundae-making process across four distinct stations:
+
+- **Order Station** — Take and record orders, and manage the customer queue.
+- **Build Station** — Choose a cup size, pour the ice cream, and add requested toppings, keeping the pour timed within the green zone.
+- **Mix Station** — Blend the sundae, stopping the mixer right as the line hits the green zone.
+- **Top Station** — Add final toppings like cherries and whipped cream, where the order you place them in affects your final score.
+
+**Balancing the Rush**
+
+What starts as a relaxed pace picks up quickly as the days go on — more customers, more demanding orders, and multiple sundaes to juggle across all four stations at once. Scores from topping accuracy, mixing timing, build precision, and customer wait time all combine at the end of each level, so consistency across every station matters more than excelling at just one.
+
+## Upgrades and Regulars
+
+Tips earned during shifts go straight back into the shop, funding upgrades like blender boosters, blend-level alarms, and automated ice cream dispensing — all of which become increasingly necessary as customer volume scales up. A customer book also tracks the preferences of regulars, giving you a shortcut to nailing their order before they even ask.
+
+## Features
+
+- Play as Alberto or Penny
+- A four-station sundae-building process
+- Increasingly demanding orders as levels progress
+- A full shop upgrade system funded by tips
+- A customer preference book for returning regulars
+
+## Controls
+
+Played entirely with the mouse.
+
+## Background
+
+Papa's Freezeria was developed by Flipline Studios, part of the wider Papa's Games series, and released in August 2011.
+
+## Platform
+
+Playable in the web browser.
+
+## FAQ
+
+**How does Papa's Freezeria work?**
+Orders move through four stations — taking the order, building the sundae, blending it, and adding final toppings — with your score based on speed and accuracy at each step.
+
+**Can Papa's Freezeria be played without Flash?**
+Yes — thanks to emulation technology, it runs directly in the browser with no Flash plugin required.
+
+**Why might Papa's Freezeria not be working properly?**
+It's best played on a desktop using a supported browser like Chrome or Firefox. If issues persist, clearing your browser cache and disabling ad-blocking extensions often helps.

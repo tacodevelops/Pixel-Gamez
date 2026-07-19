@@ -1,0 +1,48 @@
+# Rooftop Snipers 2
+
+Rooftop Snipers 2 is the sequel to the original two-button sniper duel, and it keeps the same simple premise: jump, shoot, and knock your opponent off the roof before they do it to you. What's changed is everything around that core loop — more characters, more weapon variety, and rooftops that throw new obstacles into the mix.
+
+## How to Play
+
+The goal hasn't changed from the original: push your opponent off the edge of the rooftop by landing shots on them. Movement is limited to jumping, which doubles as your main way to dodge incoming fire, and your gun arm has to rise before you can fire — timing that raise correctly is most of the challenge.
+
+Where the sequel opens things up is variety. Instead of a plain sniper rifle for every round, different rooftops introduce different weapons — rocket launchers, javelins, and even a throwing axe make appearances alongside the usual rifle, each changing how you'll want to approach positioning and timing. There's also a small roster of characters to pick from, with more unlockable as you play.
+
+You can duel a friend locally or take on the computer solo. Rounds are quick, so a match rarely drags — win five rounds first and the match is yours.
+
+## Controls
+
+**Player 1**
+- **W** — Jump
+- **E** — Raise weapon / shoot
+
+**Player 2**
+- **I** — Jump
+- **O** — Raise weapon / shoot
+
+## Features
+
+- Two-button controls: jump and shoot
+- Expanded weapon variety, including rocket launchers, javelins, and throwing axes
+- Multiple unlockable characters
+- Local one- or two-player modes
+- New rooftop environments with added hazards
+
+## Background
+
+Rooftop Snipers 2 was developed by New Eich Games, the same studio behind the original Rooftop Snipers, Getaway Shootout, and Ping Pong Chaos. New Eich Games stopped developing new games as of March 2025.
+
+## Platforms
+
+Playable in the browser on desktop.
+
+## FAQ
+
+**Is Rooftop Snipers 2 different from the original?**
+Yes — the core two-button gameplay is the same, but the sequel adds more characters, a wider range of weapons per round, and new rooftop environments.
+
+**Can I play Rooftop Snipers 2 with a friend?**
+Yes, the game supports local two-player matches on the same keyboard.
+
+**Who made Rooftop Snipers 2?**
+Rooftop Snipers 2 was developed by New Eich Games, creators of the original Rooftop Snipers and other titles like Getaway Shootout.

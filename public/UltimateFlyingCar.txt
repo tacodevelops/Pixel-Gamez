@@ -1,0 +1,45 @@
+# Ultimate Flying Car
+
+Ultimate Flying Car is a simulation car game where you take fast rides and flights on the long streets of the city. Explore the sky with stylish flying cars, or unlock new cars by participating in races. You can play all of these game modes either 1-player or 2-player.
+
+## Release Date
+
+January 2023
+
+## Developer
+
+Ultimate Flying Car was developed by RHM Interactive.
+
+## Platform
+
+Web browser
+
+## Last Updated
+
+Nov 14, 2024
+
+## Controls
+
+**Player 1:**
+
+- WASD = control car
+
+- Shift = nitro
+
+- T = look back
+
+- R = fix car position
+
+- Space = handbrake
+
+**Player 2:**
+
+- Arrow keys = control car
+
+- M = nitro
+
+- L = look back
+
+- U = fix car position
+
+- K = handbrake

@@ -1,0 +1,44 @@
+# Slope 2 Player
+
+Slope 2 Player takes the classic formula of Slope — an endlessly accelerating ball rolling down a neon-lit track — and turns it into a head-to-head race. Two balls, one shared screen, and a track that punishes hesitation just as much as it punishes recklessness.
+
+## How to Play
+
+The core mechanics stay true to the original Slope: your ball rolls forward automatically and keeps speeding up the longer you survive, and your only job is steering left or right to stay on the track. Red obstacles end your run instantly on contact, and the platforms themselves shift and tilt as you go, so reading the track ahead becomes just as important as reacting to what's directly in front of you.
+
+What changes is the pressure. With a second player rolling right alongside you on a split screen, every close call feels sharper — a wobble that might not matter in solo play can be the difference between staying ahead and watching your opponent pull away. The goal in this mode isn't just distance, it's outlasting the other player: whoever crashes or falls off first loses the round.
+
+**Collecting Diamonds**
+
+Diamonds scattered along the track can be picked up and spent on power-ups, including things like a magnet to pull in nearby diamonds automatically, a temporary score multiplier, and a shield that protects against obstacle collisions — though it won't save you from falling off the track entirely.
+
+## Controls
+
+- **Player 1** — A/D keys
+- **Player 2** — Arrow keys (left/right)
+
+## Features
+
+- Competitive split-screen two-player mode
+- Auto-accelerating, physics-based ball control
+- Diamond collection tied to unlockable power-ups
+- Procedurally shifting neon-styled tracks
+
+## Background
+
+Slope 2 Player is built on the foundation of the original Slope, created by indie developer Rob Kay and published by Y8 Games in 2014. The two-player mode is one of several unofficial spin-offs built around Slope's core formula, hosted across a variety of browser gaming sites rather than a single official release.
+
+## Platform
+
+Playable directly in the browser.
+
+## FAQ
+
+**How does the two-player mode decide a winner?**
+Whichever player crashes into an obstacle or falls off the track first loses the round.
+
+**Can I play Slope 2 Player alone?**
+Most versions also offer a single-player mode with the same core mechanics, if you'd rather just chase a high score.
+
+**Who created the original Slope formula?**
+The original Slope was created by Rob Kay and published by Y8 Games; the two-player spin-off builds on that same core gameplay.

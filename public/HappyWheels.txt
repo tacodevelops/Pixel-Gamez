@@ -1,0 +1,54 @@
+# Happy Wheels
+
+Happy Wheels is a physics-based obstacle game where the goal is simple — get your character to the finish line in one piece — and the execution is anything but. Powered by exaggerated ragdoll physics, every collision, fall, or misjudged jump can send limbs flying in ways that are equal parts painful and hilarious to watch. It's one of the games that helped define browser-based physics gaming when it first launched, and it's still a go-to pick for players who want chaos with a bit of strategy mixed in.
+
+## How Happy Wheels Works
+
+Each level in Happy Wheels is an obstacle course built around hazards: spikes, saw blades, land mines, drops, and traps that are often placed in the worst possible spot on purpose. Your job is to steer your character through the course while keeping their body (mostly) intact. Some levels reward speed, others reward careful, cautious movement — and a lot of them are built to punish overconfidence.
+
+Because the physics engine reacts to nearly everything, no two runs through a level ever look quite the same. A jump that works perfectly on one attempt might end in disaster on the next, which is a big part of what keeps players coming back.
+
+## Levels and Level Design
+
+Happy Wheels ships with a set of official levels, but the bulk of its content comes from its community. Players can build and publish their own courses using the game's level editor, and thousands of user-made tracks exist, ranging from straightforward races to elaborate, trap-filled gauntlets. Some levels focus on reaching an end goal, others task you with collecting items scattered around the map, and a fair number exist purely for the sake of watching something go wrong in a creative way.
+
+If you enjoy building things as much as playing them, the editor lets you design your own level and put it out for other players to attempt.
+
+## Meet the Characters
+
+Nobody in Happy Wheels has superpowers — instead, each character rides or carries something that makes them vulnerable in its own specific way.
+
+**The Original Cast**
+
+- **Wheelchair Guy** — An older man in a rocket-assisted wheelchair. The extra thrust gets him moving fast, but it also makes him one of the harder characters to keep under control.
+- **Segway Guy** — Balanced and comparatively easy to handle, which makes him a favorite for players still learning the ropes. He can also jump, giving him an edge on obstacle-heavy courses.
+- **Irresponsible Dad** — Rides with his son strapped in behind him. As the name implies, keeping the kid safe is... not guaranteed.
+- **Effective Shopper** — Gets around on a mobility scooter, navigating the chaos one aisle-cart-speed maneuver at a time.
+
+Every character has a distinct trait tied to their ride — Segway Guy's jump and Wheelchair Guy's turbo boost being two examples — which changes how you'll want to approach different levels.
+
+**Later Additions**
+
+Over time, the roster expanded to include Moped Couple, Lawnmower Man, Explorer Guy, Santa Claus, Pogo Stick Man, Irresponsible Mom, and Helicopter Man, each bringing their own quirks to the level select screen.
+
+## Controls
+
+- **Arrow keys** — Move your character
+- **Spacebar** — Jump or shoot, depending on the character
+- **Ctrl / Shift** — Secondary actions
+
+## Where to Play
+
+Happy Wheels runs directly in the browser with no downloads or plugins required, and is also available as a mobile app on iOS and Android.
+
+## Background
+
+Happy Wheels was originally released in June 2010 by Total Jerkface (Fancy Force LLC), designed by Jim Bonacci. It became known early on for combining absurd character designs with a physics engine that took obstacle-course gameplay in a much messier — and much funnier — direction than most platformers of its time.
+
+## FAQ
+
+**Do I need Flash to play Happy Wheels?**
+No — Happy Wheels runs without Flash on PixelGamez, playable straight from your browser.
+
+**Is Happy Wheels free to play?**
+Yes, no download or payment is required to play in your browser.

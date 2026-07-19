@@ -1,0 +1,31 @@
+# Pixel Smash Duel
+
+Pixel Smash Duel is a fast, minimal platform fighter built around a single goal: knock your opponent off the platform before they do it to you. Play against a friend or the CPU, and whoever reaches five wins first takes the match.
+
+## How to Play
+
+The core of the game comes down to jumping, dodging, and firing at just the right moments. Holding your jump/dodge key builds up a shot, and releasing it fires — timing that release well is what separates a clean hit from getting caught out of position yourself. Since both players are working with the same simple toolkit, staying unpredictable and reading your opponent's timing matters more than any complex strategy.
+
+Matches are played as a race to five wins, with each round ending the moment one player gets knocked off the platform.
+
+## Controls
+
+**Player 1**
+- **W or E** — Jump/dodge, release to shoot
+
+**Player 2**
+- **Up arrow key or M** — Jump/dodge, release to shoot
+
+## Features
+
+- Fast, round-based platform combat
+- Local two-player support alongside a CPU option
+- Simple, single-input controls with a focus on timing
+
+## Background
+
+Pixel Smash Duel was developed by RHM Interactive and released in March 2023.
+
+## Platform
+
+Playable in the web browser.

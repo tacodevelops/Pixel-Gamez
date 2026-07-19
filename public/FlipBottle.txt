@@ -1,0 +1,27 @@
+# Flip Bottle
+
+Flip Bottle takes the internet's old bottle-flipping obsession and turns it into a one-button skill game. Time a single flip correctly, and your bottle lands upright on the next platform. Time it wrong, and it's back to square one.
+
+## How to Play
+
+The whole game rests on a single input: press at the right moment, and your bottle flips through the air toward the next object in its path. Landing upright keeps your run alive and moves you one step closer to the final platform, while a mistimed press usually sends the bottle tumbling instead.
+
+That simplicity is exactly what makes it tricky. There's no way to steer or adjust mid-flip, so success comes down entirely to reading the timing of each jump before you commit to it — a skill that improves with repetition more than anything else.
+
+## Controls
+
+Press the left mouse button at the right moment to make the bottle jump.
+
+## Features
+
+- Simple one-button gameplay
+- A series of platforms and objects to flip across
+- Available across web, Android, and iOS
+
+## Background
+
+Flip Bottle was developed by BPTop, inspired by Bottle Flip 3D from developer tastypill. It was first released on iOS in December 2018, followed by an Android version in April 2019 and an HTML5 browser version in October 2019.
+
+## Platform
+
+Playable in the browser on both desktop and mobile, as well as on Android and iOS.

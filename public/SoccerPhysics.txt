@@ -1,0 +1,69 @@
+# Soccer Physics
+
+Soccer Physics is a wacky, physics-based sports game where the goal is to score five points before your opponent. Known for its intentionally difficult and unpredictable controls, the game turns a standard soccer match into a chaotic scramble of jumping, kicking, and tumbling players.
+
+## How to Play
+
+Soccer Physics is designed around a "one-button" philosophy, though it offers more complex control schemes for those who want them. You can play solo against the CPU or compete with a friend in local multiplayer.
+
+**Setup**
+
+- **Teams:** Two teams, each consisting of a striker and a goalkeeper.
+
+- **Objective:** Be the first team to score five goals.
+
+- **Gameplay:** Players move by jumping and kicking simultaneously with a single button press. Because the characters are top-heavy and react wildly to physics, timing is everything.
+
+**Random Variety**
+
+The game keeps matches fresh by introducing random environmental and character changes after every goal. These twists can significantly alter how the game is played:
+
+- **Field Conditions:** The ground can become "Slippery" (ice-like physics).
+
+- **Goal Sizes:** Goals can transform into "Huge Goals" or "Small Goals."
+
+- **Ball Types:** The standard soccer ball may be replaced by a "Beach Ball" or even an "American Football."
+
+- **Player Modifications:** Players might lose their heads ("No Heads") or enter "Acrobatic" mode where they flip more easily.
+
+## Features
+
+- Simple, addictive one-button or two-button controls.
+
+- Hilarious physics-driven movement and collisions.
+
+- Randomized game modes and environmental twists.
+
+- Local two-player support on the same keyboard or device.
+
+- Minimalist, retro-style graphics.
+
+## Release Info
+
+Soccer Physics was developed by **Otto Ojala** and originally released in **2014**. It gained significant popularity as a browser game and on mobile platforms for its comedic gameplay.
+
+## Platforms
+
+- **Web Browser:** Playable on most modern browsers (HTML5).
+
+- **Mobile:** Available on iOS and Android.
+
+- **Desktop:** Windows and Linux versions are available via platforms like itch.io.
+
+## Controls
+
+- **Player One (Red Team):** W key (or A and D in two-button mode).
+
+- **Player Two (Blue Team):** Up Arrow key (or Left and Right arrows in two-button mode).
+
+- **Mobile:** Tap the designated button on the screen to jump and kick.
+
+## FAQ
+
+**Why is Soccer Physics so hard to control?**The difficulty is intentional. The game uses a physics engine that makes players wobbly and unpredictable, turning every match into a funny, skill-based (and luck-based) challenge.
+
+**Can I play Soccer Physics without Flash?**Yes, modern versions of the game run on HTML5 or via emulation, meaning it works in current browsers without needing the Flash player.
+
+**Is there a sequel or similar games?**Otto Ojala also developed other "Physics" games, such as *Wrestle Jump* and *Tank Stars*, which share the same chaotic, physics-based DNA. The "Random" series (like *Basket Random*) also follows a similar spirit.
+
+**How do I win a match?**The first team to reach five goals wins the match. Strategy often involves waiting for the right moment to jump or letting the opponent's chaotic movement lead to an own goal.

@@ -3185,3 +3185,268 @@ h3 { font-size: var(--font-size-md); }
 .game-card:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 12px 24px rgba(0,0,0,0.25); transition: all 0.3s ease; }
 .btn:hover, button:hover { transform: translateY(-1px); transition: all 0.2s ease; }
 .sidebar__item:hover, .header__user-link:hover { transform: translateX(2px); transition: all 0.2s ease; }
+
+/* --- CrazyGames-style spacious layout --- */
+.game-layout-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 1024px) {
+  .game-layout-container {
+    grid-template-columns: 1fr 280px;
+  }
+}
+
+.game-main-content {
+  min-width: 0;
+  width: 100%;
+}
+
+.game-side-content {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  align-self: start;
+}
+
+.side-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+  color: var(--text-primary);
+  border-left: 4px solid var(--accent-primary);
+  padding-left: 8px;
+}
+
+.side-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+@media (min-width: 1024px) {
+  .side-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* --- SEO Handwritten Description formatting --- */
+.game-description-seo {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.game-description__title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.game-description__section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border-default);
+  padding-bottom: 6px;
+}
+
+.game-description__subsection-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+.game-description__paragraph {
+  margin-bottom: var(--space-3);
+}
+
+.game-description__list {
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-5);
+}
+
+.game-description__list li {
+  margin-bottom: var(--space-1);
+  list-style-type: disc;
+}
+
+/* --- Poki Globe Language Selector --- */
+.language-selector-container {
+  position: relative;
+}
+
+.language-selector-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 9999px;
+  height: 44px;
+  padding: 0 16px;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.language-selector-trigger:hover {
+  background: var(--bg-hover);
+  border-color: var(--accent-primary);
+}
+
+.language-globe-icon {
+  color: var(--text-secondary);
+}
+
+.language-selector-trigger:hover .language-globe-icon {
+  color: var(--accent-primary);
+}
+
+.language-selector-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 10, 16, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  animation: fadeIn 0.25s ease forwards;
+  padding: 20px;
+}
+
+.language-selector-modal {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 800px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.language-selector-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.language-selector-modal__header h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.language-selector-modal__close {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.language-selector-modal__close:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.language-selector-modal__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  padding: var(--space-6);
+  overflow-y: auto;
+}
+
+.language-selector-modal__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--bg-body);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.language-selector-modal__item:hover {
+  background: var(--bg-hover);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.language-selector-modal__item.active {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.language-selector-modal__item.active .lang-name {
+  color: var(--bg-primary);
+}
+
+.language-selector-modal__item.active .lang-code {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.lang-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.lang-code {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+/* --- Larger tap targets in Header --- */
+.header__theme-btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.header__theme-btn:hover {
+  background: var(--bg-hover);
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+

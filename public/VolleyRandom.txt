@@ -1,0 +1,39 @@
+# Volley Random
+
+Volley Random takes classic volleyball and strips it down to a single button, then hands the rest of the outcome over to unpredictable physics. Both characters on your team jump together with one input, and from there, timing is the only real skill in play.
+
+## How to Play
+
+There's no direction control here — pressing your key makes both of your characters hop into the air together, and where the ball goes from there depends entirely on timing rather than aim. That single-input simplicity is deceptive, since reading the ball's trajectory and jumping at exactly the right moment takes real practice to get consistent.
+
+Every goal scored sends the match into a new setting, complete with a new theme, a different ball, and often a shift in the underlying physics. One round might hand you a football instead of a volleyball, another might stretch your players' arms out further than usual, and the ball itself can end up bigger, heavier, or bouncier than the round before. That constant reshuffling keeps matches from ever feeling repetitive, even across a long session.
+
+You can play against the CPU solo or face off locally against a friend, with two-player matches generally producing the most chaotic, unpredictable rallies.
+
+## Controls
+
+- **Red Player** — W key to jump
+- **Blue Player** — Up arrow key to jump
+
+## Features
+
+- Single-button controls with unpredictable physics
+- Constantly changing settings, balls, and physics after every goal
+- Local one- or two-player modes
+- Part of a wider series alongside similar "Random" sports titles
+
+## Background
+
+Volley Random was developed by RHM Interactive, releasing as an HTML5 browser game in February 2021, with Android and iOS versions following in December 2022.
+
+## Platform
+
+Playable in the browser on both desktop and mobile.
+
+## FAQ
+
+**Are there other games similar to Volley Random?**
+Yes — it's part of a wider series that includes similar titles like Soccer Random and Boxing Random.
+
+**Can Volley Random be played solo?**
+Yes, there's a single-player mode against the CPU in addition to local two-player matches.

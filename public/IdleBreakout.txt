@@ -1,0 +1,66 @@
+# Idle Breakout
+
+Idle Breakout takes the brick-smashing of classic arcade breakout games and turns it into an idle clicker, where manual clicking eventually gives way to automated balls doing the work for you. It's the kind of loop that's easy to lose an hour to — earn cash, buy stronger balls, watch bricks disappear faster, and repeat.
+
+## How to Play
+
+You start with a straightforward setup: a field of numbered bricks, each number showing how many hits it takes to break. Early on, you'll click bricks directly to chip away at them and earn small amounts of cash for each one destroyed. That cash is what gets the idle side of the game going — spend it on balls that bounce around the field automatically, breaking bricks without you needing to click at all.
+
+From there, the loop builds on itself: more cash buys stronger or more numerous balls, which clear bricks faster, which earns more cash, and so on into effectively endless levels. There's no health bar, no time limit, and no way to actually lose — just steady, ongoing progress.
+
+**Visual Style**
+
+The game keeps its presentation simple: a rectangular play area filled with colored bricks, where weaker bricks show up in lighter colors like yellow and tougher ones shift toward red. A stats bar up top tracks your cash, ball count, and current level, and the whole interface stays uncluttered even once dozens of balls are bouncing around at once. The audio is minimal by design — light plinks and cracks — though there's a well-known easter egg tied to reaching a major bricks-destroyed milestone.
+
+## Balls and Upgrades
+
+Different ball types serve different purposes, and picking the right mix matters more than just buying whatever's cheapest:
+
+- **Basic Ball** — Cheap and simple, best treated as a starting point to upgrade away from.
+- **Plasma Ball** — Deals splash damage to bricks near its target, useful for clearing clusters.
+- **Sniper Ball** — Automatically retargets the nearest brick, strong against isolated targets.
+- **Scatter Ball** — Splits into multiple balls on impact, good for hitting several bricks at once.
+- **Cannonball** — Built for raw damage, punching through a line of bricks.
+- **Poison Ball** — Applies damage over time to bricks it hits, though it's slower to pay off than other types.
+
+## Power-Ups
+
+Temporary power-ups appear on the field and can swing a tough level or boss fight in your favor. Most last around 30 seconds once activated:
+
+- **Click Frenzy** — Every click spawns extra power balls.
+- **Cashed Up** — Doubles your income for the duration.
+- **Demon Core** — Sends wave-like explosions across the field.
+- **Snowball** — A ball that grows stronger the longer it keeps moving.
+- **2X Gold** — Boosts the reward from your next gold brick.
+
+## Long-Term Progression
+
+- **Prestige** — Resets your run in exchange for Gold Bars, which fund permanent upgrades and unlock bosses and the skill system for future runs.
+- **VAUS Lasers** — A prestige-tied bonus that adds automatic lasers to the field, dealing damage independently of your balls and persisting through resets.
+- **Skill Points** — Earned by defeating a boss for the first time.
+- **Skill Tree** — Spend Skill Points here to boost ball power, unlock abilities, or gain an edge against bosses.
+- **Boss Fights** — Tougher brick challenges that appear every few levels, rewarding Skill Points and unlocking further content.
+
+## Features
+
+- Idle clicker mechanics layered onto classic brick-breaking gameplay
+- Six distinct ball types with different strategic uses
+- Temporary power-ups for bursts of progress
+- A prestige system and skill tree for long-term progression
+- Endless level structure with no way to lose
+
+## Background
+
+Idle Breakout was developed by Kodiqi and originally released in January 2019, with an update following in March of the same year. It's available in the browser as well as on Windows and Android.
+
+## Controls
+
+Click or tap bricks directly to damage them manually. Balls, once purchased, move and attack automatically without further input.
+
+## FAQ
+
+**What are the best balls in Idle Breakout?**
+Plasma and Cannon balls tend to offer the strongest overall damage, while Sniper balls excel against single, isolated targets. Poison balls are generally considered the weakest option, since their damage-over-time effect takes longer to pay off.
+
+**Does Idle Breakout ever end?**
+No — it's designed as an endless game, and dedicated players have pushed into the tens of thousands of levels.

@@ -1,0 +1,45 @@
+# Boxing Random
+
+Boxing Random is a two-player boxing game where a single click is all you get, and ragdoll physics decides the rest. Every round throws a new setting at you — a different outfit, a different arena, sometimes an entirely different set of rules — so no two matches ever feel quite the same. First to five knockouts wins, but landing even one clean hit takes a mix of timing, luck, and getting used to how unpredictably your character moves.
+
+## How to Play
+
+There's exactly one input in Boxing Random: a single click. That click can send your character jumping, lunging, or swinging a punch, all depending on the physics of the moment — there's no separate button for moving versus attacking. That simplicity is deceptive, since ragdoll physics means your character rarely goes exactly where you'd expect, turning every match into a scramble rather than a clean exchange of punches.
+
+The setting changes constantly. One round might have both fighters in business suits, the next drops you into a snowy field in shorts, and another might put you on a beach with sharks lurking nearby. The visuals shift, but the objective stays the same: land a knockout punch to your opponent's face.
+
+**Pocket Pouch Rounds**
+
+Occasionally a round will switch things up further with a "pocket pouch" twist — during these, a knockout can land anywhere on the body, not just the face. It raises the pace considerably, since there's no longer a single target to aim for or protect.
+
+**Winning a Match**
+
+Matches are played as a race to five round wins. Whoever reaches five knockouts first takes the match.
+
+## Controls
+
+- **Single player** — Up arrow key
+- **Two players** — Up arrow key and W
+
+## Features
+
+- One-click controls built entirely around ragdoll physics
+- Constantly changing arenas and outfits each round
+- Special "pocket pouch" rounds with full-body knockouts
+- Local two-player and single-player vs. CPU modes
+
+## Release Info
+
+Boxing Random launched as an HTML5 browser game in May 2021, with Android and iOS versions following in December 2022. It was developed by RHM Interactive.
+
+## Platform
+
+Playable in the browser on both desktop and mobile.
+
+## FAQ
+
+**How do you punch in Boxing Random?**
+Everything runs through a single click — depending on the ragdoll physics at that moment, it can send your character jumping, moving, or throwing a punch all at once.
+
+**Can you play Boxing Random with a friend?**
+Yes, it supports local two-player matches, and you can also play solo against the CPU.

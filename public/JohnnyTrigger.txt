@@ -1,0 +1,41 @@
+# Johnny Trigger
+
+Johnny Trigger is a stylish, slow-motion action shooter built around a single click. Johnny runs, jumps, and flips through each level automatically — your only job is picking the exact right moment to fire, since a single well-timed shot is often the difference between clearing a level in style and blowing it entirely.
+
+## How to Play
+
+Movement is entirely automatic. Once a level starts, Johnny keeps running and flipping through the environment on his own, giving you a slow-motion window to line up each shot. Clicking fires, and that's the whole control scheme — the challenge comes from reading the layout of each level and timing your shots to take down every enemy in view before Johnny moves past them.
+
+Hostages are scattered throughout many levels, and hitting one ends the attempt immediately, so precision matters just as much as speed. Because you generally only get one clean opportunity to fire at each group of enemies, rushing a shot without lining it up properly tends to backfire.
+
+With hundreds of levels, the variety comes from changing enemy placement, tighter timing windows, and increasingly complex rooms that demand more precise reads than the earlier, simpler stages.
+
+## Controls
+
+Click (or tap on mobile) to shoot.
+
+## Features
+
+- Automatic slow-motion movement paired with single-click shooting
+- Hundreds of levels with varying layouts and difficulty
+- Hostage-avoidance mechanics that add risk to every shot
+- A stylish, combo-driven approach to clearing each level
+
+## Background
+
+Johnny Trigger was developed by SayGames. It later expanded into a small series of related titles, including Johnny Trigger - Sniper Game.
+
+## Platform
+
+Playable in the browser on both desktop and mobile.
+
+## FAQ
+
+**Is Johnny Trigger free to play?**
+Yes, it's free to play in the browser.
+
+**What happens if you shoot a hostage in Johnny Trigger?**
+The attempt ends immediately, so avoiding hostages is just as important as hitting your intended targets.
+
+**Who developed Johnny Trigger?**
+Johnny Trigger was created by SayGames.

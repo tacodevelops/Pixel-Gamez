@@ -1,0 +1,56 @@
+# Level Devil
+
+Level Devil looks like the simplest platformer imaginable: get to the door at the end of the level. It is not simple. Every trap in the game exists specifically to punish whatever you just learned to trust, and figuring that out — usually the hard way — is the entire point.
+
+## How to Play
+
+Movement itself couldn't be more basic: run left or right, and jump. What makes Level Devil brutal isn't the controls, it's the level design, which is built to actively mislead you. Floors vanish the instant your foot lands on them. Spikes slide into position mid-jump. Your left and right controls can flip without warning. Just when a level starts to feel predictable, it changes the rule you thought you'd figured out.
+
+Dying constantly isn't a failure state here — it's the intended rhythm. Early levels teach the basics with simple pits and spikes, punishing anyone who rushes or assumes solid ground will stay solid. Later levels stack multiple tricks together: reversed controls, unpredictable jump heights, platforms that shift after you've already landed on them. The safest strategy tends to be moving cautiously and testing the ground ahead rather than committing to a run.
+
+**Controls**
+
+- **Move** — A/D or the left/right arrow keys
+- **Jump** — W, the up arrow, or spacebar
+- **Mobile** — On-screen directional and jump buttons
+
+## Level Structure
+
+Level Devil is organized into doors, with each door containing five short stages built around a specific theme or trick. Clearing all five moves you to the next door, and the final door in each world tends to combine multiple trap types into a single, longer gauntlet. The game spans nearly 200 levels split across three progressively harder worlds, each one introducing new twists — from basic disappearing platforms early on to stages where your character grows, shrinks, or teleports later.
+
+**Secret Keys**
+
+Ten purple keys are hidden throughout the game in unusual places — behind platforms that look solid, or revealed only after doing something unconventional, like intentionally falling into a hole. Collecting all ten unlocks a hidden level leading to the game's true ending.
+
+## Two-Player Mode
+
+Level Devil also supports a competitive two-player mode, played across five rounds. Both players face identical traps at the same time, and whoever reaches the door first wins the round — some levels even let you trigger extra hazards to slow your opponent down. Win three of the five rounds to take the match.
+
+## Features
+
+- Nearly 200 levels across three difficulty tiers
+- Unpredictable, rule-breaking trap design
+- Ten hidden keys leading to a secret true ending
+- Competitive two-player mode
+
+## Background
+
+Level Devil was created by Adam Corey, known online as Unept, and was originally built as a joke designed to catch friends off guard with unexpected traps. It was released in December 2023 and has since grown into one of the more popular platformer games online, alongside apps on Android, iOS, and Steam.
+
+## Platform
+
+Playable in the browser on desktop, phone, and tablet.
+
+## FAQ
+
+**How many levels does Level Devil have?**
+Just under 200, spread across three worlds of increasing difficulty.
+
+**Is Level Devil actually hard?**
+Yes — the controls are simple, but the levels are designed to break whatever pattern you've just learned to expect.
+
+**Can you play Level Devil with a friend?**
+Yes, there's a two-player mode where both players race through identical traps across five rounds.
+
+**Is there a way to skip a level you're stuck on?**
+Yes, a skip option appears after enough failed attempts on the same level.

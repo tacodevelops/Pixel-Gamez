@@ -1,0 +1,57 @@
+# Papa's Cheeseria
+
+Papa's Cheeseria has you grilling and building loaded cheese sandwiches for a steady line of hungry customers. It follows the same time-management structure as the rest of the Papa's Games series, this time built around toasting bread just right and stacking on toppings without missing a beat.
+
+## How to Play
+
+The setup this time has a bit of a rock-bottom twist: after a thief makes off with your music equipment, working at Papa's Cheeseria becomes the fastest way to earn enough to replace it and get back to playing.
+
+**Building the Sandwich**
+
+Orders draw from a wide selection of bread types, cheeses, meats, and sauces, and customers aren't shy about combining them into fairly elaborate requests. A subset of customers known as "closers" are especially picky, making precision even more important when one shows up in line.
+
+**Grilling It Right**
+
+Once assembled, the sandwich goes on the grill, where timing is everything — leave it too long and it burns, costing you points on an otherwise solid order. Following the customer's exact instructions and getting the grill timing right is what separates an average plate from one that earns a real smile.
+
+**Finishing the Order**
+
+Every dish at Papa's Cheeseria comes with a side of loaded cheesy fries at no extra cost, rounding out the meal before it's served.
+
+## Downtime and Minigames
+
+After each shift, there's a chance to play one of several minigames, with wins earning rewards that help going forward. Tips collected during the day can also be spent on new items for the restaurant.
+
+## Upgrading the Cheeseria
+
+Beyond gameplay rewards, earnings can go toward decorations and equipment upgrades. Furniture and posters help keep customers patient while waiting, and better equipment speeds up food prep, gradually letting you fully outfit the shop with new furniture, flooring, and walls.
+
+## Features
+
+- Choose a premade character or fully customize your own
+- A detailed sandwich-building process with a wide range of toppings
+- Unlockable minigames after each shift
+- A full restaurant upgrade system
+
+## Controls
+
+Played entirely with the left mouse button.
+
+## Background
+
+Papa's Cheeseria was developed by Flipline Studios, part of the wider Papa Louie series, and released in June 2015.
+
+## Platform
+
+Playable in the web browser.
+
+## FAQ
+
+**How many ranks are there in Papa's Cheeseria?**
+There are 65 ranks in total.
+
+**Can Papa's Cheeseria be played without Flash?**
+Yes — thanks to emulation technology, it runs directly in the browser with no Flash plugin or download required.
+
+**Why might Papa's Cheeseria not be working properly?**
+It's best played on a desktop using a supported browser like Chrome or Firefox. If issues persist, clearing your browser cache and disabling ad-blocking extensions often resolves the problem.

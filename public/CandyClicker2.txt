@@ -1,0 +1,43 @@
+# Candy Clicker 2
+
+Candy Clicker 2 is an incremental clicker game where the primary objective is to produce candies by clicking. Players continuously click to generate more candies and can upgrade their candy production equipment to achieve faster results. The goal is to become an extraordinary sweet treat producer.
+
+## How to Play
+
+The core gameplay revolves around clicking to produce candy. The candies generated can then be used to purchase various upgrades. These upgrades serve two main purposes:
+
+- **Click Strength:** Some upgrades enhance the amount of candy generated per click.
+
+- **Automatic Production:** Other upgrades increase the passive generation of candies over time, even without active clicking.
+
+As players level up, they gain access to permanent buffs that further boost candy output. Additionally, custom skins can be acquired by watching advertisements.
+
+## Features
+
+- Click to produce candies.
+
+- Purchase upgrades to significantly increase production rates.
+
+- Unlock and customize with various candy skins.
+
+- Track progress and performance through in-game statistics.
+
+## Release Date
+
+July 2021
+
+## Developer
+
+Coltroc developed this game.
+
+## Platform
+
+Web browser (desktop and mobile)
+
+## Last Updated
+
+Apr 13, 2023
+
+## Controls
+
+- **Left mouse button:** Used for all primary interactions, including clicking to produce candy and navigating menus.

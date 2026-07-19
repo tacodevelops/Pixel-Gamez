@@ -1,0 +1,46 @@
+# Moto X3M 2
+
+Moto X3M 2 picks up right where the original left off: fast dirt bike stunts, brutal obstacle courses, and a clock that punishes every mistake. It's less about outright speed and more about precision — clean jumps, well-timed flips, and knowing exactly when to lean into a landing instead of crashing through it.
+
+## How to Play
+
+The goal in each level is simple to state and hard to execute: reach the finish line as quickly as possible without wiping out. Obstacles range from ramps and loops to explosive traps and moving platforms, and a single mistake costs you time rather than a life, since you can restart instantly and try again.
+
+Balance matters as much as speed. Landing a jump awkwardly can send you tumbling, costing precious seconds, so managing your bike's angle mid-air is often more important than just gunning the throttle. Performing backflips while airborne earns bonus time, rewarding players willing to add a bit of style to their run rather than just racing straight through.
+
+**Controls**
+
+- **W / Up arrow** — Accelerate
+- **S / Down arrow** — Brake
+- **D / Right arrow** — Tilt the bike forward
+- **A / Left arrow** — Tilt the bike backward
+
+## Scoring and Progression
+
+Finishing a level quickly earns stars, with faster, cleaner runs rewarded more generously — the coveted 3-star rating goes only to players who complete a course with minimal time lost to crashes or hesitation. Stars collected across levels can be spent on new bikes, letting you tackle later, harder courses with better equipment.
+
+## Features
+
+- Physics-based stunt riding across a series of obstacle courses
+- Instant restarts for quick retries after a crash
+- A star-rating system tied to completion speed
+- Unlockable bikes purchased with earned stars
+
+## Background
+
+Moto X3M 2 is part of the wider Moto X3M series, developed by the Ukraine-based studio MadPuffers (formerly known as FlashRush Games). The series began with the original Moto X3M in 2015, with Moto X3M 2 following the same year. The "X3M" in the title is leetspeak for "Extreme," a fitting description of the series' stunt-heavy approach to dirt bike racing.
+
+## Platform
+
+Playable in the browser.
+
+## FAQ
+
+**How is Moto X3M 2 different from the first game?**
+It carries over the same core stunt-riding mechanics while introducing new obstacles and additional bikes to unlock.
+
+**Who developed Moto X3M 2?**
+It was developed by MadPuffers, the studio behind the entire Moto X3M series.
+
+**Does crashing end your run permanently?**
+No — crashes only cost you time, and you can restart the level instantly to try again.

@@ -1,0 +1,44 @@
+# Raft Wars 2
+
+Raft Wars 2 sends Simon and his little brother back into action after their buried treasure gets built over — this time by a water park. Armed with a tennis ball gun and a raft, the two set out to shut the park down one shot at a time and take their gold back.
+
+## How to Play
+
+The core of Raft Wars 2 is simple: aim with your mouse and fire at anyone standing between you and your treasure. Landing hits on enemies knocks them backward, and knocking them into the water takes them out of the fight entirely, so precision and positioning matter more than just spamming shots.
+
+Every successful shot earns coins, and those coins are what let you upgrade beyond the starting tennis ball gun. Spend them on stronger weapons like grenades and rockets, along with upgrades to your raft itself, gradually making each level easier to push through than the last.
+
+**The Story**
+
+Simon and his brother return from a vacation to find their old hiding spot for buried treasure now sitting underneath a fully built water park. Getting their gold back means working through the park level by level — battling lifeguards, security guards, and the various obstacles standing in for a boss encounter along the way.
+
+## Controls
+
+- **Aim** — Click and drag with the mouse (or your finger on mobile) to set your shot's direction and power.
+- **Fire** — Release to launch your shot.
+
+## Features
+
+- Physics-based aiming and shooting mechanics
+- A coin system for unlocking new weapons and raft upgrades
+- A series of themed levels set across a water park
+- A mix of enemy types, from lifeguards to security guards
+
+## Background
+
+Raft Wars 2 was created by Martijn Kunst as a sequel to the original Raft Wars. It was originally built in Flash and has since been converted to HTML5, making it playable without needing the Flash plugin.
+
+## Platform
+
+Playable in the browser on both desktop and mobile devices.
+
+## FAQ
+
+**Is Raft Wars 2 harder than the original?**
+Yes — it introduces stronger enemies and boss-style encounters that go beyond what the first game offered.
+
+**Can Raft Wars 2 be played with a friend?**
+No, it's a single-player game built around progressing through a series of levels solo.
+
+**Who created Raft Wars 2?**
+Raft Wars 2 was developed by Martijn Kunst.

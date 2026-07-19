@@ -1,0 +1,43 @@
+# Drive Mad
+
+Drive Mad strips racing down to its two most basic inputs — accelerate and brake — and builds an entire physics puzzle game around them. There's no steering wheel, no laps, and no opponents. Just you, a wobbly little car, and a course actively trying to flip you over.
+
+## How to Play
+
+The goal in every level is simple: reach the finish line without crashing. The challenge is that speed works against you almost as often as it helps you. Accelerating tilts your car forward, braking tilts it backward, and mastering that balance — rather than just flooring it — is what actually gets you through ramps, gaps, and narrow platforms in one piece.
+
+Courses are packed with obstacles designed to punish careless driving: steep ramps, wide gaps, collapsing tiles, narrow beams, and the occasional swinging hazard for good measure. A clumsy landing rarely just costs you time — it can leave your car in a bad position that makes the very next obstacle much harder to recover from, so clean, controlled movement matters more than raw speed throughout.
+
+Restarting instantly after a crash is built into the rhythm of the game rather than treated as a setback, so experimenting with a level a few times before finding the right pace is a normal part of playing.
+
+**Controls**
+
+- **Right arrow** — Accelerate
+- **Left arrow** — Brake / reverse
+- Tap and hold either direction for finer control over momentum
+
+## Features
+
+- Two-input, physics-based driving with no steering
+- Over 100 levels of increasing difficulty
+- A mix of ramps, gaps, collapsing platforms, and moving hazards
+- Instant restarts that encourage quick retries
+
+## Background
+
+Drive Mad was created by indie developer Martin Magni, built using the Fancade platform. It was originally released in 2019 and has since been played hundreds of millions of times across its browser and mobile versions, with regular updates continuing to add new levels and vehicle types.
+
+## Platform
+
+Playable in the browser, as well as on iOS and Android.
+
+## FAQ
+
+**Is speed the key to winning at Drive Mad?**
+Not really — staying balanced through jumps and landings matters far more than going fast, since instability tends to cause crashes long before speed does.
+
+**Does crashing end your progress permanently?**
+No, restarting a level after a crash is quick and expected, and it's often the fastest way to work out a level's timing.
+
+**Who created Drive Mad?**
+Drive Mad was developed by Martin Magni using the Fancade platform.

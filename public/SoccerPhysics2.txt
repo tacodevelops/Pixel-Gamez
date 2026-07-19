@@ -1,0 +1,59 @@
+# Soccer Physics 2
+
+Soccer Physics 2 is the chaotic sequel to the original physics-based sports game. It doubles down on the wobbly, unpredictable movement that made the first game a hit, offering even more bizarre soccer matches where the laws of physics are merely suggestions.
+
+## How to Play
+
+The game follows the same core principle as its predecessor: get the ball into the opponent's goal using characters that are nearly impossible to control precisely. It is best enjoyed as a local multiplayer game with a friend.
+
+**Setup**
+
+- **Teams:** Two teams, each with a striker and a goalkeeper.
+
+- **Objective:** Score more goals than your opponent in a fast-paced, physics-heavy match.
+
+- **Physics:** Players flop, tilt, and jump in ways that often lead to hilarious accidents or accidental goals.
+
+**Gameplay Mechanics**
+
+Unlike standard soccer games, you don't have fine-tuned control over your players' legs. Instead, a single button press makes your entire team jump and kick. Success often comes from timing your jumps to coincide with the ball's trajectory or simply out-clumsying your opponent.
+
+## Features
+
+- **Advanced Physics:** Even more unpredictable ragdoll physics than the original.
+
+- **Local Multiplayer:** Compete against a friend on the same keyboard or device.
+
+- **Multiple Game Modes:** Various settings and environmental changes that trigger during matches.
+
+- **Simple Controls:** Accessible one-button gameplay that is easy to learn but hard to master.
+
+- **Comedic Gameplay:** Designed for laughs and chaotic social play.
+
+## Release Info
+
+Soccer Physics 2 was released as a follow-up to the 2014 original. While the first game was developed by Otto Ojala, the sequel is widely available across various HTML5 gaming portals like CrazyGames and TwoPlayerGames, continuing the legacy of the "Physics" sports genre.
+
+## Platforms
+
+- **Web Browser:** Playable on desktop and mobile browsers via HTML5.
+
+- **Mobile:** Accessible through browser-based gaming platforms on smartphones and tablets.
+
+## Controls
+
+- **Player 1:** W key
+
+- **Player 2:** Up Arrow key
+
+- **Mobile:** Tap the screen or designated on-screen buttons to jump and kick.
+
+## FAQ
+
+**What is the difference between Soccer Physics and Soccer Physics 2?**Soccer Physics 2 features updated graphics, more refined (yet still chaotic) physics, and often includes additional random elements or improved local multiplayer stability compared to the original browser version.
+
+**Is Soccer Physics 2 free to play?**Yes, it is primarily available as a free-to-play HTML5 game on various online gaming websites.
+
+**Can I play this game solo?**Yes, you can play against a CPU-controlled opponent, but the game is widely considered to be most fun when played with another person locally.
+
+**Do I need to download anything?**No, Soccer Physics 2 runs directly in your web browser, requiring no downloads or installations.

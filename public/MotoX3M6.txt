@@ -1,0 +1,48 @@
+# Moto X3M 6: Spooky Land
+
+Moto X3M 6: Spooky Land takes the series' signature stunt-riding formula and wraps it in a Halloween theme — bone spikes, glowing green goop, and creepy nighttime tracks replace the usual scenery, but the core challenge of racing the clock without wiping out stays exactly as demanding as ever.
+
+## How to Play
+
+The objective is the same as the rest of the series: finish each level as fast as possible. Speed directly determines your star rating for a level, and every crash costs you time you can't get back, so clean, confident riding matters more than reckless speed. Landing a backflip mid-run shaves half a second off your time, which is often the difference between a good run and the three-star finish players are chasing.
+
+Stars earned from completing levels can be spent on new riders, including a witch on a moped and a pumpkin-headed rider piloting a motorcycle built from bones — both fitting additions to the game's overall theme.
+
+## Level Design
+
+Every part of Spooky Land leans into its Halloween theme, from the dark, atmospheric backdrops to obstacles built out of bones and pools of toxic-looking green goop. The track design plays into that atmosphere too, with cunningly placed traps that demand quick thinking and precise stunt timing to clear safely.
+
+There are 22 tracks in total, each with its own creative layout and a distinct set of hazards, and every one can be replayed to chip away at your personal best time.
+
+## Controls
+
+- **W / Up arrow** — Accelerate
+- **S / Down arrow** — Brake
+- **D / Right arrow** — Tilt the bike forward
+- **A / Left arrow** — Tilt the bike backward
+
+## Features
+
+- 22 Halloween-themed tracks with unique obstacles
+- Unlockable riders, including a witch and a bone-motorcycle rider
+- Bonus time for landing backflips mid-run
+- A star-rating system tied to completion speed
+
+## Background
+
+Moto X3M 6: Spooky Land was developed by MadPuffers, the studio behind the full Moto X3M series, and released in October 2019 to coincide with Halloween. It's the sixth entry in the series, following the original Moto X3M, Moto X3M 4: Winter, and Moto X3M 5: Pool Party.
+
+## Platform
+
+Playable in the browser on both desktop and mobile.
+
+## FAQ
+
+**How many Moto X3M games are there?**
+Six in total, though only four remain available to play online: the original Moto X3M, Moto X3M 4: Winter, Moto X3M 5: Pool Party, and Moto X3M 6: Spooky Land.
+
+**How do you unlock new bikes and riders in Moto X3M 6?**
+By spending stars earned from completing levels quickly.
+
+**Who developed Moto X3M 6: Spooky Land?**
+It was developed by MadPuffers, who created the entire Moto X3M series.

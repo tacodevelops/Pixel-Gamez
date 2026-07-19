@@ -9,9 +9,10 @@ import AdSlot from './AdSlot';
 
 interface GamePlayerProps {
   game: Game;
+  detailedDescriptionHtml?: string;
 }
 
-export default function GamePlayer({ game }: GamePlayerProps) {
+export default function GamePlayer({ game, detailedDescriptionHtml }: GamePlayerProps) {
   const { user, isLoggedIn, openAuthModal, toggleFavorite, addRecentGame } = useAuth();
   const { t } = useI18n();
   const plays = usePlays(game.id);
@@ -196,18 +197,27 @@ export default function GamePlayer({ game }: GamePlayerProps) {
       </div>
 
       <div className="game-player__description-card">
-        <h3>
-          {t('about') || 'About'} {(() => {
-            const translated = t(`game_${game.id}_title`);
-            return translated === `game_${game.id}_title` ? game.title : translated;
-          })()}
-        </h3>
-        <p>
-          {(() => {
-            const translated = t(`game_${game.id}_desc`);
-            return translated === `game_${game.id}_desc` ? game.description : translated;
-          })()}
-        </p>
+        {detailedDescriptionHtml ? (
+          <div 
+            className="game-description-seo"
+            dangerouslySetInnerHTML={{ __html: detailedDescriptionHtml }}
+          />
+        ) : (
+          <>
+            <h3>
+              {t('about') || 'About'} {(() => {
+                const translated = t(`game_${game.id}_title`);
+                return translated === `game_${game.id}_title` ? game.title : translated;
+              })()}
+            </h3>
+            <p>
+              {(() => {
+                const translated = t(`game_${game.id}_desc`);
+                return translated === `game_${game.id}_desc` ? game.description : translated;
+              })()}
+            </p>
+          </>
+        )}
         
         {(game.discordUrl || game.steamUrl || game.developerLink) && (
           <div className="game-player__links" style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>

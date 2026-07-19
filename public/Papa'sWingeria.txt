@@ -1,0 +1,50 @@
+# Papa's Wingeria
+
+Papa's Wingeria has you frying and saucing chicken wings for a growing line of customers, following the same time-management format as the rest of the Papa's Games series. The added twist here is timing sauce and toppings just right, since a plate that's under- or over-dressed won't earn top marks no matter how well the wings themselves turned out.
+
+## How to Play
+
+As with most entries in the series, the setup involves a bit of Papa Louie trickery — you end up working at the Wingeria more or less against your will, learning the basics from him before being left to handle the shop's growing pace on your own.
+
+**Frying and Saucing**
+
+Each order starts with frying the requested number of wings until they hit the marked line. From there, wings go into the wing-spinner, where the requested sauce gets loaded and applied. Timing the saucing step matters — customers are picky about how well their wings are coated, and running out of sauce mid-order is one of the quickest ways to lose points.
+
+**Plating**
+
+The final step is presentation: spreading the wings neatly across the plate and adding any requested extras, like celery sticks for customers who like to pretend that makes the meal healthier. Careful, accurate plating is what pushes a good order into a great one.
+
+## Downtime and Minigames
+
+After each shift, you get three tickets to spend on one of several minigames — things like target-aiming challenges or catching falling food. Winning one earns a reward that helps going forward, and tips collected during the day can be spent on new items for the restaurant.
+
+## Upgrading the Wingeria
+
+Beyond gameplay rewards, earnings go toward decorations and equipment upgrades. Furniture and posters help keep customers patient while waiting, and better equipment speeds up food prep. Given enough time and effort, the shop can be fully outfitted with new furniture, flooring, and walls.
+
+## Features
+
+- Choose a premade character or build your own
+- A full wing-cooking process, from frying to saucing to plating
+- Unlockable minigames after each shift
+- A complete restaurant upgrade system
+
+## Controls
+
+Played entirely with the left mouse button.
+
+## Background
+
+Papa's Wingeria was developed by Flipline Studios, part of the wider Papa's Games series. It was originally released as a Flash game in June 2012, followed by an iOS version in August 2014 and an Android version in February 2019.
+
+## Platform
+
+Playable in the browser on both desktop and mobile, as well as on Android and iOS.
+
+## FAQ
+
+**Is Papa's Wingeria free to play?**
+Yes, it's playable online at no cost.
+
+**How long does it take to finish Papa's Wingeria?**
+With steady play, most players can complete the game in roughly 10 to 12 hours.

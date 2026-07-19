@@ -1,0 +1,55 @@
+# Papa's Sushiria
+
+Papa's Sushiria puts you behind the counter of a sushi restaurant, learning the craft of rolling, slicing, and plating orders for a steady stream of hungry customers. It follows the same time-management formula as the rest of the Papa's Games series, this time built around the extra precision that sushi-making demands.
+
+## How to Play
+
+The setup has a bit of a story behind it: Papa Louie invites you to the grand opening of the restaurant, but an accident on the way out — breaking Papa's lucky cat — leaves you working off the debt at the Sushiria.
+
+Each order starts at the rice station, where getting the texture right matters before anything else. From there, you'll roll ingredients into nori and rice at the build station, occasionally flipping the roll depending on what's been ordered, and working with different rice types as recipes get more advanced.
+
+**Building the Order**
+
+Sushi rolls can be built up with ingredients like lobster and salmon, plus toppings such as avocado and mango. More ingredients and techniques unlock as you progress, and precise, careful placement is what earns the highest scores from customers — sloppy assembly costs points even if the order is technically correct.
+
+**Finishing with Bubble Tea**
+
+Every order wraps up with a cup of bubble tea, made to each customer's specific preferences. It's a smaller step than the sushi-building itself, but just as easy to fumble if you're rushing.
+
+## Downtime and Minigames
+
+After each shift, you get three chances to play one of several minigames, such as Papa's Derby. Doing well earns rewards that help you going forward, and tips collected during shifts can be spent on new items for the restaurant.
+
+## Upgrading the Sushiria
+
+Beyond gameplay upgrades, you can spend earnings on decorations and equipment. Furniture and posters help keep customer patience up while they wait, and equipment upgrades speed up food prep. Over time, the restaurant can be fully outfitted with new furniture, flooring, and walls — though all of it has to be earned first.
+
+## Features
+
+- Choose a premade character or build your own
+- Unlockable minigames after each shift
+- Deep sushi customization based on customer orders
+- A full restaurant upgrade system for furniture and equipment
+
+## Controls
+
+Played entirely with the mouse.
+
+## Background
+
+Papa's Sushiria was developed by Flipline Studios, released in December 2016. It's part of the wider Papa's Games series, alongside other restaurant-themed entries like Papa's Wingeria and Papa's Pancakeria.
+
+## Platform
+
+Playable in the web browser on desktop. It is not currently available on mobile.
+
+## FAQ
+
+**Is Papa's Sushiria free to play?**
+Yes, it's playable online at no cost.
+
+**Can I play Papa's Sushiria on mobile?**
+No, it's currently limited to desktop browsers.
+
+**Does Papa's Sushiria have an ending?**
+Yes — the game concludes at Rank 65 with Papa Louie.

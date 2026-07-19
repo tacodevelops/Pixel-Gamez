@@ -1,0 +1,75 @@
+# House of Hazards
+
+House of Hazards is a local multiplayer game where finishing a simple chore is anything but simple, because your housemates are actively trying to stop you. Make coffee, check the mail, water the plants — ordinary tasks turned chaotic by taps that misfire, lights that fall, and toast that flies through the air with genuine intent to harm.
+
+## How to Play
+
+The goal sounds mundane on paper: complete a short list of household tasks around the house. In practice, every task is a minefield, because the other players in the house are lurking nearby, ready to trigger a hazard the second you're in range. New players are better off starting in Time Trial mode first, just to get a feel for the controls and layout before other players get involved.
+
+**Getting Things Done**
+
+Progress comes from finishing tasks scattered around the house — small, everyday errands that would take seconds anywhere else. Here, every one of them is a chance for someone else to catch you off guard.
+
+**Making Life Difficult for Everyone Else**
+
+The flip side of the game is just as important. When you're not racing to finish your own tasks, you're free to sabotage everyone else's — firing off taps, flinging toast, triggering lasers, dropping lights on unsuspecting housemates, or even grabbing a fallen player and locking them away in a chest. Causing chaos is just as valid a strategy as staying focused.
+
+**Players**
+
+House of Hazards supports up to four players at once — two on keyboard, two on gamepad — or you can play solo against up to three AI-controlled opponents if you don't have a full house to fill out.
+
+## Characters
+
+The game starts you off with four standard characters — two male, two female:
+
+- Dom
+- Marissa
+- Jerry
+- Samantha
+
+Additional characters unlock as you play and rack up wins:
+
+- Robo Rob
+- Buster
+- Rocking Grandma
+- Super Sam
+
+## Controls
+
+**Player 1**
+- **A / D** — Move / cycle hazard selection
+- **W** — Jump
+- **S** — Crouch / grab a player / activate hazard
+
+**Player 2**
+- **J / L** — Move / cycle hazard selection
+- **I** — Jump
+- **K** — Crouch / grab a player / activate hazard
+
+**Player 3–4 (Gamepad required)**
+- **Left stick** — Move / cycle hazard selection
+- **South button** — Jump
+- **East button** — Crouch / grab a player / activate hazard
+
+## Features
+
+- Local multiplayer for up to 4 players (keyboard + gamepad support)
+- Solo mode against AI opponents
+- A mix of task-completion and active sabotage
+- Eight playable characters, four of them unlockable
+
+## Background
+
+House of Hazards was released in September 2020 by New Eich Games, the studio also behind Rooftop Snipers and Getaway Shootout.
+
+## Platform
+
+Playable in the web browser.
+
+## FAQ
+
+**How do you unlock new characters in House of Hazards?**
+New characters are unlocked by winning matches.
+
+**Can you play House of Hazards online?**
+No — it's a local multiplayer game, meant to be played with up to four people on the same device.

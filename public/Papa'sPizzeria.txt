@@ -1,0 +1,47 @@
+# Papa's Pizzeria
+
+Papa's Pizzeria puts you behind the counter of Papa Louie's shop while he's away, handling everything from taking orders to pulling finished pies out of the oven. It's a time-management game at heart, but one built around the simple, satisfying rhythm of building a pizza exactly the way a customer asked for it.
+
+## How to Play
+
+Each order starts with a customer telling you what they want on their pizza. From there, it's a straightforward process: add the requested toppings, slide the pizza into the oven for the right amount of time, then pull it out, slice it, and get it to the customer before they lose patience.
+
+That process stays simple in the early levels, but it doesn't stay simple for long.
+
+**Balancing Multiple Orders**
+
+As you progress, customers start arriving faster and asking for more complicated combinations, which means you'll rarely be working on just one pizza at a time. A good rule of thumb is to start your longest-cooking pizzas first, so you can use that oven time to prep the next order rather than standing around waiting. Juggling several pizzas at different stages — topping one, baking another, slicing a third — is where the real skill of the game comes in, and it's also how you earn the biggest tips.
+
+**Regular Customers**
+
+Return customers eventually unlock an entry in a customer book, which tracks their usual order preferences. Checking it before they arrive is a small edge that helps you get their pizza right on the first try.
+
+## Controls
+
+Everything in Papa's Pizzeria is handled with the mouse — selecting toppings, moving the pizza between stations, and slicing all happen with clicks and drags.
+
+## Features
+
+- Full pizza-making process: topping, baking, and slicing
+- Increasingly complex orders as levels progress
+- A tip system that rewards fast, accurate multitasking
+- A customer preference book for returning regulars
+
+## Background
+
+Papa's Pizzeria was originally released as a Flash game in January 2014 by Flipline Studios, the studio behind the wider Papa Louie series of games. After Flash support ended, the game was brought back in August 2021 using the Ruffle emulator, letting it run in modern browsers without requiring Flash.
+
+## Platform
+
+Playable in the browser on both desktop and mobile.
+
+## FAQ
+
+**Can I play Papa's Pizzeria without Flash?**
+Yes — thanks to the Ruffle emulator, the game runs directly in the browser with no Flash plugin required.
+
+**Does Papa's Pizzeria work on mobile?**
+Yes, it's playable on both desktop and mobile browsers.
+
+**Who developed Papa's Pizzeria?**
+Papa's Pizzeria was developed by Flipline Studios, who also created the rest of the Papa's Games series.

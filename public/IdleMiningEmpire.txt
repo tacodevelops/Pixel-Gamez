@@ -1,0 +1,45 @@
+# Idle Mining Empire
+
+Idle Mining Empire starts you off with a single worker and a pickaxe, then gradually builds toward a fully automated mining operation that keeps earning whether you're actively playing or not. It's a classic idle-game loop dressed up in mining gear — click to earn, spend to upgrade, and watch the automation take over.
+
+## How to Play
+
+The earliest stage of the game is hands-on: clicking your worker produces resources, which then need to travel up an elevator to the surface before making their way to the warehouse for sale. As you progress and dig deeper, new mine shafts unlock, each one adding to your overall earning potential.
+
+**Automating the Operation**
+
+The real momentum in Idle Mining Empire comes from automation. Managers can be assigned to different parts of the workflow — mining, transporting, selling — freeing you from having to click through every step manually. Alongside hiring managers, each stage of the process can be upgraded individually to move faster and generate more profit per cycle, compounding your income as the operation scales up.
+
+**Investors and Prestige**
+
+Once your operation reaches a certain scale, selling the business to investors resets the game but adds a permanent earnings multiplier, letting each subsequent run build wealth faster than the one before it. Prioritizing upgrades and automation over manual clicking tends to be the fastest way to reach that point.
+
+## Controls
+
+Played entirely with the left mouse button.
+
+## Features
+
+- Idle income generation with manual and automated phases
+- Unlockable mine shafts that expand earning potential
+- Manager-based automation for the entire workflow
+- Investor-based resets with permanent earnings multipliers
+
+## Background
+
+Idle Mining Empire was released in June 2021.
+
+## Platform
+
+Playable in the browser on both desktop and mobile.
+
+## FAQ
+
+**What happens when you sell the business to investors?**
+The game resets to the beginning, but with a permanent multiplier applied, making future progress faster than before.
+
+**How do you collect cash in Idle Mining Empire?**
+Cash is added automatically as tasks complete — there's no need to manually collect it once a task finishes.
+
+**What's the fastest way to progress in Idle Mining Empire?**
+Prioritizing upgrades and automated earnings tends to speed up progress more than relying on manual clicking alone.

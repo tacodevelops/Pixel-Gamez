@@ -1,0 +1,37 @@
+# Idle Restaurants
+
+Idle Restaurants puts you in charge of building a restaurant empire that keeps earning even when you're not actively playing. Hire chefs, upgrade your kitchens, and watch the coins roll in as your small operation grows into a sprawling, multi-city food empire.
+
+## How to Play
+
+The core loop is classic idle-game territory: hire chefs to staff your restaurant, and they'll generate coins automatically for as long as they're working, even while you step away. Upgrading a chef with additional stars lets them cook more valuable dishes, which directly increases how much your restaurant earns per chef over time.
+
+Every dish served also earns XP, which goes toward recruiting new chefs and unlocking additional restaurants. Rather than just piling up staff, though, getting the most out of each location means tuning it for efficiency — adjusting speed, capacity, and pricing to keep customers flowing in without letting queues pile up.
+
+**Boosters and Expansion**
+
+Beyond the basics, special boosters can give your income a serious push. Things like a food critic visit or a golden plate power-up can multiply your earnings for a stretch, helping you leap toward the next big upgrade faster than steady play alone would allow. As your empire grows, you'll open restaurants across different cities, each adding to your overall income and giving you more chefs and dishes to manage at once.
+
+## Features
+
+- Idle income generation through hired and upgraded chefs
+- XP-based progression for unlocking new chefs and restaurant locations
+- Restaurant-specific upgrades for speed, capacity, and pricing
+- Temporary boosters for accelerating income growth
+- Expansion across multiple cities and restaurant locations
+
+## Controls
+
+Played entirely with the mouse.
+
+## Platform
+
+Playable in the browser, with additional versions available as apps on Android and iOS.
+
+## FAQ
+
+**Do you need to actively play Idle Restaurants to make progress?**
+No — chefs generate coins automatically once hired, letting your restaurants earn income even while you're away.
+
+**How do you unlock new restaurants?**
+New restaurants and chefs are unlocked using XP earned from dishes served during regular play.

@@ -1,0 +1,53 @@
+# Papa's Pastaria
+
+Papa's Pastaria has you running an Italian kitchen, boiling and dressing pasta dishes for a steady line of customers. It follows the same time-management structure as the rest of the Papa's Games series, built around the specific rhythm of getting pasta cooked exactly right before layering on sauce, cheese, and a side of garlic bread.
+
+## How to Play
+
+The setup this time centers on a wedding: you've traveled to the town of Portallini for the occasion, but with no hotel rooms available, you end up sleeping at Papa's Pastaria in exchange for working there as Papa's pasta protégé.
+
+**Cooking the Pasta**
+
+Boiling pasta turns out to be more precise than it sounds. You'll choose from a range of pasta types — gnocchi, spaghetti, macaroni, and more as you progress — and need to boil and drain each order carefully. Cooking even a few seconds too long noticeably hurts your score, so watching the timer closely matters more here than in some of the other Papa's games.
+
+**Sauce, Cheese, and Bread**
+
+Once cooked, pasta gets dressed with marinara or one of several other sauces, finished off with a sprinkle of parmesan. Every dish is served alongside a garlic baguette at no extra cost, rounding out the plate before it heads out to the customer.
+
+## Downtime and Minigames
+
+After each shift, you get three chances to play one of seven available minigames. Winning one earns a reward that helps going forward, and tips collected during the day can be spent on new items for the restaurant.
+
+## Upgrading the Pastaria
+
+Beyond gameplay rewards, earnings can go toward decorations and equipment. Furniture and posters help keep customers patient while waiting, and better equipment speeds up food prep. Given enough time, the whole restaurant can be fully outfitted with new furniture, flooring, and walls.
+
+## Features
+
+- Play as Doan, Utah, or a custom character
+- A precise pasta-boiling process with real timing stakes
+- Seven unlockable minigames after each shift
+- A full restaurant upgrade system
+
+## Controls
+
+Played entirely with the left mouse button.
+
+## Background
+
+Papa's Pastaria was developed by Flipline Studios, part of the wider Papa's Games series. It was originally released as a Flash game in December 2013, with Android and iOS versions following in July 2020.
+
+## Platform
+
+Playable in the browser on both desktop and mobile, as well as on Android and iOS.
+
+## FAQ
+
+**Is Papa's Pastaria easy compared to other Papa's games?**
+It's generally considered one of the more approachable entries in the Flipline Studios lineup, alongside titles like Papa's Pancakeria and Papa's Wingeria.
+
+**Does Papa's Pastaria have an ending?**
+Yes — the game concludes at level 65, where Papa Louie officiates a wedding attended by regular customers and characters from throughout the game.
+
+**When should you stir the pasta?**
+Stir once the cooking timer hits the halfway point. For a "regular" order, stop cooking once the timer turns orange — letting it go longer results in overcooked, soggy pasta.

@@ -1,0 +1,23 @@
+# Checklist: Game Improvements & Redesign
+
+- [x] 1. Game Data & Image Sync
+  - [x] Create `scripts/sync-games.ts`
+  - [x] Scan and update premium thumbnails and add new games in `lib/data.ts`
+  - [x] Run migration to sync database with new games
+- [x] 2. Handwritten Descriptions for SEO
+  - [x] Add description-parsing logic in server-side `app/game/[id]/page.tsx`
+  - [x] Update `components/GamePlayer.tsx` to render detailed SEO description
+- [x] 3. Poki-Style Language Folderpaths
+  - [x] Create `proxy.ts` for locale-path rewrites
+  - [x] Update `components/I18nContext.tsx` to parse paths and push localized routes
+  - [x] Redesign `components/LanguageSelector.tsx` as a beautiful globe overlay
+- [x] 4. Remove Profiles & Fix Icon Targets
+  - [x] Clean up `components/Header.tsx` (remove auth/user search, enlarge icons)
+  - [x] Update `components/Sidebar.tsx` (remove profile link, update copyright copy)
+- [x] 5. CrazyGames Layout Redesign
+  - [x] Redesign `app/page.tsx` (homepage grid & animations)
+  - [x] Redesign `components/GamePlayer.tsx` (spacious iframe and side suggestions layout)
+- [x] 6. Verification
+  - [x] Test the localized routes
+  - [x] Test SEO description loading
+  - [x] Verify build compiles successfully

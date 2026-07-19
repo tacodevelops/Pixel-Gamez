@@ -1,0 +1,44 @@
+# Crossy Road
+
+Crossy Road takes the classic idea behind Frogger and turns it into an endless hopping challenge: cross roads, rivers, and railway tracks one lane at a time, for as long as your reflexes hold out. It's simple enough for a first-time player to pick up instantly, but the constant stream of traffic and obstacles makes it surprisingly hard to put down.
+
+## How to Play
+
+The objective never changes: hop your character forward, lane by lane, without getting hit by traffic, caught by a train, or dropped into a river. Roads bring unpredictable streams of cars, trucks, and slow-moving tractors, while river sections require timing your jumps onto floating logs and lily pads — miss your footing, and your character sinks.
+
+There's no pausing to think things through, either. The screen scrolls forward continuously, and staying in place for too long brings an eagle swooping down to end your run. That constant pressure to keep moving is what turns each crossing into a quick decision rather than a careful, considered one.
+
+**Controls**
+
+- **Desktop** — Arrow keys or WASD to move, spacebar or mouse click to hop forward
+- **Mobile** — Tap to move forward, swipe to change direction
+
+## Characters
+
+Crossy Road starts every player off with the original chicken, but the roster expands to well over a hundred unlockable characters. Coins earned during runs feed into the Prize Machine, which hands out random new characters, while others are hidden behind specific in-game actions — jumping on a particular animal in the river, or performing an unusual move a set number of times during a single run, for example.
+
+## Features
+
+- Endless, procedurally generated road, river, and rail crossings
+- Simple one-tap or one-key controls
+- A large roster of unlockable characters, including secret ones tied to specific actions
+- Constant forward pressure that keeps every run tense
+
+## Background
+
+Crossy Road was developed by Hipster Whale, an Australian studio, and originally released in 2014. It quickly became one of the most popular mobile arcade games of its time and has since been made playable in the browser as well.
+
+## Platform
+
+Playable in the browser, as well as on Android, iOS, and Windows.
+
+## FAQ
+
+**Does Crossy Road cost money to play?**
+No, it's free to play, with optional purchases available for unlocking characters or coins faster — though every character can also be earned without spending anything.
+
+**What happens if I stand still too long?**
+An eagle will swoop in and grab your character, ending the run, so constant forward movement is necessary.
+
+**Who developed Crossy Road?**
+Crossy Road was created by Hipster Whale.

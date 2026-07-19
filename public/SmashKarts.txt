@@ -1,0 +1,70 @@
+# Smash Karts
+
+Smash Karts is a fast-paced 3D multiplayer kart game where the goal isn't just crossing the finish line — it's blowing up everyone else trying to get there. Drop into an arena, grab whatever weapon you can find, and turn every lap into a demolition derby. Win or lose, you'll walk away with XP toward leveling up your profile.
+
+## How to Play Smash Karts
+
+**Battling for XP**
+
+Matches run for about three minutes at a time, set across a rotating lineup of arenas that the developers keep adding to. Every match you finish — win or lose — earns XP. Stack up enough XP to level up, and you'll be rewarded with coins, cosmetic items like hats and wheels, and character tokens.
+
+Character tokens can be spent in the prize machine to unlock new drivers, some far rarer than others.
+
+**Grabbing Weapons**
+
+Scattered around each arena are item boxes marked with a question mark. Drive over one and you'll get a random weapon or power-up — everything from short bursts of invincibility to explosives capable of wiping out a whole group of opponents at once. Timing and positioning matter as much as firepower.
+
+**Weapon Arsenal**
+
+- **Rockets** — Straightforward projectiles, best used on opponents directly ahead.
+- **Machine Gun** — Rapid-fire shots effective at close range.
+- **Bullets** — A straight-line volley, useful in tight corridors or crowded areas.
+- **Mines** — Deploy up to three as traps; most effective tucked around blind corners or near item boxes.
+- **Cannonballs** — Four cannonballs fired in a chosen direction; precise, but capable of taking out multiple karts at once.
+- **Spiky-Go-Round** — Wraps your kart in rotating spikes, turning any collision into a kill.
+- **Nuke** — A high-powered missile with a large blast radius.
+- **Lobgrenuke** — A TNT-style bomb placed on the ground, triggered by proximity or a short timer.
+- **Snowball Blaster** — Freezes an opponent in a block of ice for a few seconds; touching the frozen kart destroys it.
+- **Invincibility** — The strongest pickup in the game, letting you shrug off attacks and destroy any kart on contact.
+
+**Customizing Your Kart**
+
+The customization menu lets you mix and match karts, characters, hats, and seasonal cosmetics using coins, tokens, and gems earned through play.
+
+**Seasonal Events**
+
+Smash Karts regularly rolls out limited-time content tied to holidays like Halloween and Christmas, complete with themed maps and exclusive rewards for players who check in during those windows.
+
+## Features
+
+- Fast, competitive multiplayer kart battles
+- Leveling system with coins and saved stats
+- A wide range of weapons, from machine guns to nukes
+- Deep character and kart customization
+
+## Controls
+
+- **WASD or arrow keys** — Drive
+- **Spacebar** — Fire your weapon
+
+## Platforms
+
+Smash Karts is playable in the browser on desktop and mobile, and is also available as an app on iOS and Android.
+
+## Background
+
+Smash Karts was released in March 2020 and developed by Tall Team.
+
+## FAQ
+
+**Who developed Smash Karts?**
+Smash Karts was created by Tall Team.
+
+**How do you earn coins in Smash Karts?**
+Coins are awarded automatically whenever you level up, alongside other in-game rewards.
+
+**What's the shoot button in Smash Karts?**
+Press the spacebar to fire whatever weapon you're currently holding.
+
+**Is Smash Karts worth playing repeatedly?**
+With millions of mobile downloads, Smash Karts has built a large, active player base thanks to its mix of quick matches, strategic weapon use, and unlockable content that keeps runs feeling fresh.

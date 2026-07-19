@@ -1,0 +1,44 @@
+# Johnny Revenge
+
+Johnny Revenge is an action shooter built around split-second timing rather than reflexes alone. Johnny runs the streets automatically, flipping into position whenever an enemy appears — your job is simply making sure every shot counts, since ammo is limited and hostages are never far from the line of fire.
+
+## How to Play
+
+Johnny moves and reacts on his own, automatically backflipping into a firing position whenever he spots an enemy. Your role is purely about the shot itself: click once to have Johnny aim, then click again at the right moment to fire. Because bullets are limited, wasted shots leave you exposed, so timing and target selection matter far more than firing quickly.
+
+Levels are populated with armed enemies and, in many cases, hostages mixed in among them. Hitting a hostage by mistake ends the mission and forces a restart, so precision matters as much as speed. Explosive barrels scattered through some levels offer a shortcut — a single well-placed shot can take out an entire cluster of enemies standing near one, as long as no hostages are caught in the blast.
+
+Telephone booths found throughout each level double as checkpoints and safe spots to reload, giving you a moment to regroup before pushing further into a mission.
+
+**Progression**
+
+Completing missions earns coins, which can be spent unlocking new weapons from an in-game shop — with seven different guns available to work toward across the game.
+
+## Controls
+
+- **Left click** — Aim
+- **Left click again** — Fire
+
+## Features
+
+- Automatic movement with manual aim-and-shoot timing
+- Hostage-protection mechanic that adds risk to every shot
+- Explosive barrels for clearing grouped enemies
+- Checkpoint and reload stations throughout each level
+- Seven unlockable weapons purchased with earned coins
+
+## Background
+
+Johnny Revenge was developed by Kiz10 and released in 2020.
+
+## Platform
+
+Playable in the browser on desktop.
+
+## FAQ
+
+**What happens if you shoot a hostage in Johnny Revenge?**
+The mission ends immediately and you'll need to restart from the last checkpoint.
+
+**How do you get new weapons in Johnny Revenge?**
+Coins earned from completing missions can be spent in the in-game shop to unlock additional guns.

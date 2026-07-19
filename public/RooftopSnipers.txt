@@ -1,0 +1,49 @@
+# Rooftop Snipers
+
+Rooftop Snipers is a chaotic two-button duel where the only goal is knocking your opponent clean off the roof. There's no complex combat system here — just jumping, shooting, and the recoil that comes with every shot, all working together to make even a simple duel feel wonderfully unpredictable.
+
+## How to Play
+
+Winning a round comes down to one thing: pushing your opponent off the ledge by landing shots on them. Movement is limited to jumping, which doubles as your main way to dodge incoming fire, and your weapon has to be raised before firing — timing that raise and release well is most of the challenge here. With so few moves available, matches stay simple to understand but genuinely tricky to master.
+
+You can duel a friend locally or practice against the computer, and matches play out across a variety of rooftop settings, some of which introduce extra physical elements that add even more chaos to an already unpredictable fight.
+
+**Winning a Match**
+
+Rounds are quick, and the first player to reach five wins takes the match.
+
+## Controls
+
+**Player 1**
+- **W** — Jump
+- **E** — Raise weapon / shoot
+
+**Player 2**
+- **I** — Jump
+- **O** — Raise weapon / shoot
+
+## Features
+
+- Two-button controls: jump and shoot
+- Local one- or two-player modes
+- A variety of rooftop environments and costumes
+- Pixelated 2D graphics with physics-driven combat
+
+## Background
+
+Rooftop Snipers was developed by New Eich Games, the studio also behind Getaway Shootout, Tube Jumpers, and Ping Pong Chaos, and was released in January 2017.
+
+## Platform
+
+Playable in the browser on desktop.
+
+## FAQ
+
+**Can Rooftop Snipers be played on mobile?**
+Currently, it's only available to play on desktop through a web browser.
+
+**Can you play Rooftop Snipers with a friend?**
+Yes, it supports local two-player matches on the same keyboard.
+
+**Who developed Rooftop Snipers?**
+Rooftop Snipers was created by New Eich Games, the same studio behind Getaway Shootout and Ping Pong Chaos.

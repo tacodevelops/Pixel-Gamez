@@ -1,0 +1,49 @@
+# Moto X3M 5: Pool Party
+
+Moto X3M 5: Pool Party brings the series' motocross stunt formula to a sunny beach setting, trading the usual scenery for waterslides, poolside hazards, and plenty of water to race straight through. The core challenge stays familiar — get through each level as fast as possible without wiping out — but the theme and difficulty both take a noticeable step up from earlier entries.
+
+## How to Play
+
+Racing through each level means finding the right balance between speed and precision. Going too fast into a tricky jump is just as likely to end a run as going too slow, so reading each obstacle before committing to a jump matters as much as raw throttle control.
+
+The pool party theme shows up constantly throughout the level design — waterslides, giant tubes, poolside clutter, and other beach-themed hazards replace the usual dirt-track obstacles, set against a genuinely pleasant beach backdrop. There are 22 levels in total, and Pool Party is noticeably tougher than the games before it; even early levels can be a real challenge to clear with a perfect three-star score.
+
+Backflips remain useful here, shaving 0.5 seconds off your time whenever you land one cleanly mid-air — often enough on its own to be the difference between a top score and falling just short of one.
+
+**Controls**
+
+- **W / Up arrow** — Accelerate
+- **A / Left arrow** — Tilt backward
+- **D / Right arrow** — Tilt forward
+- **S / Down arrow** — Brake
+
+## Tips
+
+- Holding down while accelerating triggers a wheelie, which can boost your speed further.
+- The A and D keys aren't just for tilting — they're essential for pulling off front and back flips mid-air.
+
+## Features
+
+- 22 pool-party-themed levels
+- Three selectable riders
+- A distinct beach setting with unique obstacles
+- Fullscreen mode support
+
+## Background
+
+Moto X3M 5: Pool Party was developed by MadPuffers, the studio behind the entire Moto X3M series, and released in March 2019. It's the fifth entry in the series, following the original Moto X3M.
+
+## Platform
+
+Playable in the browser on both desktop and mobile.
+
+## FAQ
+
+**How many games are in the Moto X3M series?**
+There are six games in total.
+
+**What stunts can you perform in Moto X3M 5?**
+Flips are the main trick available, and skilled players can chain multiple flips together — up to four or five in a row — for extra style and bonus time.
+
+**How do you brake in Moto X3M 5?**
+Press S or the down arrow key to brake.

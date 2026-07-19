@@ -1,0 +1,28 @@
+# Burger Clicker
+
+Burger Clicker is a simple, addictive clicker game with one goal: build the biggest, most outrageous burger you can, one click at a time. You start with nothing more than a plain bun, and every click earns you burger coins to spend on upgrades, toppings, and eventually a burger that barely resembles where you started.
+
+## How to Play
+
+The core loop is as straightforward as clicker games get: click your burger to earn burger coins. Spend those coins on upgrades and new ingredients, and each upgrade in turn boosts how many coins your clicks are worth, letting you afford the next round of toppings even faster.
+
+As you progress, new toppings unlock for your burger, stacking up visually as your burger grows into something increasingly elaborate. The appeal is in that steady climb — a bigger burger, bigger coin totals, and upgrades that keep the pace of progress feeling quick even as costs rise.
+
+## Controls
+
+Click the burger with the left mouse button to earn burger coins. That single action drives the entire game.
+
+## Features
+
+- Simple, one-click core gameplay
+- A growing burger that visually reflects your progress
+- Unlockable toppings and ingredients
+- Upgrades that increase coin earnings per click
+
+## Background
+
+Burger Clicker was developed by Joren De Braeckeleer and released in March 2023.
+
+## Platform
+
+Playable in the browser on both desktop and mobile.

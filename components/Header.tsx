@@ -12,39 +12,24 @@ import LanguageSelector from './LanguageSelector';
 export default function Header() {
   const [search, setSearch] = useState('');
   const [results, setResults] = useState<Game[]>([]);
-  const [userResults, setUserResults] = useState<any[]>([]);
   const [notifications, setNotifications] = useState<any[]>([]);
   const [isNotifOpen, setIsNotifOpen] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-  const [isEditingProfile, setIsEditingProfile] = useState(false);
   const router = useRouter();
   const dropdownRef = useRef<HTMLFormElement>(null);
-  const userMenuRef = useRef<HTMLDivElement>(null);
   const notifMenuRef = useRef<HTMLDivElement>(null);
-  const avatarInputRef = useRef<HTMLInputElement>(null);
-  const { user, isLoggedIn, isOwner, isModerator, openAuthModal, logout, uploadAvatar, loading } = useAuth();
+  const { loading } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const { t } = useI18n();
 
   useEffect(() => {
     if (search.trim()) {
-      if (search.startsWith('@')) {
-        setResults([]);
-        fetch(`/api/users/search?q=${encodeURIComponent(search.substring(1))}`)
-          .then(res => res.json())
-          .then(data => { setUserResults(data); setIsDropdownOpen(true); })
-          .catch(() => setUserResults([]));
-      } else {
-        setUserResults([]);
-        const found = searchGames(search).slice(0, 6);
-        setResults(found);
-        setIsDropdownOpen(true);
-      }
+      const found = searchGames(search).slice(0, 6);
+      setResults(found);
+      setIsDropdownOpen(true);
     } else {
       setResults([]);
-      setUserResults([]);
       setIsDropdownOpen(false);
     }
   }, [search]);
@@ -85,10 +70,6 @@ export default function Header() {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsDropdownOpen(false);
       }
-      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
-        setIsUserMenuOpen(false);
-        setIsEditingProfile(false);
-      }
       if (notifMenuRef.current && !notifMenuRef.current.contains(event.target as Node)) {
         setIsNotifOpen(false);
       }
@@ -101,9 +82,7 @@ export default function Header() {
     e.preventDefault();
     if (search.trim()) {
       setIsDropdownOpen(false);
-      if (!search.startsWith('@')) {
-        router.push(`/search?q=${encodeURIComponent(search)}`);
-      }
+      router.push(`/search?q=${encodeURIComponent(search)}`);
     }
   };
 
@@ -115,17 +94,9 @@ export default function Header() {
   };
 
   const handleResultClick = () => { setIsDropdownOpen(false); setSearch(''); };
-  const handleLogout = async () => { setIsUserMenuOpen(false); await logout(); };
-  const handleAvatarChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    await uploadAvatar(file);
-    if (avatarInputRef.current) avatarInputRef.current.value = '';
-  };
 
   const handleNotifClick = () => {
     setIsNotifOpen(!isNotifOpen);
-    setIsUserMenuOpen(false);
     if (unreadCount > 0) {
       setUnreadCount(0);
       localStorage.setItem('lastReadNotificationAt', new Date().toISOString());
@@ -161,21 +132,8 @@ export default function Header() {
         )}
         {isDropdownOpen && search.trim() && (
           <div className="search-dropdown">
-            {results.length > 0 || userResults.length > 0 ? (
+            {results.length > 0 ? (
               <>
-                {userResults.map(u => (
-                  <Link key={u.id} href={`/user/${u.id}`} className="search-dropdown__item" onClick={handleResultClick}>
-                    {u.avatarUrl ? (
-                      <Image src={u.avatarUrl} alt={u.displayName} width={32} height={32} style={{ borderRadius: '50%', objectFit: 'cover', marginRight: '10px' }} unoptimized />
-                    ) : (
-                      <div style={{ width: 32, height: 32, borderRadius: '50%', background: '#ff3366', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', marginRight: '10px' }}>{u.displayName.charAt(0).toUpperCase()}</div>
-                    )}
-                    <div className="search-dropdown__info">
-                      <div className="search-dropdown__title">{u.displayName}</div>
-                      <div className="search-dropdown__category">User</div>
-                    </div>
-                  </Link>
-                ))}
                 {results.map(game => (
                   <Link key={game.id} href={`/game/${game.id}`} className="search-dropdown__item" onClick={handleResultClick}>
                     <Image src={game.thumbnail} alt={game.title} width={60} height={45} className="search-dropdown__thumb" style={{ objectFit: 'cover' }} />
@@ -185,11 +143,9 @@ export default function Header() {
                     </div>
                   </Link>
                 ))}
-                {!search.startsWith('@') && (
-                  <div className="search-dropdown__footer" onClick={() => { setIsDropdownOpen(false); router.push(`/search?q=${encodeURIComponent(search)}`); }}>
-                    See all results for &quot;{search}&quot;
-                  </div>
-                )}
+                <div className="search-dropdown__footer" onClick={() => { setIsDropdownOpen(false); router.push(`/search?q=${encodeURIComponent(search)}`); }}>
+                  See all results for &quot;{search}&quot;
+                </div>
               </>
             ) : (
               <div className="search-dropdown__empty">No games found for &quot;{search}&quot;</div>
@@ -225,93 +181,6 @@ export default function Header() {
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           )}
         </button>
-
-        {isLoggedIn && user ? (
-          <>
-
-            <div className="header__user" ref={userMenuRef}>
-              <button className="header__avatar" onClick={() => { setIsUserMenuOpen(!isUserMenuOpen); setIsEditingProfile(false); }} aria-label="User menu">
-                {user.avatarUrl ? (
-                  <Image src={user.avatarUrl} alt={user.displayName} width={32} height={32} className="header__avatar-img" style={{ objectFit: 'cover' }} unoptimized />
-                ) : (
-                  user.displayName.charAt(0).toUpperCase()
-                )}
-              </button>
-            {isUserMenuOpen && (
-              <div className="header__user-menu">
-                {!isEditingProfile ? (
-                  <>
-                    <div className="header__user-info">
-                      <div className="header__user-avatar-row">
-                        {user.avatarUrl ? (
-                          <Image src={user.avatarUrl} alt="" width={64} height={64} className="header__user-avatar-large" style={{ objectFit: 'cover' }} unoptimized />
-                        ) : (
-                          <div className="header__user-avatar-placeholder">{user.displayName.charAt(0).toUpperCase()}</div>
-                        )}
-                        <div>
-                          <div className="header__user-name">{user.displayName}</div>
-                          <div className="header__user-email">{user.email}</div>
-                          {isOwner && <span className="header__user-badge">Owner</span>}
-                          {!isOwner && isModerator && <span className="header__user-badge">Moderator</span>}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="header__user-divider"></div>
-                    <Link href={`/user/${(user as any).playerId || user.id}`} className="header__user-link" onClick={() => setIsUserMenuOpen(false)}>
-                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                      {t('profile')}
-                    </Link>
-                    {(isOwner || isModerator) && (
-                      <Link href="/admin" className="header__user-link" onClick={() => setIsUserMenuOpen(false)}>
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>
-                        {isOwner ? t('owner_panel') : t('moderator_panel')}
-                      </Link>
-                    )}
-                    <Link href="/developer" className="header__user-link" onClick={() => setIsUserMenuOpen(false)}>
-                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                      {t('developer')}
-                    </Link>
-                    <button className="header__user-link header__user-link--logout" onClick={handleLogout}>
-                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-                      Sign Out
-                    </button>
-                  </>
-                ) : (
-                  <div className="header__profile-edit">
-                    <div className="header__profile-edit-header">
-                      <button className="header__profile-back" onClick={() => setIsEditingProfile(false)}>
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6"/></svg>
-                      </button>
-                      <span>Edit Profile</span>
-                    </div>
-                    <div className="header__profile-avatar-section">
-                      <div className="header__profile-avatar-wrapper" onClick={() => avatarInputRef.current?.click()}>
-                        {user.avatarUrl ? (
-                          <Image src={user.avatarUrl} alt="" width={80} height={80} className="header__profile-avatar-img" style={{ objectFit: 'cover' }} unoptimized />
-                        ) : (
-                          <div className="header__profile-avatar-default">{user.displayName.charAt(0).toUpperCase()}</div>
-                        )}
-                        <div className="header__profile-avatar-overlay">
-                          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                        </div>
-                      </div>
-                      <input ref={avatarInputRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={handleAvatarChange} />
-                      <p className="header__profile-avatar-hint">Click to change photo</p>
-                    </div>
-                    <div className="header__profile-info">
-                      <div className="header__profile-field"><label>Display Name</label><span>{user.displayName}</span></div>
-                      <div className="header__profile-field"><label>Email</label><span>{user.email}</span></div>
-                      <div className="header__profile-field"><label>Role</label><span className={user.role === 'owner' ? 'header__profile-role--admin' : ''}>{user.role}</span></div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-          </>
-        ) : !loading ? (
-          <button className="header__signin-btn" onClick={openAuthModal}>{t('sign_in')}</button>
-        ) : null}
       </div>
     </header>
   );

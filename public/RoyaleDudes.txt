@@ -1,0 +1,54 @@
+# Royale Dudes
+
+Royale Dudes is a top-down 2D battle royale where the last person standing wins and the map itself is working against you the whole way there. Parachute in, scavenge for gear, and survive as the play area steadily shrinks, forcing every match toward one final, chaotic fight.
+
+## How to Play
+
+Every match starts the same way: parachute down into a shrinking 2D arena alongside other players. From there, survival comes down to two things — finding better gear than everyone else, and staying alive long enough to use it.
+
+**Looting and Gear**
+
+Scattered across the map are color-coded crates, with each color signaling the rarity of what's inside. Better crates mean better weapons and equipment, so landing near a strong loot spot early can set the tone for your whole match. You can also pick up gear dropped by players who've been eliminated, giving you a second chance to upgrade mid-match.
+
+**The Shrinking Arena**
+
+As with most battle royale games, the safe zone contracts over time, pushing surviving players closer together and forcing fights that might otherwise be avoidable. Positioning yourself well as the zone shrinks is just as important as your gear.
+
+**Progression**
+
+Creating an account lets you level up over time, unlocking additional weapons at certain milestones. Your current loadout and unlocked weapons can be reviewed from the main menu at any point.
+
+## Controls
+
+- **Movement** — Move your character around the map
+- **Aim** — Direct your character's weapon
+- **Shoot** — Fire your current weapon
+- **1 / 2 / 3** — Switch between weapon slots
+- **G** — Throw a grenade
+- **X** — Deploy a bomb
+
+## Features
+
+- Top-down 2D battle royale gameplay
+- Shrinking play zone that forces the action
+- Color-coded loot crates indicating item rarity
+- Account-based leveling and weapon unlocks
+
+## Background
+
+Royale Dudes was developed by Šarūnas Visockas, the same developer behind BattleDudes.io. The two games share a similar art style and control scheme, but Royale Dudes is built specifically around the battle royale format rather than standard multiplayer combat.
+
+## Platform
+
+Playable directly in the web browser.
+
+## FAQ
+
+**How do you get better gear in Royale Dudes?**
+Gear comes from color-coded crates scattered around the map, as well as items dropped by eliminated players — rarer colors generally mean stronger equipment.
+
+**Who developed Royale Dudes?**
+Royale Dudes was created by Šarūnas Visockas, who also developed BattleDudes.io.
+
+**Do you need an account to play Royale Dudes?**
+No, but creating one lets you level up and unlock additional weapons as you play.

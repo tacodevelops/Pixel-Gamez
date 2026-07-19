@@ -1,0 +1,45 @@
+# Boxing Physics 2
+
+Boxing Physics 2 takes the ragdoll chaos of the original Boxing Physics and sharpens it — better graphics, tighter controls, and a wider spread of game modes, but the same core idea of throwing wild, physics-driven punches at an equally floppy opponent.
+
+## How to Play
+
+Combat is built around a single punch button, but the payoff is anything but simple. Because both boxers move with loose, ragdoll-style joints, even a well-timed punch can send a fight spinning in an unexpected direction. Success comes down to reading momentum and positioning rather than memorizing combos — overcommitting to a punch leaves you open, so balancing offense with defense matters more than throwing as many hits as possible.
+
+**Modes**
+
+Beyond standard fights, Boxing Physics 2 includes a handful of alternate modes to mix things up: kickbox mode adds kicks alongside punches, soccer mode turns the ring into an unlikely goal-scoring contest, and crazy mode throws in unpredictable twists on top of the usual chaos.
+
+You can play solo against CPU opponents or go head-to-head locally with a friend. Quick Match offers a fast, randomized opponent, while Tournament mode strings together a full run of fights for players looking for a longer session.
+
+**Progression**
+
+Winning matches earns currency and unlocks new characters, each with a distinctive look and their own combat quirks — giving you a reason to keep playing beyond just chasing your next knockout.
+
+## Controls
+
+- **Single player** — W to punch
+- **Two-player mode** — Player 2 uses the up arrow key
+
+## Features
+
+- Ragdoll physics-driven boxing combat
+- Multiple modes, including kickbox, soccer, and crazy variants
+- Local one- or two-player matches
+- Unlockable characters earned through match wins
+- Quick Match and Tournament formats
+
+## Platform
+
+Playable in the browser on desktop, as well as on mobile devices.
+
+## FAQ
+
+**How do you punch in Boxing Physics 2?**
+In single-player and as Player 1, press W to throw a punch; Player 2 in two-player mode uses the up arrow key instead.
+
+**Can you play Boxing Physics 2 with a friend?**
+Yes, it supports local two-player matches on the same device, in addition to solo play against the CPU.
+
+**Is Boxing Physics 2 just about punching?**
+Not entirely — alternate modes like kickbox and soccer mode add different objectives on top of the standard fighting.

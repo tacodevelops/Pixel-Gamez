@@ -1,0 +1,50 @@
+# Aquapark.io
+
+Aquapark.io drops you onto a massive, twisting water slide alongside dozens of other racers, all fighting to be the first to hit the final dive. Steering is simple, but staying on the slide while everyone around you is trying to knock you off is a different story entirely.
+
+## How to Play
+
+The objective is straightforward: reach the finish line before anyone else. Getting there cleanly is the hard part. You can steer safely down the middle of the slide the whole way, but playing it that cautiously tends to leave you buried in the pack — real speed comes from cutting closer to the edges and riding the twists aggressively, which also means it's much easier to fly off the slide entirely.
+
+**Racing for Cups**
+
+Progress is measured in cups, earned by finishing first across a series of rounds. Early cups include:
+
+- Temple Cup
+- City Cup
+- Zen Cup
+
+**Obstacles and Momentum**
+
+Roadblocks scattered along the slide will slow you down if you hit them, while smoothly avoiding them and riding the curves well can build up a speed boost instead. Water geysers are especially unpredictable — hitting one straight-on will usually launch you off the slide completely, though that's not always a bad thing. Getting knocked off isn't the end of a run; you can aim yourself back down and land on the slide at almost any point, and with practice, timing that fall well can actually put you ahead rather than behind.
+
+**Coins and Skins**
+
+Every race pays out coins based on how well you finish, which can be spent unlocking new character skins — everything from ordinary animal designs to elaborate, over-the-top legendary ones. Later stages of the game lean even further into that visual chaos.
+
+**Power-Ups**
+
+Temporary power-ups shake up races further, including transformations like turning into a giant to shove opponents out of the way, or pulling out a cloud or umbrella to glide clear over entire sections of the slide. As you win more races, tougher levels unlock with sharper turns, denser obstacles, and riskier shortcuts that reward players willing to gamble on a faster but more dangerous path.
+
+## Tips
+
+Knocking a rival off the slide is often just as effective as outracing them cleanly — a well-timed bump can move you up several places instantly.
+
+## Controls
+
+Controlled with the mouse, swiping left or right to steer along the slide.
+
+## Features
+
+- Dozens of AI racers competing on the same slide
+- Cup-based progression across multiple themed courses
+- Unlockable character skins, from simple to elaborate
+- Chaotic power-ups that can shift a race's outcome instantly
+
+## FAQ
+
+**Are the other racers in Aquapark.io real players?**
+No — Aquapark.io is played against computer-controlled opponents rather than other real players.
+
+**Is Aquapark.io appropriate for kids?**
+Yes, it doesn't contain violence or graphic content, making it generally suitable for kids under parental guidance.

@@ -1,0 +1,59 @@
+# Mope.io
+
+Mope.io is a multiplayer .io game where players must eat, evolve, and survive in a competitive environment. Similar to other survival .io games, the core gameplay involves consuming food and other animals to grow and evolve, progressing from a small mouse to more powerful creatures like dragons.
+
+## How to Play
+
+Players begin as a humble mouse, navigating the game world and eating berries to gain experience and size. The objective is to consume as much as possible to evolve into larger, stronger animals, eventually dominating the battlefield. Players must also avoid being eaten by larger predators.
+
+**Gameplay Mechanics**
+
+- **Eating and Evolving:** Consume food items and smaller players to gain XP and evolve into different species. Each species has its own food preferences and abilities.
+
+- **Survival:** Drink water to stay alive and avoid red-outlined players, which indicate predators.
+
+- **Domination:** The ultimate goal is to reach the top of the food chain and become a dominant animal like the King Dragon or Black Dragon.
+
+## Features
+
+- Multiplayer .io gameplay.
+
+- Evolution system with 117 playable animals, including rare species.
+
+- Dynamic food chain where players must eat and avoid being eaten.
+
+- Simple, intuitive controls.
+
+- Strategic survival elements.
+
+## Developer
+
+Mope.io was developed by **Stan Tatarnykov**, a Canadian indie developer.
+
+## Platforms
+
+- Web browser (desktop and mobile)
+
+- iOS
+
+- Android
+
+## Instructions
+
+- **Click the left mouse button:** To run.
+
+- **Eat food and players:** To grow and evolve.
+
+- **Drink water:** To stay alive.
+
+- **Avoid red outlined players:** These are predators that can eat you.
+
+## FAQ
+
+**How many animals are in Mope.io?**There are currently 117 playable animals, including rare animals.
+
+**What is the most powerful animal in Mope.io?**The King Dragon is widely considered to be one of the most powerful (OP) animals in Mope. Along with the Black Dragon, it's at the top of the food chain.
+
+**What is the rarest animal in Mope.io?**Some of the rare animals are determined by random chance. The rarest is likely the Pakistani Macaw, which has a 1/3000 chance of spawning and can disguise itself as any other species.
+
+**How do I evolve quickly in Mope.io?**To evolve quickly, focus on eating food items specific to your current species. Different edibles provide varying levels of XP to the player.

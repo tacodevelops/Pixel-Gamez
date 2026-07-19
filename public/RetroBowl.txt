@@ -1,0 +1,47 @@
+# Retro Bowl
+
+Retro Bowl is a pixel-art American football game that splits your job in two: on game day you're the quarterback calling every throw, and off the field you're the general manager keeping a whole roster, budget, and fanbase happy. It's built in the style of classic 8-bit football games from decades ago, but the team management underneath runs a lot deeper than its retro look suggests.
+
+## How to Play
+
+Each game puts you in direct control of the offense. You'll read the defense, decide whether to pass or hand off, and try to find an open receiver before the pocket collapses. On PC, throwing is done by clicking and dragging in the direction you want the ball to go, while movement uses WASD or the arrow keys — the same keys double as your dodge and dive controls when you're trying to shake a defender or squeeze out a couple extra yards near the goal line.
+
+Between games is where the deeper layer of Retro Bowl lives. You'll sign and release players, negotiate contracts within a tight salary cap, manage player morale, deal with press duties, and decide where to invest in upgrading your team's facilities. Keeping your roster balanced matters as much as having a strong quarterback — neglecting other positions tends to catch up with you eventually.
+
+Teams in Retro Bowl are based on real NFL franchises but use city names and original jerseys rather than official branding, sidestepping any licensing overlap with the real league.
+
+## Features
+
+- Direct on-field control as quarterback, combined with full front-office management
+- Sign, cut, and negotiate contracts for your roster
+- Manage salary cap, player morale, and coaching staff
+- Custom teams, stadiums, and playbooks
+- Seasons that can run for over 100 in-game years if managed well
+
+## Controls
+
+- **Move / dodge / dive** — WASD or arrow keys
+- **Pass** — Click and drag in the direction of the throw
+- **Bullet pass** — Double-click
+- **Call timeout** — T
+- **Juke** — Q or E
+- **Gain extra yards / fall forward** — Hold Shift + W (or Shift + Up)
+
+## Background
+
+Retro Bowl was developed by New Star Games and originally released in January 2020. It's since become one of the most widely played football games in the browser and mobile space, drawing millions of downloads across iOS, Android, and web platforms. A spin-off, Retro Bowl College, later expanded the same formula to college-level team management.
+
+## Platform
+
+Playable in the browser on both desktop and mobile devices.
+
+## FAQ
+
+**How do you win at Retro Bowl?**
+Reading the defense and picking the right play for the situation matters far more than always going for the deep throw — short, safe passes tend to keep drives alive better than forcing a big play.
+
+**Who developed Retro Bowl?**
+Retro Bowl was created by New Star Games.
+
+**Can Retro Bowl be played without downloading anything?**
+Yes, the browser version runs directly in your web browser with no installation required.

@@ -1,0 +1,42 @@
+# Gartic Phone
+
+Gartic Phone combines two classic party games — Pictionary and the telephone game — into one chaotic online experience. A sentence gets drawn, that drawing gets guessed, and the guess gets drawn again, spiraling further from the original idea with every pass until the results are almost unrecognizable.
+
+## How to Play
+
+Each game starts with players writing their own opening sentence or prompt. From there, everyone takes turns alternating between two tasks: drawing the prompt they've just received, and later guessing what someone else's drawing is supposed to represent. That guess then gets passed along to be drawn again, and the chain repeats until every player has drawn and guessed several times.
+
+Once the round wraps up, everyone gets to watch the full chain play back from start to finish — the original sentence, each drawing, and every guess in between — which is usually where the game's biggest laughs come from, as a simple idea slowly mutates into something completely unrelated.
+
+No real drawing skill is required, and in fact, rougher sketches often make for funnier results, since ambiguous drawings tend to lead to wilder guesses down the line.
+
+**Setting Up a Game**
+
+Starting a room is simple: create one and share the link or QR code with friends, or jump into a quick public match if you don't have a group ready. Rooms typically support anywhere from a handful of players up to around 30, though smaller groups of 6–12 tend to keep turns moving quickly without long waits between rounds.
+
+## Features
+
+- A drawing-and-guessing chain that gets funnier with more players
+- No download required — runs entirely in the browser
+- Support for rooms ranging from small groups to large parties
+- A full playback gallery to review the entire chain after each round
+- Available in multiple languages
+
+## Background
+
+Gartic Phone was developed by Onrizon Social Games. It grew significantly in popularity after being featured by streamers, becoming a go-to game for online hangouts, remote parties, and classroom activities alike.
+
+## Platform
+
+Playable directly in the browser, with no installation required.
+
+## FAQ
+
+**Do you need to be good at drawing to play Gartic Phone?**
+Not at all — rough, unclear drawings often make the game funnier, since they lead to more unpredictable guesses.
+
+**How many people can play at once?**
+Most rooms support anywhere from a handful of players up to around 30, though smaller groups tend to keep the pace quicker.
+
+**Is Gartic Phone free to play?**
+Yes, it's free and requires no download — everything runs in the browser.

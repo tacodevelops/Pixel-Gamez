@@ -1,0 +1,68 @@
+# Getaway Shootout
+
+Getaway Shootout is a frantic multiplayer race where the only way to move is by jumping — no walking, no running, just awkward, ragdoll-style hops left and right. Four characters, one exit, and only one spot that actually counts as "safe." Grab weapons along the way and use them to slow everyone else down while you scramble toward the finish.
+
+## How to Play
+
+Movement is deliberately limited: pressing a direction key turns your character to face that way, and holding it longer before releasing sends them jumping further in that direction. That's the entire moveset — everything else is physics and chaos.
+
+The premise ties it together: your character is fleeing some kind of disaster — a crashing plane is a common setup — racing toward a single parachute or exit that only the first person to reach it gets to use. That framing makes the aggressive, everyone-for-themselves gameplay make sense: shoving, tripping, or shooting opponents isn't just allowed, it's the whole strategy.
+
+There's a time trial mode too, useful for getting a feel for the game's eight different maps without the pressure of an opponent.
+
+**Solo or Two-Player**
+
+Getaway Shootout works fine solo against the CPU, but it's built for two players sharing a keyboard. Pick a character at the start and jump straight into a match either way.
+
+**Jump-Only Movement**
+
+Since jumping is your only tool, races quickly turn into a pile of characters flailing into each other. How far you jump depends entirely on how long you hold the direction key, which takes some getting used to before it feels controllable.
+
+**Weapons and Chaos**
+
+Each race plays out across multiple rounds, each set in a different location. Along the way you'll run into weapons and power-ups — things like sniper rifles, shotguns, and bombs — which you can use to knock opponents off course or slow their approach to the finish line.
+
+**Characters**
+
+There's a large roster to choose from, with more than 30 unlockable characters in total.
+
+## Features
+
+- Jump-only movement with ragdoll physics
+- Pickup weapons and power-ups
+- Multiple race locations across rounds
+- 30+ unlockable characters
+
+## Release Info
+
+Getaway Shootout was released in August 2018 by New Eich Games, the studio also behind other physics-driven titles. New Eich Games stopped developing new games as of March 2025.
+
+## Platforms
+
+Playable in the web browser and on iOS.
+
+## Controls
+
+**Player 1**
+- **W** — Jump left
+- **E** — Jump right
+- **R** — Use power-up
+
+**Player 2**
+- **I** — Jump left
+- **O** — Jump right
+- **P** — Use power-up
+
+## FAQ
+
+**How do you unlock new characters in Getaway Shootout?**
+New characters are unlocked using coins earned from playing matches.
+
+**How do you get better at Getaway Shootout?**
+The jump-based movement takes practice to control well — spending time in the time trial mode helps, and grabbing power-ups during a race makes surviving to the finish easier.
+
+**Can you play Getaway Shootout on mobile?**
+Yes, it's available on iOS in addition to the browser version.
+
+**Who developed Getaway Shootout?**
+New Eich Games developed Getaway Shootout, along with several other physics-based multiplayer games.

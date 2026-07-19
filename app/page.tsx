@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 import { getFeaturedGames, getNewGames, getPopularGames, categories, getGamesByCategory, getTrendingGames, getUpAndComingGames, getMostVisitedGames, getRecommendedGames, games } from '../lib/data';
 import GameCarousel from '../components/GameCarousel';
+import GameGrid from '../components/GameGrid';
 import AdSlot from '../components/AdSlot';
 import Link from 'next/link';
 import { useI18n } from '../components/I18nContext';
@@ -84,32 +85,33 @@ export default function Home() {
       )}
 
       {favoriteGames.length > 0 && (
-        <GameCarousel title="Your Favorites" games={favoriteGames.slice(0, 14)} viewMoreLink={`/user/${(user as any)?.playerId || user?.id}`} />
+        <GameGrid title="Your Favorites" games={favoriteGames.slice(0, 12)} viewMoreLink={`/user/${(user as any)?.playerId || user?.id}`} />
       )}
 
       {topPicks.length > 0 && (
-        <GameCarousel title={t('top_picks')} games={topPicks.slice(0, 14)} viewMoreLink="/recommended" />
+        <GameGrid title={t('top_picks')} games={topPicks.slice(0, 12)} viewMoreLink="/recommended" />
       )}
-      <GameCarousel title={t('trending')} games={trendingGames.slice(0, 14)} viewMoreLink="/trending" />
+
+      <GameGrid title={t('trending')} games={trendingGames.slice(0, 18)} viewMoreLink="/trending" />
       
       <div style={{ margin: '32px 0' }}>
         <AdSlot placement="banner-home" />
       </div>
 
-      <GameCarousel title={t('new')} games={newGames.slice(0, 14)} viewMoreLink="/new" />
+      <GameGrid title={t('new')} games={newGames.slice(0, 18)} viewMoreLink="/new" />
+      
+      <div style={{ margin: '32px 0' }}>
+        <AdSlot placement="banner-home" />
+      </div>
+
       <GameCarousel title={t('most_visited')} games={mostVisitedGames.slice(0, 14)} viewMoreLink="/most-visited" />
-      
-      <div style={{ margin: '32px 0' }}>
-        <AdSlot placement="banner-home" />
-      </div>
-
       <GameCarousel title={t('up_and_coming')} games={upAndComingGames.slice(0, 14)} viewMoreLink="/up-and-coming" />
       
       <div style={{ margin: '32px 0' }}>
         <AdSlot placement="banner-home" />
       </div>
       
-      <GameCarousel title={t('popular')} games={popularGames.slice(0, 14)} viewMoreLink="/popular" />
+      <GameGrid title={t('popular')} games={popularGames.slice(0, 18)} viewMoreLink="/popular" />
 
       {categories.map(category => {
         const games = getGamesByCategory(category.id);

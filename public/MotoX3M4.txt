@@ -1,0 +1,51 @@
+# Moto X3M 4: Winter
+
+Moto X3M 4: Winter takes the series' motocross stunt formula onto icy roads, trading the usual dirt-track scenery for a snow-covered setting packed with 25 new levels. The core challenge stays familiar — clear each course as fast as possible without wiping out — but winter-specific hazards give this entry its own identity within the series.
+
+## How to Play
+
+Racing through each level comes down to trial and error: read the obstacles ahead, accelerate and brake with care, and refine your run with each attempt. Moving cautiously tends to pay off more than rushing blindly into a jump, since crashes cost far more time than a slightly slower, more controlled approach.
+
+Landing backflips shaves 0.5 seconds off your time whenever pulled off cleanly, which adds up over a full run and often makes the difference in reaching a top score. If a run does go wrong, restarting is quick — either through the arrow icon in the top-left corner of the screen or by pressing the spacebar.
+
+**Winter-Specific Obstacles**
+
+This entry introduces hazards suited to its icy setting: breakable glass ramps, air blowers that can throw off your trajectory mid-air, and candy ropes woven into some of the more festive-looking sections. Trigger-based nitro boosters also make an appearance, giving your bike a burst of speed at key points along a track.
+
+## Progression and Bikes
+
+Completing tracks quickly earns stars, which can be spent in the bike store on new rides. Two cosmetic upgrades are available: a green-colored rider on a quad, and a tattooed Santa riding a moped.
+
+## Controls
+
+- **W / Up arrow** — Accelerate
+- **S / Down arrow** — Brake
+- **A / Left arrow** — Tilt left
+- **D / Right arrow** — Tilt right
+- **Spacebar** — Continue race
+
+## Features
+
+- 25 winter-themed tracks
+- Unique hazards, including breakable glass and nitro boosters
+- Unlockable bikes and riders purchased with earned stars
+- A rock soundtrack running throughout
+
+## Background
+
+Moto X3M 4: Winter was developed by MadPuffers, the studio behind the entire Moto X3M series. It was originally released as a Flash game in December 2017, with an HTML5 version following in November 2018.
+
+## Platform
+
+Playable in the browser.
+
+## FAQ
+
+**How many levels does Moto X3M 4: Winter have?**
+There are 25 tracks in total.
+
+**Is Moto X3M 4: Winter the same as Moto X3M Winter?**
+Yes, "Moto X3M 4" and "Moto X3M Winter" refer to the same game.
+
+**What's the most recent game in the Moto X3M series?**
+As of now, the most recent entry is Moto X3M 6: Spooky Land.

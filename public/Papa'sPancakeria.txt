@@ -1,0 +1,51 @@
+# Papa's Pancakeria
+
+Papa's Pancakeria puts you on grill duty, learning to cook and top pancakes exactly the way each customer wants them. It follows the same time-management foundation as the rest of the Papa's Games series, with the added challenge of nailing that perfect balance of crispy edges and a fluffy center.
+
+## How to Play
+
+The setup has its usual dose of Papa Louie absurdity: he's kidnapped your cat and used it to lure you to his pancake ranch, and reclaiming your cat means working off your time at the Pancakeria. What starts as reluctant servitude eventually turns into genuine skill-building as you work your way up as Papa's pancake protégé.
+
+**Mastering the Grill**
+
+Grilling is the heart of the game — getting a pancake right means following the visual cues on the grill closely and knowing when to use the fast-forward switch to speed up cooking without overdoing it. Undercooked or burnt pancakes cost you points, so timing matters as much as any topping choice that comes after.
+
+**Topping It Off**
+
+Once a pancake's cooked, it's time to build the order exactly as requested. Toppings range from the straightforward — sprinkles, bananas, syrup — to combinations most people wouldn't think to order, and customers can be picky about exactly how much of each they want.
+
+## Downtime and Minigames
+
+After each shift, you get three chances to play one of several minigames, like Pizza Pachinko. Winning one of these earns a reward that helps you going forward, and tips collected during the day can be spent on upgrades for the restaurant itself.
+
+## Upgrading the Pancakeria
+
+Beyond gameplay rewards, earnings can go toward decorations and equipment upgrades. Furniture and posters help keep customers patient while they wait, and better equipment speeds up food prep. Over time, the whole restaurant can be outfitted with new furniture, flooring, and walls — assuming you've earned enough to afford it.
+
+## Features
+
+- Play as either Cooper or Prudence
+- A grilling system built around precise timing
+- A wide range of toppings and topping combinations
+- Unlockable minigames after each shift
+- A full restaurant upgrade system
+
+## Controls
+
+Played entirely with the mouse.
+
+## Background
+
+Papa's Pancakeria was developed by Flipline Studios, the studio behind the wider Papa's Games series. Mastering the grill here carries over naturally into other entries in the series, like Papa's Burgeria.
+
+## Platform
+
+Playable in the web browser.
+
+## FAQ
+
+**Is Papa's Pancakeria free to play?**
+Yes, it's available to play online at no cost.
+
+**What exactly do you do in Papa's Pancakeria?**
+You take customer orders, grill and flip pancakes to the right doneness, and add the requested toppings — all while being scored on both the final dish and how well you kept up with multiple orders at once.

@@ -1,0 +1,65 @@
+# Scritchy Scratchy
+
+Scritchy Scratchy is a super-satisfying scratch card incremental game where you fulfill the dream of quitting your day job to scratch off tickets all day. It combines the thrill of scratch-offs with deep incremental mechanics, automation, and a prestige system.
+
+## How to Play
+
+The core gameplay loop involves buying stacks of scratch-off tickets and physically scratching them to reveal symbols and win prizes. As you progress, you move from manual scratching to fully automated systems that chase massive jackpots for you.
+
+**Gameplay Loop**
+
+- **Purchase:** Buy different tiers of scratch cards using your in-game earnings.
+
+- **Scratch:** Drag your mouse (or finger on mobile) across the card surface to reveal hidden symbols.
+
+- **Win:** Match symbols to win cash, which can be reinvested into more tickets or permanent upgrades.
+
+- **Automate:** Unlock "auto-scratching" features to handle the repetitive work while you focus on strategy and scaling.
+
+- **Prestige:** Reset your progress to earn powerful permanent bonuses and climb the prestige tree.
+
+## Features
+
+- **Satisfying Mechanics:** Realistic scratching physics and sound effects designed for maximum satisfaction.
+
+- **Incremental Depth:** A comprehensive prestige tree and various challenge modes.
+
+- **Variety of Cards:** Numerous types of scratch tickets to unlock, each with unique winning patterns and payouts.
+
+- **Automation:** Transition from manual play to an idle experience with advanced auto-scratchers.
+
+- **Pixel Art Style:** Charming and clean pixel art graphics.
+
+- **Cross-Platform Progress:** The game intentionally carries over demo progress into the full release.
+
+## Release Info
+
+Scritchy Scratchy was developed by **Funday Games** (with contributions from Hannibal Sigfusson, Constantin, and Lunch Money Games). It officially launched on **March 18, 2026**.
+
+## Platforms
+
+- **PC:** Windows and Mac (available on Steam and itch.io).
+
+- **Mobile:** iOS and Android.
+
+- **Web:** A free demo is playable via HTML5 on itch.io.
+
+## Controls
+
+- **Mouse/Touch:** Drag to scratch the surface of the cards.
+
+- **Left Click:** Interact with menus and buy tickets.
+
+- **Escape:** Access settings or reset your save.
+
+## FAQ
+
+**Is there a difference between the PC and mobile versions?**No, the mobile and PC versions are identical in terms of content and mechanics.
+
+**How do I unlock more scratch cards?**New cards are unlocked by reaching specific monetary milestones and progressing through the game's upgrade system.
+
+**Can I automate the scratching?**Yes, automation is a core part of the late-game experience. You can unlock auto-scratchers that reveal cards for you.
+
+**What happens when I prestige?**Prestiging resets your current cash and tickets but grants you special currency to spend on the prestige tree for massive, permanent boosts.
+
+**Is there an ending?**While it is an incremental game, there is a "Final Chance" sequence and a specific ending that can be triggered once certain conditions are met.

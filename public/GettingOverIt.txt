@@ -1,0 +1,38 @@
+# Getting Over It
+
+Getting Over It is a punishing physics-based climbing game built entirely around one tool: a hammer. Your goal is to haul yourself up a mountain covered in awkward, obstacle-strewn terrain using nothing but mouse movements to swing, wedge, and lever your way higher. It's simple to understand and brutally hard to master — one careless swing can undo minutes, or even hours, of progress in an instant.
+
+## How to Play
+
+Movement in Getting Over It comes entirely from the hammer. Your character's whole body balances on its head, and every bit of upward progress comes from carefully planting the hammer against ledges, rocks, or pipes and using it to push, pull, or pivot yourself forward. There's no jump button and no shortcuts — just the hammer, the terrain, and your own restraint.
+
+The physics engine is unforgiving. Move too fast or misjudge an angle, and you can slide back down past sections that took real effort to clear. That's by design — the game is as much a test of patience and composure as it is of hand-eye coordination. Slower, more deliberate movements tend to serve you far better than fast, aggressive ones.
+
+Progress here is earned through repetition. Expect to fail the same section multiple times before finding the right angle or rhythm to get past it — and expect that feeling to be exactly what makes clearing it satisfying.
+
+## About This Version
+
+This particular version reimagines the game's tone while keeping its difficulty fully intact. Instead of playing as the original's man stuck in a cauldron, you take control of a small cat nestled in a flower pot, climbing through a colorful world built from oversized fruit and stacked blocks. The visual style is lighter and more playful, but don't mistake that for an easier ride — the climb is every bit as demanding as the original, complete with the same steep falls and hard-won progress.
+
+## Release Info
+
+This version was released in April 2020 and was built by Griffpatch, inspired by Bennett Foddy's original *Getting Over It with Bennett Foddy*.
+
+## Platform
+
+Playable in web browsers.
+
+## Controls
+
+- **Mouse movement** — Controls the hammer and, by extension, your character's entire motion.
+
+## FAQ
+
+**Is Getting Over It free to play?**
+Yes, you can play it directly in your browser on PixelGamez at no cost.
+
+**Who created the original Getting Over It?**
+The original game was created by Bennett Foddy.
+
+**What's the best way to improve at Getting Over It?**
+There's no real shortcut — steady, patient practice is what gets people through the hardest sections. Slowing down after a mistake matters more than raw reflexes.

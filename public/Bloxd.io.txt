@@ -1,0 +1,74 @@
+# Bloxd.io
+
+Bloxd.io is a Minecraft-styled voxel game packed into the browser, blending resource gathering, crafting, building, and combat across a wide range of game modes. Whether you're after parkour challenges, a peaceful sandbox to build in, or straight-up multiplayer combat, there's a mode built around it.
+
+## How to Play
+
+Getting started means prioritizing wood first — it's the most essential early resource and stays useful even underground. Killing sheep early nets you wool, and three of it is enough to craft a bed, which grants a 15-minute speed boost that makes early exploration considerably faster.
+
+From there, progression follows a familiar path: gather wood to craft a workbench, mine stone for a stone pickaxe, then track down iron ore to smelt into an iron pickaxe. Iron is the minimum tool tier needed to mine diamonds, so it's worth prioritizing early rather than putting it off.
+
+**Finding Diamonds**
+
+Biomes with spiky black or carved stone formations are a strong signal that diamonds are nearby — it's worth checking the tips of spike towers rather than just their base. Skull-shaped structures are also worth investigating, since they sometimes contain lootable chests.
+
+**Gear Priorities**
+
+A full set of diamond armor costs 24 diamonds, so it's generally worth holding off until you've stockpiled at least 30 before committing to a full set. Prioritizing Protection III enchantments before jumping into PvP, along with crafting a diamond pickaxe for faster mining, tends to pay off more than rushing into fights underprepared. Securing your base is worth doing before spending diamonds on gear as well.
+
+## Game Modes
+
+Bloxd.io covers a wide range of playstyles across its modes, including:
+
+- **BloxdHop.io** — A parkour race to reach the end of the map before time runs out, hopping across blocks of varying shapes and sizes.
+- **DoodleCube** — A drawing and guessing mode similar to Gartic.io, where players build objects based on a theme while others vote on the results.
+- **EvilTower** — A climbing challenge inspired by Tower of Hell, testing patience and precise parkour timing.
+- **Peaceful** — A pressure-free creative mode for roaming, gathering resources, and building freely.
+- **CubeWarfare** — A third-person shooter mode where building blocks factor directly into combat strategy.
+
+Beyond these, the game regularly adds and maintains additional modes, including Survival, Creative, Bedwars, Sky Wars, OneBlock, Greenville, Hide and Seek, Murder Mystery, Plots, Pirates, Survival Royale, and Worlds.
+
+## Tips
+
+- Pickaxes have unlimited durability, so a single iron pickaxe can last a long time before needing a replacement.
+- Setting multiple home points strategically — one at your base, another near enemy territory or resource-rich areas — makes navigating the map much faster.
+- Unenchanted armor offers little protection against mobs or other players, so avoid unnecessary fights until you've upgraded.
+- Keeping your inventory clear of junk items leaves more room for resources that actually matter.
+
+## Controls
+
+- **WASD** — Move
+- **Shift or double-tap W** — Run
+- **C, Z, \, or Caps Lock** — Crouch
+- **T or Enter** — Chat
+- **B** — Open shop
+- **/** — Start a command
+- **O** — Open menu
+
+**DoodleCube Controls**
+- **Right mouse button** — Place blocks
+- **Left mouse button** — Destroy placed blocks
+- **Number keys or middle mouse button** — Switch blocks
+
+## Features
+
+- Free voxel-style multiplayer exploration in the browser
+- A wide variety of game modes with different objectives
+- A gold-based reward system tied to in-game achievements
+- Multiplayer support for playing with friends
+
+## Background
+
+Bloxd.io was created by an independent developer known as Arthur, and was released in early 2021.
+
+## Platform
+
+Playable in the browser on both desktop and mobile.
+
+## FAQ
+
+**Is Bloxd.io safe to play?**
+For the most part, yes. Several modes include live chat with other players, which can occasionally include inappropriate language — parents may want to monitor or review conversations for younger players.
+
+**Who created Bloxd.io?**
+Bloxd.io was created by an independent developer known as Arthur.

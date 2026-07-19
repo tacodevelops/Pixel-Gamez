@@ -1,0 +1,42 @@
+# Baldi's Basics
+
+Baldi's Basics in Education and Learning looks like an old, forgettable 1990s edutainment game — cheerful graphics, simple math problems, a friendly-looking teacher. It isn't. Beneath that surface is a survival horror game where solving basic arithmetic wrong makes Baldi angrier, faster, and a lot more dangerous.
+
+## How to Play
+
+The goal is simple to state: collect seven notebooks scattered around the school, then escape. Each notebook contains a handful of basic math problems, and answering correctly is straightforward on its own — the challenge comes from everything happening around you while you try.
+
+Baldi patrols the school, and every wrong answer makes him faster and more aggressive toward you. Other characters roam the halls too, each with their own quirks: some will interrupt you with demands or activities, others will take items from you outright. Managing your limited stamina while navigating the school's layout and avoiding unwanted encounters is just as important as getting the math right.
+
+Items scattered throughout the school can help even the odds — certain tools can disrupt other characters' behavior or buy you some breathing room, and learning when to use them is a big part of surviving a run. Memorizing the school's layout over repeated attempts also makes a real difference, since panicked wandering tends to end runs quickly.
+
+**Modes**
+
+The original game includes two ways to play: Story mode, where the objective is collecting all seven notebooks and escaping (with Baldi speeding up as you collect more), and Endless mode, which drops the escape condition in favor of simply surviving as long as possible.
+
+## Features
+
+- Simple math problems disguised as the core objective
+- An escalating threat in Baldi, who grows faster with every wrong answer
+- A cast of other characters, each with distinct, disruptive behaviors
+- Item-based strategy for avoiding or delaying trouble
+- Story and Endless game modes
+
+## Background
+
+Baldi's Basics in Education and Learning was created by Micah McGonigal (also known online as mystman12) for the 2018 Meta Game Jam, built in around two weeks and originally released in March 2018. It was directly inspired by the 1996 educational game Sonic's Schoolhouse, drawing on that game's unsettling visual style rather than its actual content. The game spread quickly after several major YouTubers covered it in 2018, eventually amassing hundreds of millions of views across fan videos, animations, and adaptations.
+
+## Platform
+
+Available on Windows, macOS, Linux, Android, and iOS.
+
+## FAQ
+
+**Is Baldi's Basics actually an educational game?**
+Not really — while it's dressed up as one, complete with math problems and a schoolhouse setting, it's built as a horror game underneath that presentation.
+
+**Who created Baldi's Basics?**
+It was created by Micah McGonigal, known online as mystman12.
+
+**What happens if you answer a question wrong?**
+Baldi becomes faster and more aggressive with every wrong answer, making the rest of the run progressively harder.

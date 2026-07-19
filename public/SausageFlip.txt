@@ -1,0 +1,41 @@
+# Sausage Flip
+
+Sausage Flip is a physics-based skill game with a premise as silly as its name: launch a wobbly, googly-eyed sausage across a series of obstacle-filled platforms and try to stick the landing. The controls are about as simple as they come, but the physics underneath make every flip a little unpredictable.
+
+## How to Play
+
+Aiming is done by dragging back — think slingshot — with both the angle and force of your drag determining how the sausage flies once you let go. Release, and the sausage launches through the air, sticking, bouncing, or tumbling depending on exactly how it lands.
+
+Reaching the finish line usually means threading your sausage past a growing list of hazards: spinning contraptions, soft bouncy blocks, moving platforms, and the occasional rocket car barreling across your path. Some surfaces are sticky enough to briefly pause your sausage mid-flight, which can be used to redirect your next flip rather than just letting momentum carry you off course. Bigger drops or bounces tend to carry more distance, so managing momentum across a level matters as much as landing any single flip cleanly.
+
+With over 150 levels, the difficulty builds steadily, and later stages lean much harder on precise timing than the early ones do.
+
+## Controls
+
+Drag backward with your mouse or finger to aim, then release to launch the sausage.
+
+## Features
+
+- Physics-based flipping and bouncing mechanics
+- Over 150 levels with increasing difficulty
+- A variety of obstacles, including moving platforms and rocket cars
+- Unlockable skins and costumes for customizing your sausage
+
+## Background
+
+Sausage Flip was developed by Madbox, the studio also behind Stickman Hook and Parkour Race. It was first released in early 2019, initially on mobile before becoming available in the browser as well.
+
+## Platform
+
+Playable in the browser on both desktop and mobile devices.
+
+## FAQ
+
+**Is Sausage Flip hard to learn?**
+The controls themselves are simple — drag and release — but the physics can make later levels genuinely tricky to time correctly.
+
+**Can you customize your sausage?**
+Yes, there are multiple unlockable skins and costumes to change how your sausage looks as you play.
+
+**Who developed Sausage Flip?**
+Sausage Flip was created by Madbox.

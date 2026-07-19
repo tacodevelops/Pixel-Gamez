@@ -1,0 +1,63 @@
+# Tennis Physics
+
+Tennis Physics is a fun, arcade-style puppet sports game featuring retro-pixel graphics and chaotic, physics-driven gameplay. Much like other games in the "Physics" series, it simplifies the sport of tennis into a one-button challenge where unpredictable movement and timing are key to victory.
+
+## How to Play
+
+The game is designed around a simple one-button control scheme, making it accessible yet challenging due to the wobbly nature of the characters. You can play solo against the CPU or compete head-to-head with a friend in local multiplayer mode.
+
+**Setup**
+
+- **Teams:** Each side controls two puppet-like tennis players.
+
+- **Objective:** Be the first to reach a score of 5 points to win the match.
+
+- **Gameplay:** Players jump and swing their rackets simultaneously with a single button press. The goal is to hit the ball over the net and into the opponent's court while managing the wobbly physics of your team.
+
+**Mechanics**
+
+- **One-Button Control:** A single key press triggers a jump and a swing.
+
+- **Chaotic Physics:** The players move in unpredictable ways, often leading to funny moments and unexpected shots.
+
+- **Local Multiplayer:** Supports two players on the same keyboard or device.
+
+## Features
+
+- Simple and addictive one-button gameplay.
+
+- Retro-pixel art style.
+
+- Fun and unpredictable physics-based character movement.
+
+- Local 2-player support.
+
+- Fast-paced matches that are perfect for quick play sessions.
+
+## Release Info
+
+Tennis Physics is part of the popular "Physics" sports genre often found on browser-based gaming platforms. It follows the design philosophy of games like *Soccer Physics* and *Basket Random*, focusing on comedic, physics-heavy interactions.
+
+## Platforms
+
+- **Web Browser:** Playable on desktop and mobile browsers via HTML5.
+
+- **Mobile:** Supports touch controls for play on tablets and smartphones.
+
+## Controls
+
+- **Player 1:** W key
+
+- **Player 2:** Up Arrow key
+
+- **Mobile:** Tap the screen to control your players.
+
+## FAQ
+
+**Can I play Tennis Physics with a friend?**Yes, the game features a local 2-player mode where you can play against a friend on the same device.
+
+**How do I win a match?**The first player to reach 5 points wins the game.
+
+**Is Tennis Physics free to play?**Yes, it is a free-to-play browser game available on various online gaming portals.
+
+**Does it require any downloads?**No, the game runs directly in your web browser using HTML5 technology.

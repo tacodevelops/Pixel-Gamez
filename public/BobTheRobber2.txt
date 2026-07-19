@@ -1,0 +1,43 @@
+# Bob the Robber 2
+
+Bob the Robber 2 sends its reformed thief back into action, this time facing down a citywide threat with nothing but stealth, a lock pick, and a knack for sneaking past guards. It builds on the original's stealth-platformer formula with new obstacles, gadgets, and an unexpected zombie problem.
+
+## How to Play
+
+The story kicks off when a greedy pharmaceutical CEO unleashes zombies on the city, pulling Bob out of retirement to put a stop to it. Along the way, he sneaks through a variety of locations — criminal hideouts, a prison, a research facility, and even a hidden lab — stealing from wealthy targets while working his way toward the source of the outbreak.
+
+Each level revolves around a specific objective, usually stealing a particular item without getting caught. Getting there means staying out of sight: hiding in shadows to avoid patrolling guards, sneaking up on them from behind when the opportunity arises, and navigating past security cameras by standing in their blind spots.
+
+Locked doors can be opened with a lock pick, while electronic doors require a different approach — sabotaging the circuit board through a small wire-cutting puzzle to bypass them. Cash found hidden throughout each level can be spent on new gadgets from the shop, giving you more tools to work with as levels grow more complex.
+
+**Controls**
+
+- **Arrow keys** — Move
+- **Spacebar** — Attack guards
+
+## Features
+
+- 10 stealth-platformer levels across varied locations
+- Lock-picking and circuit-sabotage minigames
+- Camera blind spots and shadow-based stealth mechanics
+- Purchasable gadgets funded by cash found in levels
+- A new zombie enemy type alongside standard guards
+
+## Background
+
+Bob the Robber 2 was developed by MeowBeast, in collaboration with Flazm, and released in 2013 as the second entry in the Bob the Robber series.
+
+## Platform
+
+Playable in the browser on desktop and mobile.
+
+## FAQ
+
+**How many levels does Bob the Robber 2 have?**
+The game includes 10 main levels, each built around a specific stealth objective.
+
+**How do you get past security cameras?**
+Each camera has a blind spot directly beneath its pivot point — standing still in that spot keeps Bob hidden from detection.
+
+**Who developed Bob the Robber 2?**
+It was developed by MeowBeast, working alongside Flazm.
