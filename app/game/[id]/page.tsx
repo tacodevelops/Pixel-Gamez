@@ -153,7 +153,7 @@ export default async function GamePage({ params }: { params: Promise<{ id: strin
       {relatedGames.length > 18 && (
         <>
           <div style={{ margin: '32px 0' }}>
-            <AdSlot placement="game-bottom" />
+            <AdSlot placement="game-below" />
           </div>
           <GameGrid title="" games={relatedGames.slice(18, 30)} />
         </>
